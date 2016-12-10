@@ -1,0 +1,88 @@
+.articles {
+	.apl-active {background:#2a4951;color:#FFF !important;}
+	.laliga-active {background:#2a4951;color:#FFF !important;}
+	.bundesliga-active {background:#2a4951;color:#FFF !important;}
+	.seria-a-active {background:#2a4951;color:#FFF !important;}
+	.chempions-league-active {background:#2a4951;color:#FFF !important;}
+	.rest-active {background:#2a4951;color:#FFF !important;}
+	.index-article-h1{margin-top: 0;margin-bottom: 0;background: #FFF;padding-left: 15px;font-size: 26px;padding-bottom: 4px;}
+	
+	.index-article-row {
+		.right-block {
+			.list-group {
+					background: #FFF;
+					.list-group-item {
+						border-right: none;
+						border-left: none;
+						img {
+							float: left;
+							margin-right: 10px;
+						}
+						.list-group-item-heading {
+							font-size: 20px;
+						}
+						.time {
+							text-transform: uppercase;
+						}
+					}
+				}
+			padding-top: 0;
+			.index-article-wrapper {
+				background: #FFF;
+				padding-bottom: 50px;
+				.col-sm-4 {
+					a {
+						border: 1px solid #e3e3e3;
+						display: block;
+						font-size: 18px;
+						white-space: nowrap;
+						color: #333333;
+						&:hover {
+							color: #FFF;
+							background: #2a4951;
+							text-decoration: none;
+						}
+						.first {
+							display: inline-block;
+							padding: 10px 20px;
+							background: #292f32;
+							margin-right: 20px;
+							margin-bottom: -4px
+						}
+						.second {
+							padding-bottom: 5px;
+							position: relative;
+    						top: -14px;
+						}
+					}
+					&:first-child {
+						a {
+							.first {
+								margin-bottom: 0;
+								i{
+									font-size:23px;
+									margin-bottom:0;
+									padding: 4px;
+								}
+							}
+							.second {top: -2px;}
+						}
+					}
+				}
+			}
+		}
+	}
+	.left-block{margin-top: 0 !important;}
+}
+@media only screen and (max-width: 1199px) and (min-width: 768px) {
+	.articles {
+		.index-article-wrapper {
+			.span-to-hide {
+				display: none;
+			}
+		}
+	}
+}
+@media only screen and (max-width: 640px) {
+	.articles{.list-group{.list-group-item{img{width: 100%;}}}}
+}

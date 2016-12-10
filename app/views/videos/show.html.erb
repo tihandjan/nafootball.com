@@ -1,0 +1,73 @@
+<% provide(:title, @video.title) %>
+
+
+<div class="row">
+
+    <div class="right-block col-md-9">
+        <div class="statiy-title"><a href="<%= league_videos_path(@video.league) %>">Видео</a></div>
+        <div class="show-article-wrapper">
+            <h1 class="show-article-title"><%= @video.title %></h1>
+            <span class="show-article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(@video.created_at, "%d %B %Y") %></i></span>
+            <div class="show-article-image">
+                <!-- social-media start -->
+                <div class="share-buttons">
+                    <a class="social-btn fb" onclick="$('.ssb-facebook').click();"><i class="fa fa-facebook " aria-hidden="true"></i></a>
+                <a class="social-btn vk vk-btn" onclick="$('.ssb-vkontakte').click();"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                <a class="social-btn tw" onclick="$('.ssb-twitter').click();"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                <a class="social-btn pocket pocket-btn" onclick="$('.ssb-google_plus').click();"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                </div>
+                <!-- social-media end -->
+                <%= raw @video.code %>
+            </div>
+            <p class="show-article-description"></p>
+            
+            <div class="show-article-tegs">
+                <% if @video.tags.any? %>
+                    <% @video.tags.each do |tag| %>
+                        <a href="<%= videos_tag_path(tag) %>" class="teg"><%= tag.name %></a>
+                    <% end %>
+                <% end %>
+            </div>
+
+
+            <span class="show-read-more">Комментарии</span>
+            <hr>
+
+            <%= render 'shared/comments', data: @video, url: league_video_comments_path(@video.league,@video.id) %>
+            
+            <span class="show-read-more">Смотрите также</span>
+            <hr>
+
+            <!-- read more articles start -->
+            <div class="row row-line-two">
+                
+                    <!--copy start-->
+                <% if @videos %>
+                    <% @videos.each do |video| %>
+                        <div class="col-sm-3 three-article">
+                            <a class="a-article" href="<%= league_video_path(video.league, video) %>">
+                                <div class="thumbnail">
+                                    <div class="image-wrapper"><%= image_tag(video.picture.url(:mini), :alt => 'football') %></div>
+                                    <div class="caption custom-caption">
+                                        <h3 class="video-three-article-title"><strong><%= truncate(video.title, length: 65) %></strong></h3>
+                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(video.created_at) %> назад</i></span> 
+                                        <span class="video-icon-four"><i class="glyphicon glyphicon-play"></i></span>
+                                        <span class="video-icon-four video-icon-four-time">00:29</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <% end %>
+                <% end %>
+                <!--end-->
+                
+            </div>
+            <!-- read more articles end -->
+
+        </div>
+    </div>
+
+    <div class="left-block col-md-3"><%= render 'shared/last_news', point: 0 %></div>
+</div>
+
+<%= social_share_button_tag(@video.title, :image => @video.picture.url, :'data-type' => 'photo', via: "EuroLiga") %>

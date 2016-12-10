@@ -1,0 +1,204 @@
+
+.articles {
+    hr {
+        width: 97%;
+        color: #d8d8d8;
+    }
+    .right-block {
+        margin-bottom: 30px;
+        .show-article-wrapper {
+            background: #FFF;
+            .show-article-title {
+                margin: 0;
+                padding: 40px 10px 10px 15px;
+                font-size: 26px;
+            }
+            .show-article-time {
+                padding: 0 0 10px 15px;
+                display: block;
+            }
+            .show-article-image {
+                padding: 0 20px 0 80px;
+                position: relative;
+                img {margin-bottom: 10px;}
+                .share-buttons {
+                    position: absolute;
+                    top: 0;
+                    left: 10px;
+                    .social-btn {
+                        display: block;
+                        border: 1px solid #d8d8d8;
+                        margin-bottom: 30px;
+                        width: 50px;
+                        height: 50px;
+                        position: relative;
+                        -webkit-transition: 0.5s;
+                        -o-transition: 0.5s;
+                        transition: 0.5s;
+                        cursor: pointer;
+                        &:hover {
+                            i {
+                                color: #FFF;
+                            }
+                        }
+                        i {
+                            color: #808080;
+                            font-size: 25px;
+                            position: absolute;
+                            top: 12px;
+                            left: 12px;
+                            -webkit-transition: 0.5s;
+                            -o-transition: 0.5s;
+                            transition: 0.5s;
+                        }
+                        .fa-facebook {
+                            left: 17px;
+                        }
+                        .fa-vk {
+                            left: 10px;
+                        }
+                    }
+                }
+            }
+            .show-article-summary {
+                padding: 0 20px 0 80px;
+            }
+            .show-article-description {
+                padding: 0 20px 0 80px;
+                font-size: 17px;
+                p {
+                    font-size: 17px;
+                }
+            }
+            .article-source {
+                color: #222528;
+                padding: 0 20px 0 80px;
+                display: block;
+                font-weight: bold;
+                text-transform: uppercase;
+                font-style: italic;
+                margin-bottom: 15px;
+                margin-top: 30px;
+                a {
+                    color: #69a6a6;
+                }
+            }
+            .share-buttons-bottom {
+                padding: 0 0 0 80px;
+                font-size: 0;
+                margin-bottom: 30px;
+                .social-btn {
+                    border: 1px solid #d8d8d8;
+                    display: inline-block;
+                    width: 120px;
+                    height: 40px;
+                    margin-left: -1px;
+                    position: relative;
+                    -webkit-transition: 0.1s;
+                    -o-transition: 0.1s;
+                    transition: 0.1s;
+                    cursor: pointer;
+                    &:hover {   
+                        i {
+                            color: #FFF;
+                        }
+                    }
+                    i {
+                        color: #808080;
+                        font-size: 20px;
+                        position: absolute;
+                        top: 10px;
+                        left: 48px;
+                        -webkit-transition: 0.5s;
+                        -o-transition: 0.5s;
+                        transition: 0.5s;
+                    }
+                    .fa-facebook {
+                        left: 54px;
+                    }
+                }
+            }
+            .show-article-tegs {
+                padding: 0 0 30px 80px;
+                .teg {
+                    color: #FFF;
+                    background: #69a6a6;
+                    padding: 7px 20px;
+                    margin-right: 5px;
+                    margin-bottom: 5px;
+                    display: inline-block;
+                }
+            }
+        }
+        .show-read-more {
+            padding: 10px;
+            font-size: 17px;
+            font-style: italic;
+            color: #808080;
+        }
+        .row-line-two {
+            .three-article {
+                padding-left: 3px;
+                padding-right: 3px;
+                &:first-child {
+                    padding-left: 3px;
+                }
+                &:last-child {
+                    padding-right: 3px;
+                }
+                .thumbnail {
+                    margin-bottom: 0;
+                    img {
+                        margin-bottom: -1px;
+                    }
+                    .caption{margin-top: 1px;}
+                    .article-time{left: 8px;}
+                    .video-icon-four{bottom: 126px;}
+                }
+            }
+        }
+    }
+}
+
+
+.fb{&:hover{background: #4169bc;}}
+.vk{&:hover{background: #3a86c0;}}
+.tw{&:hover{background: #1caeea;}}
+.pocket{&:hover{background: #C53929;}}
+.social-share-button{display: none;}
+
+@media only screen and (max-width: 653px) {
+    .share-buttons {
+        display: none;
+    }
+    .show-article-tegs {
+        padding-left: 20px !important;
+    }
+    .share-buttons-bottom {
+        padding-left: 20px !important;
+    }
+    .show-article-image {
+        padding-left: 20px !important;
+    }
+    .show-article-description {
+        padding-left: 20px !important;
+    }
+    .show-article-summary {
+        padding-left: 20px !important;
+    }
+    .article-source {
+        padding-left: 20px !important;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .articles {
+        .right-block {
+            padding-right: 15px;
+        }
+    }
+}
+@media only screen and (max-width: 991px) {
+    .right-block {
+        padding-right: 0;
+    }
+}

@@ -1,0 +1,54 @@
+
+    
+<div class="comments-block">
+    <div class="comments-wrapper clearfix">
+        <!--comments form start-->
+        <div class="media media-form">
+            <div class="media-left">
+                <a>
+                    <%= avatar_to_comments current_user %>
+                </a>
+            </div>
+            <% if signed_in? && current_user %>
+                <div class="media-body">
+                    <%= form_for(Comment.new, url: url, :html => {:class => "comment-form"}, remote: true) do |f| %>
+                        <%= f.text_area :body,class: 'form-control comments-body', placeholder: "Оставьте комментарий", onkeyup: "textAreaAdjust(this);" %><br/>
+                        <%= f.hidden_field :user_id, value: (current_user.id if current_user) %>
+                        <%= f.submit "Оставить комментарий", class: 'btn btn-email pull-right', id: 'main-btn-email', data: { disable_with: "Отправка..." }, :disabled => true %>
+                    <% end %>
+                </div>
+            <% else %>
+                <a class="media-body" href="#" data-toggle="modal" data-target="#authModal" rel="nofollow">
+                    <form action="" class="comment-form">
+                        <textarea class="form-control comments-body" placeholder="Оставьте комментарий"></textarea><br>
+                        <button disabled class="btn btn-email pull-right">Оставить комментарий</button>
+                    </form>
+                </a>
+            <% end %>
+            <!--comments form end-->
+        </div>
+    </div>
+    
+    <div id="all-comments"><%= render 'shared/list_of_comments', data: data %></div>
+    
+</div>
+
+<script>
+    function textAreaAdjust(o) {
+        o.style.height = "1px";
+        o.style.height = (25+o.scrollHeight)+"px";
+        var str = o.value.replace(/\s/g, '').length;
+        if(str != 0)
+            $(o).siblings('.btn-email').eq(0).attr('disabled', false); 
+        else
+             $(o).siblings('.btn-email').eq(0).attr('disabled', true); 
+        
+    }
+    function showForm(id){
+        $('.media-subform').hide();
+        $("#" + id).show();
+    }
+    function hideForm(id){
+        $("#" + id).hide();
+    }
+</script>

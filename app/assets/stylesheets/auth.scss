@@ -1,0 +1,118 @@
+// auth modal
+.btn-group {
+    .fa {
+        font-size: 1.4em;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        color: #FFF;
+    }
+}
+
+.btn-twitter {
+    background-color: #05aded;
+    color: #FFF;
+    &:hover {
+        opacity: 0.8;
+        color: #FFF;
+    }
+}
+.btn-vkontakte {
+    background-color: #587da5;
+    color: #FFF;
+    &:hover {
+        opacity: 0.8;
+        color: #FFF;
+    }
+}
+.btn-email {
+    background-color: #69a6a6;
+    color: #FFF;
+    &:hover {
+        opacity: 0.8;
+        color: #FFF;
+    }
+}
+.btn-facebook {
+    background-color: #4c68ad;
+    color: #FFF;
+    &:hover {
+        opacity: 0.8;
+        color: #FFF;
+    }
+}
+.btn-google {
+    background-color: #db4935;
+    color: #FFF;
+    &:hover {
+        opacity: 0.8;
+        color: #FFF;
+    }
+}
+
+
+.modal-auth {
+    .modal-content {
+        border-radius: 0;
+        .nav-tabs {
+            li {
+                width: 50%;
+                text-align: center;
+                a {
+                    margin-right: 0;
+                    font-size: 16px;
+                    padding: 20px;
+                    border-radius: 0;
+                }
+            }
+            .active {
+                a {color: #69a6a6;}
+            }
+        }
+        .tab-pane {
+            margin-top: 15px;
+            .btn-group {
+                padding: 3px 6px;
+                .btn {
+                    border-radius: 0;
+                    min-height: 55px;
+                    padding: 15px;
+                    font-size: 15px;
+                    color: #FFF;    
+                    .fa {
+                        left: 15px;
+                        top: 15px;
+                    }
+                }
+            }
+        }
+    }
+}
+// end
+
+// authorization views start
+.custom-form {
+    padding: 20px;
+    border-radius: 5px;
+    background: #FFF;
+}
+
+.registration {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.upload_file_container {
+   label {
+   pointer: cursor;
+   /* Style as you please, it will become the visible UI component. */
+}
+
+   input {
+   opacity: 0;
+   position: absolute;
+   z-index: -1;
+}
+}
+// end

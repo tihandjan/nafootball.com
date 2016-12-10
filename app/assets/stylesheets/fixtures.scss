@@ -1,0 +1,231 @@
+// match onlain start
+.container-onlain {
+    padding: 15px;
+}
+
+.row-onlain {
+    text-align: center;
+    .match-toggle {
+        padding: 8px 0;
+        &:nth-child(2) {
+            span {
+                background: #33383c;
+                color: #FFF;    
+            }
+        }
+        span {
+            padding: 4px 15px;
+            &:hover {
+                cursor: pointer;
+                background: #33383c;
+                color: #FFF;
+            }
+        }
+    }
+    .a-onlain {
+        cursor: pointer;
+        &:hover {
+            background: #e90052;
+            color: #FFF;
+           .time {
+                background: #e90052;
+            }
+        }
+    }
+    .table {
+        margin-bottom: 0;
+        i {
+            text-align: left;
+            display: block;
+            padding: 0;
+            text-align: center;
+        }
+        tr {
+            border-bottom: 1px solid #e8e8e8;
+            .time {
+                color: #FFF;
+                padding: 0 0;
+                text-align: center;
+                .score_or_time {
+                    margin: 0 auto;
+                    width: 50px;
+                    background: #6a6a6a;
+                    line-height: 23px;
+                }
+            }
+            td {
+                padding: 6px 0;
+                vertical-align: middle;
+                border-top: none;
+                &:first-child {
+                    width: 100px;    
+                }
+                &:last-child {
+                    width: 100px;    
+                }
+            }
+        }
+    }
+}
+
+// match onlain end
+
+// fixtures page start
+
+.leagues {
+    .fixtures {
+        margin-bottom: 50px;
+        .fixtures-h2 {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        hr {
+            margin-bottom: 10px !important;
+        }
+    }
+    .league-row {
+        .row-onlain {
+            background-color: #FFF;
+            .date-to-play {
+                font-size: 16px;
+                text-transform: uppercase;
+                padding: 10px 10px 0 10px;
+                .date-wrapper {
+                    border-bottom: 2px solid #33383c;
+                }
+            }
+            .row {
+                border-bottom: 1px solid #eaeaea;
+                .col-fixtures {
+                    padding-left: 0;
+                    padding-right: 0;
+                    padding: 8px 0;
+                    &:first-child {
+                        text-align: right;
+                        .team {
+                            margin-right: 5px;
+                            i {
+                                top: -5px;
+                                right: -80px;
+                            }
+                        }
+                    }
+                    &:last-child {
+                        text-align: left;
+                        .team {
+                            margin-left: 5px;
+                            i {
+                                top: -5px;
+                                left: -80px;
+                            }
+                        }
+                    }
+                    .team {
+                        position: relative;
+                        i {
+                            position: absolute;
+                        }
+                    }
+                    .time {
+                        padding: 5px 12px;
+                        color: #FFF;
+                        background-color: #76766f;
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }          
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    .leagues {
+        .league-row {
+            .row-onlain {
+                .row {
+                    .col-fixtures {
+                        &:first-child {
+                            .team {
+                                i {
+                                    right: -65px;
+                                }
+                            }
+                        }
+                        &:last-child {
+                            .team {
+                                i {
+                                    left: -65px;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+        }
+    }
+}
+
+@media only screen and (max-width: 675px) {
+    .leagues {
+        .league-row {
+            .row-onlain {
+                .row {
+                    .col-fixtures {
+                        &:first-child {
+                            .team {
+                                margin-right: 15px;
+                                i {
+                                    right: -65px;
+                                }
+                            }
+                        }
+                        &:last-child {
+                            .team {
+                                margin-left: 15px;
+                                i {
+                                    left: -65px;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+        }
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .leagues {
+        .league-row {
+            .row-onlain {
+                .row {
+                    .col-fixtures {
+                        &:first-child {
+                            .team {
+                                margin-right: 35px;
+                                i {
+                                    right: -65px;
+                                }
+                            }
+                        }
+                        &:last-child {
+                            .team {
+                                margin-left: 35px;
+                                i {
+                                    left: -65px;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+        }
+    }
+}
+// fixtures page end

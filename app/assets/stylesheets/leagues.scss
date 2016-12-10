@@ -1,0 +1,109 @@
+
+
+.leagues {
+	.league-h4{font-size: 17px;margin: 0;padding: 4px 12px;}
+	.leagues-team-container {
+		background-color: #2b4951;
+		width: 100%;
+		.league-col {
+			padding: 0;
+			a {
+				display: inline-block;
+				float: left;
+				width: 10%;
+				-webkit-transition: 0.5s;
+				-o-transition: 0.5s;
+				transition: 0.5s;
+				padding: 12px 0;
+				height: 60px;
+				position: relative;
+				&:hover {
+					i {
+						-moz-transform:scale(1);
+						-webkit-zoom: 1;
+						-moz-zoom: 1;
+						-ms-zoom: 1;
+						-o-zoom: 1;
+						zoom: 1;
+					}
+				}
+				i {
+					position: absolute;
+					left: 20%;
+				}
+			}
+		}
+		.league-col-bundesliga {
+			a {width: 11.1%;}
+		}
+		.league-col-chempions-league {
+			a {width: 12.5%;}
+		}
+	}
+	.leagues-submenu-container {
+		background-color: #33383c;
+		width: 100%;
+		.league-h1{float: left;color:#FFF;margin: 7px 15px;;font-size: 22px;}
+		.league-col {
+			display: inline-block;
+			float: right;
+			padding: 10px 20px;
+			color: #FFF;
+			&:hover {
+				background-color: #292F32;
+				text-decoration: none;
+				color: #FFF;
+			}
+		}
+	}
+	.leagues-submenu-container-cl {top: 279px;}
+	.right-block {
+		.league-h2{text-transform: uppercase;margin-bottom: 5px;}
+		hr {margin-bottom: 15px;}
+		.row-line-two {
+			.three-article {
+				&:first-child {
+					margin-bottom: -3px;
+				}
+				&:nth-child(3) {
+					padding-right: 0;
+				}
+				&:nth-child(4) {
+					padding-left: 0;
+				}
+				&:nth-child(2) {
+					.caption {
+						height: 200px;
+					}
+				}
+				&:nth-child(5) {
+					.caption {
+						height: 200px;
+					}
+				}
+				&:last-child {
+					padding-right: 0px;
+				}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 767px) {
+	.leagues{
+		.leagues-team-container{
+			.league-col{
+				a{width: 20%;}
+			}
+		}
+	}
+}
+@media only screen and (max-width: 991px) {
+	.leagues {
+		.leagues-submenu-container{
+			top: 279px;
+			.league-col{
+				padding: 10px 4px !important;
+			}
+		}
+	}
+}

@@ -1,0 +1,202 @@
+
+  <div class="container-fluid container-fluid-custom-first">
+    <div class="col-xs-2 col-sm-1 text-center search"><i class="glyphicon glyphicon-search"></i></div>
+    <div class="col-xs-4 col-sm-5 text-right logo-area hidden-xs"><h1 class="main-logo"><a href="<%= root_path %>">euro<span style="color: #69a6a6">liga</span></a></h1></div>
+    <div class="col-xs-offset-6 header-profile text-right pull-right">
+      
+      <ul class="nav nav-pills">
+        <% if signed_in? && current_user %>
+          <li>
+            <% if current_user && current_user.avatar.presence %>
+                <%= image_tag current_user.avatar.url(:thumb), :style => "height: 40px;" %>
+            <% else %>
+              <% if current_user && current_user.avatarc.presence %>
+                <%= image_tag current_user.avatarc, :style => "height: 40px;" %>
+                <% else %>
+                  <img src="/images/default-avatar.png" alt="foto" style="height: 40px;" />
+              <% end %>
+            <% end %>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Профиль<span class="caret"></span></a>
+            <ul class="dropdown-menu custom-dropdown-menu">
+              <li><a href="#" class="header-link">Просмотреть</a></li>
+              <% if current_user %>
+              <li><a href="<%= edit_user_path(current_user) %>">Редактировать</a></li>
+              <% end %>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to('Выйти', destroy_user_session_path, :method => :delete) %> </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><a href="#" data-toggle="modal" data-target="#authModal"><i class="fa fa-user" aria-hidden="true"></i> Авторизация</a></li>
+        <% end %> 
+      </ul>
+      
+    </div>
+  </div>
+  
+  
+  
+ 
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" onclick="$('.leagues-team-container, .leagues-submenu-container').stop( true, true ).toggle('slow');">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+        <li class="dropdown pull-left">
+          <a href="<%= root_path %>" class="dropdown-toggle">
+            <div class="league league-col">
+              <span class="short-logo">EL</span>
+              <div>Главная</div>
+            </div>
+          </a>
+        </li>
+          
+         <li class="dropdown">
+          <a href="<%= league_path('chempions-league') %>" class="dropdown-toggle">
+            <div class="league league-col">
+              <i class="sprite_header sprite-lc"></i><i class="sprite_header sprite_hover sprite-cl_hover"></i>
+              <div class="chemp-leag">Л<span class="hidden-sm">ига</span> Ч<span class="hidden-sm">емпионов</span></div>
+            </div>
+          </a>
+          <ul class="dropdown-menu pull-left">
+            <li><a href="<%= league_path('chempions-league') %>" class="header-link">Основное</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<%= fixtures_league_path('chempions-league') %>">Календарь</a></li>
+            <li><a href="<%= results_league_path('chempions-league') %>">Результаты</a></li>
+            <li><a href="<%= table_league_path('chempions-league') %>">Таблица</a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="<%= league_path('apl') %>" class="dropdown-toggle">
+            <div class="league league-col">
+              <i class="sprite_header sprite-apl"></i><i class="sprite_header sprite_hover sprite-apl_hover"></i>
+              <div>АПЛ</div>
+            </div>
+          </a>
+          <ul class="dropdown-menu pull-left">
+            <li><a href="<%= league_path('apl') %>" class="header-link">Основное</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<%= fixtures_league_path('apl') %>">Календарь</a></li>
+            <li><a href="<%= results_league_path('apl') %>">Результаты</a></li>
+            <li><a href="<%= table_league_path('apl') %>">Таблица</a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="<%= league_path('laliga') %>" class="dropdown-toggle">
+            <div class="league league-col">
+              <i class="sprite_header sprite-laliga"></i><i class="sprite_header sprite_hover sprite-laliga_hover"></i>
+              <div>Ла Лига</div>
+            </div>
+          </a>
+          <ul class="dropdown-menu pull-left">
+            <li><a href="<%= league_path('laliga') %>" class="header-link">Основное</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<%= fixtures_league_path('laliga') %>">Календарь</a></li>
+            <li><a href="<%= results_league_path('laliga') %>">Результаты</a></li>
+            <li><a href="<%= table_league_path('laliga') %>">Таблица</a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="<%= league_path('bundesliga') %>" class="dropdown-toggle">
+            <div class="league league-col">
+              <i class="sprite_header sprite-bundesliga"></i><i class="sprite_header sprite_hover sprite-bundesliga_hover"></i>
+              <div>Бундеслига</div>
+            </div>
+          </a>
+          <ul class="dropdown-menu pull-left">
+            <li><a href="<%= league_path('bundesliga') %>" class="header-link">Основное</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<%= fixtures_league_path('bundesliga') %>">Календарь</a></li>
+            <li><a href="<%= results_league_path('bundesliga') %>">Результаты</a></li>
+            <li><a href="<%= table_league_path('bundesliga') %>">Таблица</a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="<%= league_path('seria-a') %>" class="dropdown-toggle">
+            <div class="league league-col">
+              <i class="sprite_header sprite-seria_a"></i><i class="sprite_header sprite_hover sprite-seria_a_hover"></i>
+              <div>Серия А</div>
+            </div>
+          </a>
+          <ul class="dropdown-menu pull-left">
+            <li><a href="<%= league_path('seria-a') %>" class="header-link">Основное</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<%= fixtures_league_path('seria-a') %>">Календарь</a></li>
+            <li><a href="<%= results_league_path('seria-a') %>">Результаты</a></li>
+            <li><a href="<%= table_league_path('seria-a') %>">Таблица</a></li>
+          </ul>
+        </li>
+          
+        <li class="dropdown">
+          <a href="<%= league_news_index_path('all') %>" class="dropdown-toggle">
+            <div class="league league-col">
+              <i class="sprite_header sprite-books"></i><i class="sprite_header sprite_hover sprite-books_hover"></i>
+              <div>Читать</div>
+            </div>
+          </a>
+          <ul class="dropdown-menu pull-left">
+            <li><a href="<%= league_news_index_path('all') %>">Новости</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<%= league_articles_path('all') %>">Статьи</a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="<%= league_videos_path('all') %>" class="dropdown-toggle">
+            <div class="league league-col">
+              <i class="sprite_header sprite-play"></i><i class="sprite_header sprite_hover sprite-play_hover"></i>
+              <div>Смотреть</div>
+            </div>
+          </a>
+          <ul class="dropdown-menu pull-left">
+            <li><a href="<%= league_videos_path('all') %>" class="header-link">Все видео</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<%= league_videos_path('apl') %>">АПЛ</a></li>
+            <li><a href="<%= league_videos_path('laliga') %>">Ла Лига</a></li>
+            <li><a href="<%= league_videos_path('bundesliga') %>">Бундеслига</a></li>
+            <li><a href="<%= league_videos_path('seria-a') %>">Серия А</a></li>
+            <li><a href="<%= league_videos_path('chempions-league') %>">Лига Чемпионов</a></li>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">
+            <div class="league league-col">
+              <i class="glyphicon glyphicon-th-large"></i><i class="glyphicon-hover glyphicon glyphicon-th-large"></i>
+              <div>Еще</div>
+            </div>
+          </a>
+          <ul class="dropdown-menu pull-right">
+            <li><a href="#" class="header-link">Основное</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Календарь</a></li>
+            <li><a href="#">Результаты</a></li>
+            <li><a href="#">Таблица</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Статистика</a></li>
+          </ul>
+        </li>
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+    <a href="<%= root_path %>" class="main-for-mobile">Главная</a>
+  </nav>
+  

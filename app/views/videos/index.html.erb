@@ -1,0 +1,57 @@
+<% provide(:title, 'Смотреть записи матчей английской премьер лиги в повторе, видео повторы голов, футбольные ток-шоу') %>
+
+
+<div class="row index-article-row">
+    <div class="right-block col-md-9">
+        <div class="index-article-wrapper clearfix">
+            <div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'rest') %>" href="<%= league_videos_path('all') %>"><span class="first">
+                <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+            </span><span class="second">Все видео</span></a></h2></div>
+            <div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'apl') %>" href="<%= league_videos_path('apl') %>"><span class="first">
+                <i class="sprite_header sprite-apl"></i>
+            </span><span class="second">Англия</span></a></h2></div>
+            <div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'laliga') %>" href="<%= league_videos_path('laliga') %>"><span class="first">
+                <i class="sprite_header sprite-laliga"></i>
+            </span><span class="second">Испания</span></a></h2></div>
+            <div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'seria-a') %>" href="<%= league_videos_path('seria-a') %>"><span class="first">
+                <i class="sprite_header sprite-seria_a"></i>
+            </span><span class="second">Италия</span></a></h2></div>
+            <div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'bundesliga') %>" href="<%= league_videos_path('bundesliga') %>"><span class="first">
+                <i class="sprite_header sprite-bundesliga"></i>
+            </span><span class="second">Германия</span></a></h2></div>
+            <div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'chempions-league') %>" href="<%= league_videos_path('chempions-league') %>"><span class="first">
+                <i class="sprite_header sprite-lc"></i>
+            </span><span class="second">Лига Чемп<span class="span-to-hide">ионов</span></span></a></h2></div>
+        </div>
+
+        
+            
+            
+        <div class="row row-line-two">
+            <h1 class="index-article-h1"><%= @h1 %></h1>
+            <hr>
+                <!--copy start-->
+            <% if @videos.any? %>
+                <% @videos.each do |video| %>
+                    <div class="col-sm-3 three-article">
+                        <a class="a-article" href="<%= league_video_path(video.league, video) %>">
+                            <div class="thumbnail">
+                                <div class="image-wrapper"><%= image_tag(video.picture.url(:mini), :alt => 'football', class: 'img-responsive') %></div>
+                                <div class="caption custom-caption">
+                                    <h3 class="video-three-article-title"><strong><%= truncate(video.title, length: 60) %></strong></h3>
+                                    <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(video.created_at, "%d %B %Y") %></i></span> 
+                                    <span class="video-icon-four"><i class="glyphicon glyphicon-play"></i></span>
+                                    <span class="video-icon-four video-icon-four-time">00:29</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% end %>
+            <% end %>
+            <!--end-->
+        </div>
+        <div class="text-center paginate-block"><%= will_paginate @videos, page_links: true %></div>
+
+    </div>
+    <div class="left-block col-md-3"><%= render 'shared/last_news' %></div>
+</div>

@@ -1,0 +1,29 @@
+<div class="row index-article-row">
+    <div class="right-block col-md-9">
+        <div class="row row-line-two">
+            <h1 class="index-article-h1"><%= @h1 %></h1>
+            <hr>
+                <!--copy start-->
+            <% if @videos.any? %>
+                <% @videos.each do |video| %>
+                    <div class="col-sm-3 three-article">
+                        <a class="a-article" href="<%= league_video_path(video.league, video) %>">
+                            <div class="thumbnail">
+                                <div class="image-wrapper"><%= image_tag(video.picture.url(:mini), :alt => 'football', class: 'img-responsive') %></div>
+                                <div class="caption custom-caption">
+                                    <h3 class="video-three-article-title"><strong><%= truncate(video.title, length: 65) %></strong></h3>
+                                    <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(video.created_at, "%d %B %Y") %></i></span> 
+                                    <span class="video-icon-four"><i class="glyphicon glyphicon-play"></i></span>
+                                    <span class="video-icon-four video-icon-four-time">00:29</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% end %>
+            <% end %>
+            <!--end-->
+        </div>
+        <div class="text-center paginate-block"><%= will_paginate @videos, page_links: true %></div>
+    </div>
+    <div class="left-block col-md-3"><%= render 'shared/last_news', point: 0 %></div>
+</div>

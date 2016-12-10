@@ -1,0 +1,64 @@
+<div class="row index-article-row">
+	<div class="right-block col-md-9">
+		<% if controller.controller_name == 'articles' %>
+			<div class="index-article-wrapper clearfix">
+			<div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'rest') %>" href="<%= league_articles_path('all') %>"><span class="first">
+			<i class="fa fa-newspaper-o" aria-hidden="true"></i>
+			</span>Статьи</a></h2></div>
+			<div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'apl') %>" href="<%= league_articles_path('apl') %>"><span class="first">
+			<i class="sprite_header sprite-apl"></i>
+			</span><span class="second">Англия</span></a></h2></div>
+			<div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'laliga') %>" href="<%= league_articles_path('laliga') %>"><span class="first">
+			<i class="sprite_header sprite-laliga"></i>
+			</span><span class="second">Испания</span></a></h2></div>
+			<div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'seria-a') %>" href="<%= league_articles_path('seria-a') %>"><span class="first">
+			<i class="sprite_header sprite-seria_a"></i>
+			</span><span class="second">Италия</span></a></h2></div>
+			<div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'bundesliga') %>" href="<%= league_articles_path('bundesliga') %>"><span class="first">
+			<i class="sprite_header sprite-bundesliga"></i>
+			</span><span class="second">Германия</span></a></h2></div>
+			<div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'chempions-league') %>" href="<%= league_articles_path('chempions-league') %>"><span class="first">
+			<i class="sprite_header sprite-lc"></i>
+			</span><span class="second">Лига Чемп<span class="span-to-hide">ионов</span></span></a></h2></div>
+			</div>
+		<% elsif controller.controller_name == 'news' %>
+			<div class="index-article-wrapper clearfix">
+			<div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'rest') %>" href="<%= league_news_index_path('all') %>"><span class="first">
+			<i class="fa fa-newspaper-o" aria-hidden="true"></i>
+			</span>Новости</a></h2></div>
+			<div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'apl') %>" href="<%= league_news_index_path('apl') %>"><span class="first">
+			<i class="sprite_header sprite-apl"></i>
+			</span><span class="second">Англия</span></a></h2></div>
+			<div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'laliga') %>" href="<%= league_news_index_path('laliga') %>"><span class="first">
+			<i class="sprite_header sprite-laliga"></i>
+			</span><span class="second">Испания</span></a></h2></div>
+			<div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'seria-a') %>" href="<%= league_news_index_path('seria-a') %>"><span class="first">
+			<i class="sprite_header sprite-seria_a"></i>
+			</span><span class="second">Италия</span></a></h2></div>
+			<div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'bundesliga') %>" href="<%= league_news_index_path('bundesliga') %>"><span class="first">
+			<i class="sprite_header sprite-bundesliga"></i>
+			</span><span class="second">Германия</span></a></h2></div>
+			<div class="col-sm-4"><h2><a class="<%= index_article_active(@active, 'chempions-league') %>" href="<%= league_news_index_path('chempions-league') %>"><span class="first">
+			<i class="sprite_header sprite-lc"></i>
+			</span><span class="second">Лига Чемп<span class="span-to-hide">ионов</span></span></a></h2></div>
+			</div>
+		<% end %>
+		
+
+		<h1 class="index-article-h1"><%= @h1 %></h1>
+		<div class="list-group">
+			<% @articles.each do |article| %>
+				<a href="<%= league_article_path(article.league, article) %>" class="list-group-item clearfix">
+					<%= image_tag(article.picture.url(:mini), alt: '', class: 'img-responsive') %>
+					<span class="time"><i><%= Russian::strftime(article.created_at, "%d %B %Y") %></i></span>
+					<h3 class="list-group-item-heading"><%= article.title %></h4>
+					<p class="list-group-item-text"><%= article.summary %></p>
+				</a>
+			<% end %>
+			<%= will_paginate @articles, page_links: true %>
+		</div>
+
+
+	</div>
+	<div class="left-block col-md-3"><%= render 'shared/my_team' %></div>
+</div>

@@ -1,0 +1,55 @@
+
+
+ <div class="col-md-6 col-md-offset-3 custom-form">
+  
+  <div class="text-center registration"><span>Обновить</span></div>
+  
+  <%= form_for @user, method: :put do |f| %>
+    
+    <div class="form-group">
+      <%= f.label "Ваше имя" %><br />
+      <%= f.text_field :username, autofocus: true, class: "form-control" %>
+    </div>
+    
+    <div class="form-group upload_file_container">
+      <%= image_tag "", :id => "img_prev" %>
+      <%= f.label :avatar, 'Загрузите аватарку...', class: 'btn btn-info' %>
+      <%= f.file_field :avatar, class: 'form-control', onchange: "readURL(this)" %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :team, "Выберите ваш любимый клуб АПЛ" %>
+      <%= f.select :team, options_for_select(select_team), {:include_blank => change_blank(current_user)}, { class: "selectpicker", "data-live-search"=>"true" } %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit "Обновить", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  
+  <%= link_to "Назад", :back %>
+</div>
+
+<!--/ Image preview start-->
+<script type="text/javascript">
+
+          function readURL(input) {
+            if (input.files && input.files[0]) {
+              var reader = new FileReader();
+
+              reader.onload = function (e) {
+                $('#img_prev')
+                  .attr('src', e.target.result)
+                  .width(200);
+              };
+              
+
+              reader.readAsDataURL(input.files[0]);
+            }
+          }
+          $('.selectpicker').selectpicker({size: 10});
+
+</script>
+    <!--/ image preview end-->
+
+

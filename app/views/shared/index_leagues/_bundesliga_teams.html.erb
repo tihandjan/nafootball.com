@@ -1,0 +1,43 @@
+<div class="container-fluid leagues-team-container">
+    <div class="col-md-6 league-col league-col-bundesliga">
+        <% if (@teams = show_team_list_first_half('bundesliga', 'first')).any? %>
+            <% @teams.each do |team| %>
+                <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
+            <% end %>
+        <% else %>
+            <a href="#"><i class="sprite sprite-Bavaria icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-Borussia_D icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-shalke_04 icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-Bayer icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-werder icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-wolsburg icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-Auzburg icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-Mainz icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-Aintraht icon-middle"></i></a>
+        <% end %>
+    </div>
+    <div class="col-md-6 league-col league-col-bundesliga">
+        <% if (@teams = show_team_list_first_half('bundesliga', 'second')).any? %>
+            <% @teams.each do |team| %>
+                <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
+            <% end %>
+        <% else %>
+            <a href="#"><i class="sprite sprite-hamburg icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-ingolstad icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-Keln icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-darmshtad icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-Borussia_M icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-Gerta icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-Fraiburg icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-Hoffenhain icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-Leipzig icon-middle"></i></a>
+        <% end %>
+    </div>
+</div>
+<div class="container-fluid leagues-submenu-container">
+    <h1 class="league-h1"><span class="hidden-xs">Чемпионат Германии</span></h1>
+        <a href="<%= fixtures_league_path('bundesliga') %>" class="league-col">Календарь</a>
+        <a href="<%= results_league_path('bundesliga') %>" class="league-col">Результаты</a>
+        <a href="<%= table_league_path('bundesliga') %>" class="league-col">Таблица</a>
+        <a href="<%= league_path('bundesliga') %>" class="league-col">Основное</a>
+</div>

@@ -1,0 +1,69 @@
+
+<div style="margin-top: 70px;margin-bottom: 70px;" class="col-md-6 col-md-offset-3 custom-form">
+  
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    
+    <div class="form-group">
+      <%= f.label "Ваше имя" %><br />
+      <%= f.text_field :username, autofocus: true, class: "form-control", :required => true %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label "Почта" %><br />
+      <%= f.email_field :email, class: "form-control", :required => true %>
+    </div>
+    
+    <div class="form-group upload_file_container">
+      <%= image_tag "", :id => "img_prev" %>
+      <%= f.label :avatar, 'Загрузите аватарку...', class: 'btn btn-info' %>
+      <%= f.file_field :avatar, class: 'form-control', onchange: "readURL(this)" %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :team, "Выберите ваш любимый клуб АПЛ" %>
+      <%= f.select :team, options_for_select(select_team), {:include_blank => "Выбрать клуб"}, { class: "selectpicker", "data-live-search"=>"true" } %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label "Пароль" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> символов минимум)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "off", class: "form-control", :required => true, minlength: 6 %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label "Повторите пароль" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", :required => true, minlength: 6 %>
+    </div>
+  
+    <div class="actions">
+      <%= f.submit "Зарегистрироваться", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  
+  <%= render "devise/shared/links" %>
+</div>
+
+<!--/ Image preview start-->
+<script type="text/javascript">
+
+          function readURL(input) {
+            if (input.files && input.files[0]) {
+              var reader = new FileReader();
+
+              reader.onload = function (e) {
+                $('#img_prev')
+                  .attr('src', e.target.result)
+                  .width(200);
+              };
+              
+
+              reader.readAsDataURL(input.files[0]);
+            }
+          }
+          $('.selectpicker').selectpicker({size: 10});
+
+</script>
+    <!--/ image preview end-->

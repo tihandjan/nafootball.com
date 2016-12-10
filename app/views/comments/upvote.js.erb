@@ -1,0 +1,2 @@
+$("#voite-count-up-<%= @comment.id %>").html('<%= @comment.get_upvotes.size %>')
+$("#voite-count-down-<%= @comment.id %>").html('<%= @comment.get_downvotes.size %>')

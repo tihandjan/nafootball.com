@@ -1,0 +1,17 @@
+<% if notice %>
+
+<div class="alert alert-success"> 
+    <a class="close" data-dismiss="alert">&#215;</a>
+      <i class="fa fa-check-circle" style="color: #3c763d; margin-right: 5px; "></i><%= notice %>
+  </div>
+  
+<% end %>
+
+<% if alert %>
+
+<div class="alert alert-danger"> 
+    <a class="close" data-dismiss="alert">&#215;</a>
+      <%= alert %>
+</div>
+  
+<% end %>

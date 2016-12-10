@@ -1,0 +1,44 @@
+<div class="row-onlain center-block">
+    <div class="panel panel-default"> 
+        <div class="panel-heading"> 
+            <h3 class="panel-title text-left">Футбольные матчи онлайн</h3>
+        </div> 
+        <div class="panel-body" id="match-today">
+            <div class="table">
+                <div class="col-sm-4 match-toggle"><span class="match-toggle-span" onclick="$('.match-toggle-span').css({'background': 'transparent','color': '#333333'});$(this).css({'background': '#33383c', 'color': '#FFF'});$('.table-onlain').hide();$('#played').show();">Вчера</span></div>
+                <div class="col-sm-4 match-toggle"><span class="match-toggle-span" onclick="$('.match-toggle-span').css({'background': 'transparent','color': '#333333'});$(this).css({'background': '#33383c', 'color': '#FFF'});$('.table-onlain').hide();$('#playing').show();">Сегодня</span></div>
+                <div class="col-sm-4 match-toggle"><span class="match-toggle-span" onclick="$('.match-toggle-span').css({'background': 'transparent','color': '#333333'});$(this).css({'background': '#33383c', 'color': '#FFF'});$('.table-onlain').hide();$('#will-play').show();">Завтра</span></div>
+                
+                    <table style="display: none;" class="table table-onlain" id="played">
+                        <%= render 'shared/leagues/apl_played' %>
+                        <%= render 'shared/leagues/bl_played' %>
+                        <%= render 'shared/leagues/seria_a_played' %>
+                        <%= render 'shared/leagues/sp_played' %>
+                        <%= render 'shared/leagues/chempions_league_played' %>
+                    </table>
+                    
+                    <table class="table table-onlain" id="playing">
+                        <%= render 'shared/leagues/apl_playing' %>
+                        <%= render 'shared/leagues/bl_playing' %>
+                        <%= render 'shared/leagues/seria_a_playing' %>
+                        <%= render 'shared/leagues/sp_playing' %>
+                        <%= render 'shared/leagues/chempions_league_playing' %>
+                    </table>
+                    
+                    <table style="display: none;" class="table table-onlain" id="will-play">
+                        <%= render 'shared/leagues/apl_will_play' %>
+                        <%= render 'shared/leagues/bl_will_play' %>
+                        <%= render 'shared/leagues/seria_a_will_play' %>
+                        <%= render 'shared/leagues/sp_will_play' %>
+                        <%= render 'shared/leagues/chempions_league_will_play' %>
+                    </table>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+ 
+ <%= form_tag onlain_path, id: 'onlain-submit', remote: true do %>
+ <% end %>
+

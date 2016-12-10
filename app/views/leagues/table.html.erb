@@ -1,0 +1,395 @@
+
+<% @teams = Team.all %>
+
+<div class="row league-row <%= @add_class %>">
+    <h2 class="main-h1">h2 для таблицы</h2>
+    <hr class="main-hr">
+    <div class="right-block col-md-9">
+
+        <div class="row row-table">
+            <div class="panel panel-default">
+            <!-- Default panel contents -->
+            
+                <div class="panel-body">
+            <!-- Table -->
+                <table class="table table-hover">
+                    <thead class="text-center">
+                        <tr class="tr_first">
+                            <th class="team-number">#</th>
+                            <th class="team-icon">Клуб</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th class="team-td">Матчей</th>
+                            <th class="team-td">В</th>
+                            <th class="team-td">Н</th>
+                            <th class="team-td">П</th>
+                            <th class="team-td">Заб</th>
+                            <th class="team-td">Про</th>
+                            <th class="team-td">Раз</th>
+                            <th></th>
+                            <th>Очков</th>
+                        </tr>
+                    </thead>
+                    <% if @table.any? && @table.last.league != 'chempions-league' %>
+                    <tbody class="text-center">
+                        <% @number = 0 %>
+                        <% @table.each do |team| %>
+                        <tr class="league-table-tr" style="background: <%= change_league_table_row_color params[:id], (@number+1) %>">
+                            <td class="team-number"><%= @number += 1 %></td>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
+                            <td></td>
+                            <td></td>
+                            <td class="team-td"><%= team.playedGames %></td>
+                            <td class="team-td"><%= team.wins %></td>
+                            <td class="team-td"><%= team.draws %></td>
+                            <td class="team-td"><%= team.losses %></td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
+                            <td></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                    <% elsif  @table.any? && @table.last.league == 'chempions-league' %>
+                    <tbody class="text-center">
+                        <tr class="chempleag-devider">
+                            <td class="chempleag-column">A</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <% @number = 0 %>
+                        <% @table.where(group: 'A').each do |team| %>
+                        <tr class="<%= change_row_color @number %>">
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
+                            <td></td>
+                            <td></td>
+                            <td class="team-td"><%= team.playedGames %></td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
+                            <td></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
+                        </tr>
+                        <% end %>
+                        
+                        <tr class="chempleag-devider">
+                            <td class="chempleag-column">B</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <% @table.where(group: 'B').each do |team| %>
+                        <tr class="<%= change_row_color @number %>">
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
+                            <td></td>
+                            <td></td>
+                            <td class="team-td"><%= team.playedGames %></td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
+                            <td></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
+                        </tr>
+                        <% end %>
+                        
+                        <tr class="chempleag-devider">
+                            <td class="chempleag-column">C</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <% @table.where(group: 'C').each do |team| %>
+                        <tr class="<%= change_row_color @number %>">
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
+                            <td></td>
+                            <td></td>
+                            <td class="team-td"><%= team.playedGames %></td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
+                            <td></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
+                        </tr>
+                        <% end %>
+                        
+                        <tr class="chempleag-devider">
+                            <td class="chempleag-column">D</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <% @table.where(group: 'D').each do |team| %>
+                        <tr class="<%= change_row_color @number %>">
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
+                            <td></td>
+                            <td></td>
+                            <td class="team-td"><%= team.playedGames %></td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
+                            <td></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
+                        </tr>
+                        <% end %>
+                        
+                        <tr class="chempleag-devider">
+                            <td class="chempleag-column">E</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <% @table.where(group: 'E').each do |team| %>
+                        <tr class="<%= change_row_color @number %>">
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
+                            <td></td>
+                            <td></td>
+                            <td class="team-td"><%= team.playedGames %></td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
+                            <td></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
+                        </tr>
+                        <% end %>
+                        
+                        <tr class="chempleag-devider">
+                            <td class="chempleag-column">F</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <% @table.where(group: 'F').each do |team| %>
+                        <tr class="<%= change_row_color @number %>">
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
+                            <td></td>
+                            <td></td>
+                            <td class="team-td"><%= team.playedGames %></td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
+                            <td></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
+                        </tr>
+                        <% end %>
+                        
+                        <tr class="chempleag-devider">
+                            <td class="chempleag-column">G</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <% @table.where(group: 'G').each do |team| %>
+                        <tr class="<%= change_row_color @number %>">
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
+                            <td></td>
+                            <td></td>
+                            <td class="team-td"><%= team.playedGames %></td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
+                            <td></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
+                        </tr>
+                        <% end %>
+                        
+                        <tr class="chempleag-devider">
+                            <td class="chempleag-column">H</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <% @table.where(group: 'H').each do |team| %>
+                        <tr class="<%= change_row_color @number %>">
+                            <td class="team-number"><%= team.position %></td><% @number += 1 %>
+                            <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                            <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
+                            <td></td>
+                            <td></td>
+                            <td class="team-td"><%= team.playedGames %></td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td">-</td>
+                            <td class="team-td"><%= team.goals %></td>
+                            <td class="team-td"><%= team.goalsAgainst %></td>
+                            <td class="team-td"><%= team.goalDifference %></td>
+                            <td></td>
+                            <td class="team-score"><b><%= team.points %></b></td>
+                        </tr>
+                        <% end %>
+                    </tbody>
+                    <% else %>
+                    <% end %>
+                </table>
+                </div>
+                <% if params[:id] == 'apl' %>
+                <div class="table-description">
+                    <strong>Лига чемпионов</strong><br/>
+                    — Напрямую в групповой этап попадают три первые команды;<br/>
+                    — Четвертая команда начинает турнир с квалификации;<br/>
+                    <strong>Лига Европы</strong><br/>
+
+                    — В квалификацию турнира попадает команда, занявшая пятое место, а напрямую — победитель Кубка Англии. Если победитель Кубка Англии уже квалифицировался в Лигу чемпионов, его место занимает финалист турнира. Если финалист тоже попал в Лигу чемпионов, его место занимает шестая команда чемпионата.<br/>
+                    — В квалификацию попадает победитель Кубка Лиги, либо команда, занявшая самое высокое место после всех квалифицировавшихся команд в чемпионате.<br/>
+                    <strong>Вылет</strong><br/>
+                    — Из Премьер-лиги вылетают команды, занявшие 18-е, 19-е и 20-е место.<br/>
+                    <strong>Равенство очков</strong><br/>
+                    — Первостепенно берется во внимание разница забитых и пропущенных мячей.<br/>
+                    — В случае равенства по разнице, преимущество получает команда, забившая больше мячей.<br/>
+                    <strong>Лимит на легионеров</strong><br/>
+                    — Как таковой отсутствует. Однако при покупке игроков из-за заграницы, клуб должен вписаться в определенные правила. Если футболист представляет страну не из Евросоюза, его сборная должна находиться не ниже 70-го места в рейтинге ФИФА, а сам он а последние два года должен провести за сборную не менее 75% матчей. У клубов, тем не менее, всегда есть возможность подать прошение, указав на то, что не вписывающийся в критерии игрок является «особым талантом» и качественно повлияет на развитие игры в стране.<br/>
+                    <strong>Дисквалификация</strong><br/>
+                    — Игроки пропускают матч, получив пять желтых карточек.<br/>
+                    — Длительность дисквалификации за получение красной карточки определяется дисциплинарным комитетом, а ее действие распространяется на все внутренние турниры.
+                </div>
+                <% elsif params[:id] == 'bundesliga' %>
+                    <div class="table-description">
+                        <strong>Лига чемпионов</strong><br>
+                        — Напрямую попадают команды, занявшие первые три места в таблице;<br>
+                        — Четвертая команда чемпионата начинает турнир с квалификации;<br>
+                        <strong>Лига Европы</strong><br>
+                        — В квалификации играют команды, занявшие 5-е и 6-е места;<br>
+                        <strong>Вылет</strong><br>
+
+                        — Напрямую вылетают две команды, занявшие последние два места (17-е и 18-е);<br>
+
+                        — Команда, занявшая 16-е место, играет переходные матчи (дома и в гостях) с третьей командой (третье место) второй бундеслиги;<br>
+                        <strong>Равенство очков</strong><br>
+
+                        — Первостепенно берется во внимание разница забитых/пропущенных мячей;<br>
+
+                        — В случае равенства по разнице — преимущество у команды, забившей больше голов;<br>
+                        <strong>Лимит на легионеров</strong><br>
+                        Как таковой отсутствует, однако каждый клуб обязан иметь на контракте 12 игроков с немецким гражданством, а также 8 собственных воспитанников. Так называемыми воспитанниками являются игроки, которые в возрасте от 15 до 21 года на протяжении трех сезонов пребывали в составе команд данного клуба.<br>
+                        <strong>Дисквалификация</strong><br>
+                        Игроки пропускают матч после получения 5-ти желтых карточек.<br>
+                    </div>
+                <% end %>
+
+            </div>
+        </div>
+
+
+    </div>
+    <div class="left-block col-md-3"><%= render 'shared/last_news', point: 0 %></div>
+</div>
+
+

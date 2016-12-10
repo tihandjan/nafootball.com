@@ -1,0 +1,45 @@
+<div class="container-fluid leagues-team-container">
+    <div class="col-md-6 league-col">
+        <% if (@teams = show_team_list_first_half('seria-a', 'first')).any? %>
+            <% @teams.each do |team| %>
+                <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
+            <% end %>
+        <% else %>
+            <a href="#"><i class="sprite sprite-juventus icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-napoli icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-roma icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-milan icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-inter icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-fiorentina icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-udineze icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-lazio icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-torino icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-chievo icon-middle"></i></a>
+        <% end %>
+    </div>
+    <div class="col-md-6 league-col">
+        <% if (@teams = show_team_list_first_half('seria-a', 'second')).any? %>
+            <% @teams.each do |team| %>
+                <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
+            <% end %>
+        <% else %>
+            <a href="#"><i class="sprite sprite-empoli icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-sampdoria icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-genoa icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-cagliari icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-bologna icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-crotone icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-palermo icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-sassuolo icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-pescara icon-middle"></i></a>
+            <a href="#"><i class="sprite sprite-atalanta icon-middle"></i></a>
+        <% end %>
+    </div>
+</div>
+<div class="container-fluid leagues-submenu-container">
+    <h1 class="league-h1"><span class="hidden-xs">Чемпионат Италии</span></h1>
+    <a href="<%= fixtures_league_path('seria-a') %>" class="league-col">Календарь</a>
+    <a href="<%= results_league_path('seria-a') %>" class="league-col">Результаты</a>
+    <a href="<%= table_league_path('seria-a') %>" class="league-col">Таблица</a>
+    <a href="<%= league_path('seria-a') %>" class="league-col">Основное</a>
+</div>

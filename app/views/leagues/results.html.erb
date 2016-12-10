@@ -1,0 +1,28 @@
+<% @editional_class = 'leagues' %>
+
+
+<div class="row league-row <%= @add_class %>">
+    <h2 class="main-h1">h2 for results</h2>
+    <hr class="main-hr">
+    <div class="right-block col-md-9 fixtures">
+
+        <div class="row-onlain center-block">
+            <% if @fixtures.any? %>
+                <% @date = [] %>
+                <% @fixtures.each do |data| %>
+                    <% @date << data %>
+                    <%= raw show_if_new_date @date %><!--('%a %b %d %H:%M:%S %Z %Y')-->
+                    <div class="row">
+                        <div class="col-xs-5 col-fixtures"><span class="team"><%= team_translater(data.homeTeamName) %> <i class="<%= show_team_icon(data.homeTeamName) %> icon-small"></i></span></div>
+                        <div class="col-xs-2 col-fixtures"><span class="time"><%= (data.goalsHomeTeam == 'empty' ? '-' : data.goalsHomeTeam.to_s) + '-' + (data.goalsAwayTeam == 'empty' ? '-' : data.goalsAwayTeam.to_s) %></span></div>
+                        <div class="col-xs-5 col-fixtures"><span class="team"><%= team_translater(data.awayTeamName) %> <i class="<%= show_team_icon(data.awayTeamName) %> icon-small"></i></span></div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+
+    </div>
+
+    <div class="left-block col-md-3"><%= render 'shared/last_news', point: 0 %></div>
+</div>
+

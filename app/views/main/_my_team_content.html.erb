@@ -1,0 +1,59 @@
+
+<% if !cookies[:user_team].blank? %>
+<i style="margin: 0 auto;" class="<%= show_team_icon(cookies[:user_team]) %>"></i>
+<div><b><a style="color: inherit;" href="<%= team_path(pass_object(@teams, cookies[:user_team])) %>"><%= cookies[:user_team] %></a></b></div>
+
+ 
+
+<div class="panel-body" id="match-today">
+    <div class="table">
+        <table class="table">
+            <% if @my_team_results = Match.my_team_results(cookies[:user_team]) %>
+                
+                <% if @my_team_next_game = Match.my_team_next_game(cookies[:user_team]) %>
+                    <%= raw(show_date_of_the_game @my_team_next_game) %>
+                    <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
+                        <td><%= team_translater(@my_team_next_game.homeTeamName) %></td>
+                        <td><i class="<%= show_team_icon(@my_team_next_game.homeTeamName) %> icon-small"></i></td>
+                        <td class="time"><div style="background:#6a6a6a" class="score_or_time"><%= @my_team_next_game.date.strftime('%H:%M') %></div></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
+                        <td><i class="<%= show_team_icon(@my_team_next_game.awayTeamName) %> icon-small"></i></td>
+                        <td><%= team_translater(@my_team_next_game.awayTeamName) %></td>
+                    </tr>
+                <% end %>
+                
+
+                <% @my_team_results.each do |team| %>
+                            <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
+                                <td><%= team_translater(team.homeTeamName) %></td>
+                                <td><i class="<%= show_team_icon(team.homeTeamName) %> icon-small"></i></td>
+                                <td class="time"><div style="background:#243843" class="score_or_time"><%= team.goalsHomeTeam %> - <%= team.goalsAwayTeam %></div></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
+                                <td><i class="<%= show_team_icon(team.awayTeamName) %> icon-small"></i></td>
+                                <td><%= team_translater(team.awayTeamName) %></td>
+                            </tr>
+                <% end %>
+            <% end %>
+        </table>
+    </div>
+</div>
+
+<div class="list-group">
+    
+    <% if !cookies[:user_team].blank? %>
+        <% Article.my_team_news(cookies[:user_team]).each do |article| %>
+            <a href="<%= league_article_path(article.league, article) %>" class="list-group-item text-left">
+              <h4 class="list-group-item-heading"><%= truncate(article.title, length: 120) %></h4>
+               <i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %></i> 
+            </a>
+        <% end %>
+    <% end %>
+    
+</div>
+<% end %>
+
+<script>
+    (function(){
+        if (navigator.userAgent.indexOf("Firefox") > 0) {
+            $('.left-block .icon-small').hide();
+        }
+    })();
+</script>

@@ -1,0 +1,64 @@
+<ul class="media-list">
+    <% data.comments.order('created_at DESC').each do |comment| %>
+        
+        <li class="media custom-media-list">
+            <div class="media-left">
+                <a href="#">
+                    <%= avatar_to_comments comment.user %>
+                </a>
+                <i class="text-center">Рейтинг:</i>
+                <i class="text-center carma"><%= carma comment.user %></i>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading name"><%= comment.user.username if comment.user %> <i><%= time_ago_in_words(comment.created_at) %> назад</i></h4>
+                <%= comment.body %>
+                <div class="voting">
+                    <% if signed_in? && current_user %>
+                        <%= link_to like_comment_path(comment), method: :put, remote: true do %>
+                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <% end %>
+                        <i class="voite-count" id="voite-count-up-<%= comment.id %>"><%= comment.get_upvotes.size %></i>
+                        <%= link_to unlike_comment_path(comment), method: :put, remote: true do %>
+                            <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                        <% end %>
+                        <i class="voite-count" id="voite-count-down-<%= comment.id %>"><%= comment.get_downvotes.size %></i>
+                    <% else %>
+                        <a  href="#" data-toggle="modal" data-target="#authModal" rel="nofollow">
+                            <i class="fa fa-thumbs-up" aria-hidden="true"></i> 
+                        </a>
+                        <i class="voite-count" id="voite-count-up-<%= comment.id %>"><%= comment.get_upvotes.size %></i>
+                        <a  href="#" data-toggle="modal" data-target="#authModal" rel="nofollow">
+                            <i class="fa fa-thumbs-down" aria-hidden="true"></i> 
+                        </a>
+                        <i class="voite-count" id="voite-count-down-<%= comment.id %>"><%= comment.get_downvotes.size %></i>
+                    <% end %>
+                    <% if signed_in? && current_user %>
+                        <a class="reply" onclick="showForm('<%= 'reply-form-' + comment.id.to_s %>');">Ответить</a>
+                    <% else %>
+                        <a class="reply" href="#" data-toggle="modal" data-target="#authModal" rel="nofollow">Ответить</a>
+                    <% end %>
+                </div>
+                <!--reply form start-->
+                <div style="display: none;" class="media media-form media-subform" id="reply-form-<%= comment.id.to_s %>">
+                    <div class="media-left">
+                        <a>
+                            <%= avatar_to_comments current_user %>
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <%= form_for(Comment.new, url: comment_comments_path(comment), :html => {:class => "comment-form"}, remote: true) do |f| %>
+                            <%= f.text_area :body,class: 'form-control comments-body', rows: '2', cols: '3', placeholder: "Оставьте комментарий", autofocus: true, onkeyup: "textAreaAdjust(this);" %><br/>
+                            <%= f.hidden_field :user_id, value: (current_user.id if current_user) %>
+                            <%= f.submit "Ответить", class: 'btn btn-email pull-right', data: { disable_with: "Отправка..." }, :disabled => true %>
+                            <a class="btn btn-default btn-cancel pull-right" onclick="hideForm('<%= 'reply-form-' + comment.id.to_s %>');">Отмена</a>
+                            
+                        <% end %>
+                    </div>
+                </div>
+                <!--reply form end-->
+                <%= render 'shared/sub_comments', comment: comment %>
+            </div>
+        </li>
+
+    <% end %>
+</ul>

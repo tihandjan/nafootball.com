@@ -1,0 +1,12 @@
+<% if @league == 'apl' %>
+    <%= render 'shared/index_leagues/apl_teams' %>
+<% elsif @league == 'laliga' %>
+    <%= render 'shared/index_leagues/laliga_teams' %>
+<% elsif @league == 'bundesliga' %>
+    <%= render 'shared/index_leagues/bundesliga_teams' %>
+<% elsif @league == 'seria-a' %>
+    <%= render 'shared/index_leagues/seria_a_teams' %>
+<% elsif @league == 'chempions-league' %>
+    <% @add_class = 'league-row-cl' %>
+    <%= render 'shared/index_leagues/chempions_league_teams' %>
+<% end %>

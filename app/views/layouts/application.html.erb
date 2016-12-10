@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= set_title(yield(:title)) %> | euroliga.com</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="<%= controller.controller_name %> <%= @editional_class %>">
+  
+  <%= render 'layouts/header' %>
+  <%= render 'layouts/additional_header' %>
+    
+  <div class="container">
+    <%= render 'layouts/messages' %>
+
+    <%= yield %>
+  </div>
+  <%= debug(params) if Rails.env.development? %>
+  <%= render 'layouts/footer' %>
+  
+  <!--modals-->
+  <%= render 'layouts/modals/modal_contact' %>
+  <%= render 'layouts/modals/modal_auth' %>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<% if @fixtures_ge_was.any? %>
+    <tr><td>
+        <i>
+            <%= @fixtures_ge_was.last.matchday.to_s+' тур '+ Russian::strftime(Time.zone.now+3.hour, '%d %b') %>
+        </i>
+    </td><td></td><td><i class="sprite_header sprite-germany"></i></td><td></td><td></td></tr>
+
+    <% @fixtures_ge_was.each do |team| %>
+        <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
+            <td><%= team_translater(team.homeTeamName) %></td>
+            <td><i class="<%= show_team_icon(team.homeTeamName) %> icon-small"></i></td>
+            <td class="time"><div style="background:<%= in_play_or_finished team %>" class="score_or_time"><%= time_or_result team  %></div></td>
+            <td><i class="<%= show_team_icon(team.awayTeamName) %> icon-small"></i></td>
+            <td><%= team_translater(team.awayTeamName) %></td>
+            
+        </tr>
+    <% end %>
+<% end %>

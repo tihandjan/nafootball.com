@@ -1,0 +1,110 @@
+// table start
+.row-table {
+    .panel-heading {
+        padding: 0;
+    }
+    .panel-body {
+        margin-right: -1px;
+        padding: 12px 12px 30px 12px;
+    }
+    .table {
+        margin-bottom: 0;
+    }
+    margin-left: 0;
+    margin-right: 0;
+    thead {
+        tr {
+            th {
+                text-align: center;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border-bottom: none;
+                color: #939393;
+                font-size: 12px;
+            }
+        }
+    }
+    tbody {
+        border-top: none !important;
+        tr {
+            border-bottom: 1px solid #eaeaea;  
+            height: 32px;
+            td {
+                padding: 0; 
+                vertical-align: middle;
+                border-top: none;
+                a {color: inherit;}
+            }
+        }
+    }
+    .team-name {
+        text-align: left;
+    }
+    .team-score {
+        color: #ff5b5a;
+        width: 80px;
+    }
+    .team-icon {
+        padding-left: 0;
+        padding-right: 0;
+        width: 20px;
+        i {
+            margin-right: 0;
+        } 
+    }
+    .team-td {
+        padding-left: 0;
+        padding-right: 0;
+        width: 35px;
+    }
+    .team-number {
+        padding-left: 0;
+        padding-right: 0;
+        width: 55px;
+    }
+}
+
+.tr_first {
+    background-color: #FFF;
+}
+.chempleag-devider {
+    color: #FFF;
+    background: #69a6a6;
+    &:hover {
+        background: #69a6a6 !important;
+    }
+}
+// table end
+
+.league-tables {
+    display: none;
+    &:first-child {
+        display: block;
+    }
+}
+
+// top players
+.top-players {
+    .col-article {
+        padding-left: 10px;
+        padding-right: 10px;
+        &:first-child {
+        padding-left: 0;
+        }
+        &:last-child {
+            padding-right: 0;
+        }
+        .panel-title {
+            padding: 5px 15px;
+            font-size: 16px;
+        }
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .row-table {
+        .team-td {
+            display: none;
+        }
+    }
+}

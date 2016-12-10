@@ -1,0 +1,27 @@
+
+.league-table-h1 {font-size: 26px;}
+.row-table {
+    .panel {
+        .panel-body {
+            padding: 12px 12px 30px 12px;
+            .table {
+                thead {
+                    .tr_first {
+                        background-color: #FFF;
+                    }
+                }
+                tbody {
+                    .league-table-tr {
+                        border-bottom: 1px solid #eaeaea;  
+                        height: 32px;                      }
+                }
+            }
+        }
+        .table-description {
+            background-color: #33383c;
+            color: #a7a7a7;
+            padding: 30px 15px;
+            strong {font-size: 15px;}
+        }
+    }
+}

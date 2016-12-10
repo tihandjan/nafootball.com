@@ -1,0 +1,95 @@
+.comments-block {
+    padding: 0 10px 0 25px;
+    .media-form {
+        .media-left {
+            a {
+                display: block;
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                overflow: hidden;
+                img {
+                    width: 60px;
+                }
+            }
+        }
+        .media-body {
+            .comment-form {
+                .comments-body {
+                    border-radius: 0;
+                }
+                .btn-email {
+                    border-radius: 0;
+                    padding: 4px 10px;
+                    font-size: 13px;
+                    &:hover {
+                        color: #FFF;
+                    }
+                    &:focus {
+                        color: #FFF;
+                    }
+                }
+                .btn-cancel {
+                    border-radius: 0;
+                    margin-right: 5px;
+                    padding: 4px 10px;
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+    .media-list {margin-top: 10px;}
+    .custom-media-list {
+        border-top: 1px solid #c3c3c3;
+        margin-top: 10px;
+        .media-left {
+            padding-top: 15px;
+            a {
+                display: block;
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                overflow: hidden;
+                img {
+                    width: 50px;
+                }
+            }
+            .carma {
+                display: block;
+                color: #217689;
+            }
+        }
+        .media-body {
+            padding-top: 15px;
+            font-size: 14px;
+            .name {
+                color: #157e7e;
+            }
+            .voting {
+                margin-top: 5px;
+                a {
+                    text-decoration: none;
+                }
+                i {
+                    margin-right: 5px;
+                    font-size: 16px;
+                }
+                .fa-thumbs-up {
+                    cursor: pointer;
+                    &:hover {color: #157e7e}
+                }
+                .fa-thumbs-down {
+                    cursor: pointer;
+                    &:hover {color: #157e7e}
+                }
+                .voite-count {
+                    color: #217689;
+                }
+                .reply {
+                    color: #1d535f;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

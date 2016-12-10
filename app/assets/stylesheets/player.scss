@@ -1,0 +1,65 @@
+.players  {
+    .player-row {
+        .team-col-first {
+            .team-image {
+                margin: auto !important;
+                border-radius: 50%;
+                border: 6px solid #2b4951;
+                overflow: hidden;
+                width: 180px !important;
+                height: 180px !important;
+                margin-top: 50px !important;
+                img {
+                    width: 180px !important;
+                    max-width: 180px !important;
+                }
+            }
+        }
+        .team-col-second {
+            .player-row-news {margin-bottom: -10px;}
+            .team-table-wrapper {
+                text-transform: uppercase;
+                color: #585858;
+                .player-name {
+                    margin: 0 0 17px;
+                    font-size: 20px;
+                    color: #6aa6a6;
+                    word-spacing: 200px;
+                }
+                .player-posistion {
+                    margin-bottom: 17px;
+                }
+                .player-deliver {
+                    border-top: 1px solid #a3a3a3;
+                }
+                .player-team {
+                    padding: 30px 0;
+                    i {
+                        float: left;
+                        position: relative;
+                        bottom: 10px;
+                        right: 5px;
+                        margin-right: -5px;
+                    }
+                    a {color: inherit;}
+                }
+                .market-value {
+                    padding: 10px;
+                    span {
+                        background-color: #eaebef;
+                        padding: 10px;
+                    }
+                }
+                .personal-info {
+                    color: #6aa6a6;
+                    margin-top: 10px;
+                    font-weight: bold;
+                        span {color: #585858;font-weight: normal;}
+                }
+                .contract {
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+}

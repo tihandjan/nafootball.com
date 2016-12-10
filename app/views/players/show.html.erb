@@ -1,0 +1,116 @@
+<% @editional_class = 'leagues teams' %>
+<div class="row team-row player-row">
+    <div class="col-md-3 team-col team-col-first">
+        <div class="team-image">
+            <%= image_tag "/images/default-avatar.png", class: "img-responsive", alt: @player.name %>
+        </div>
+        <h5 class="team-name text-center"><%= player_translater(@player.name.split("\n")[0]) %></h5>
+    </div>
+
+    <div class="col-md-6 team-col team-col-second">
+        <div class="row">
+            <div class="team-fixtures col-xs-6 text-left"><span class="team-fixture team-fixture-first team-fixture-active">Личная информация</span></div>
+        </div>
+        <div class="fixtures-deliver"></div>
+
+        <div class="team-table-wrapper">
+            <div class="row">
+                <div class="col-xs-6">
+                    <h1 class="player-name"><%= player_translater(@player.name.split("\n")[0]) %></h1>
+                    <div class="player-position"><strong><%= position_translater(@player.position) %></strong></div>
+                    <div class="player-deliver"></div>
+                    <div class="player-team"><i class="<%= show_team_icon(@team.name) %>"></i> <a href="<%= team_path(@team) %>"><strong><%= full_team_translater(@team.name) %></strong></a></div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="market-value text-right"><span><%= @player.market_value %></span></div>
+                    <div class="personal-info">Гражданство <span><%= @player.nationality %></span></div>
+                    <div class="personal-info">Игровой номер <span><%= @player.number %></div>
+                    <div class="personal-info">дата рождения <span><%= @player.date_of_birth %></div>
+                    <% if @player.has_attribute?(:height) && @player.height.presence %>
+                        <div class="personal-info">рост <span><%= @player.height %></div>
+                    <% end %>
+                    <% if @player.has_attribute?(:weight) && @player.weight.presence %>
+                        <div class="personal-info">вес <span><%= @player.weight %></div>
+                    <% end %>
+                    <div class="personal-info contract">контракт <span><%= @player.contract_until %></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row player-row-news">
+            <div class="team-fixtures team-nav"><h2 class="team-fixture team-fixture-active team-fixture-second">Новости <%=  @player.name %></h2></div>
+        </div>
+        <div class="fixtures-deliver"></div>
+        <div class="team-news-wrapper" id="news">
+            <div class="list-group">
+                <% @news.each do |article| %>
+                    <a href="<%= league_article_path(@team.league, article) %>" class="list-group-item">
+                        <%= image_tag article.picture.url(:mini), alt: article.title%>
+                        <i class="list-group-item-time"><%= time_ago_in_words(article.created_at) %></i>
+                        <h3 class="list-group-item-heading"><%= truncate(article.title, length: 70) %></h3>
+                        <p class="list-group-item-text"><%= truncate(article.summary, length: 70) %></p>
+                    </a>
+                <% end %>
+            </div>
+            <%= will_paginate @news %>
+        </div>
+    </div>
+
+    
+    <div class="col-md-3 team-col team-col-third">
+        <div class="team-line-up">
+            <h4 class="team-line-up-h2">Состав команды</h4>
+            <div class="team-line-up-break"></div>
+            <div class="team-line-up-wrapper">
+                <div class="footballer-wrapper">
+                    <div class="footballer-position">Вратари</div>
+                    <% @players.each do |player| %>
+                        <% if (player_position(player, 'вратари')) %>
+                            <div class="row player-info">
+                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater(player.name.split("\n")[0]), length: 20, omission: ' ') %></a></div>
+                                <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
+                            </div>
+                            <span class="footballer-deliver"></span>
+                        <% end %>
+                    <% end %>
+
+
+                    <div class="footballer-position">Защитники</div>
+                    <% @players.each do |player| %>
+                        <% if (player_position(player, 'защита')) %>
+                            <div class="row player-info">
+                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater(player.name.split("\n")[0]), length: 20, omission: ' ') %></a></div>
+                                <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
+                            </div>
+                            <span class="footballer-deliver"></span>
+                        <% end %>
+                    <% end %>
+
+
+                    <div class="footballer-position">Полузащитники</div>
+                    <% @players.each do |player| %>
+                        <% if (player_position(player, 'полузащита')) %>
+                            <div class="row player-info">
+                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater(player.name.split("\n")[0]), length: 20, omission: ' ') %></a></div>
+                                <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
+                            </div>
+                            <span class="footballer-deliver"></span>
+                        <% end %>
+                    <% end %>
+
+
+                    <div class="footballer-position">Нападающие</div>
+                    <% @players.each do |player| %>
+                        <% if (player_position(player, 'нападение')) %>
+                            <div class="row player-info">
+                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater(player.name.split("\n")[0]), length: 20, omission: ' ') %></a></div>
+                                <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
+                            </div>
+                            <span class="footballer-deliver"></span>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

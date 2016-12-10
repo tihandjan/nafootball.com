@@ -1,0 +1,221 @@
+
+    .container-fluid-custom-first {
+        padding-left: 0;
+        padding-right: 0;
+        background-color: #fff;
+        .search {
+            padding: 20px 5px;
+            background-color: #69a6a6;
+            width: 8.8%;
+            &:hover {
+                cursor: pointer;
+                .glyphicon-search {
+                    color: #777;       
+                }
+            }
+            .glyphicon-search {
+                color: #FFF;
+                font-size: 22px;
+            }
+        }
+        .logo-area {
+            padding: 14px 0;
+            text-transform: uppercase;
+            .main-logo {
+                margin: 0;
+                z-index: 2;
+                position: absolute;
+                right: -15%;
+                a {
+                    text-decoration: none;
+                    color: #33383c;
+                }
+            }
+        }
+        .header-profile {
+            background-color: #fff;
+            padding: 8px 0;
+            padding-right: 15px;
+            .nav {
+                float: right;
+                .custom-dropdown-menu {
+                    top: 110%;
+                    left: -64px;
+                }
+            }
+        }
+        .nav-pills {
+            position: absolute;
+            top: 13px;
+            right: 10px;
+        }
+    }
+    
+////////////////////////////////////////////
+
+    .navbar {
+        background-color: #33383c;
+        border-radius: 0;
+        border: none;
+        position: relative;
+        margin-bottom: 0;
+        .main-for-mobile {
+            position: absolute;
+            display: none;
+            left: 20px;
+            top: 20px;
+            color: #9fa0a0;
+            text-decoration: none;
+            &:hover {
+                color: #FFF;
+            }
+        }
+        .container-fluid {
+            padding-left: 0;
+            .navbar-collapse {
+                padding-left: 0;
+            }
+            .navbar-nav {
+                .dropdown {
+                    .league {
+                        position: relative;
+                        .sprite_header {
+                            margin: 0 auto;
+                            position: absolute;
+                            bottom: 23px;
+                            left: 38%;
+                        }
+                        .sprite_hover {
+                            display: none;
+                        }
+                    }
+                    .dropdown-toggle {
+                        padding-top: 50px;
+                        padding-bottom: 10px;
+                        color: #9fa0a0;
+                        white-space: nowrap;
+                        &:hover {
+                            background-color: #292f32;
+                            color: #FFF;
+                            .sprite_hover {
+                                display: block;
+                            }
+                        }
+                    }
+                    &:first-child {
+                        background: #292f32;
+                        .dropdown-toggle {
+                            padding-top: 25px;
+                            .short-logo {
+                                font-size: 27px;
+                                color: #69a6a6;
+                            }
+                            &:hover {
+                                color: #FFF;
+                            }
+                        }
+                    }
+                    &:last-child {
+                        .glyphicon {
+                            top: -31px;
+                            position: absolute;
+                            left: 42%;
+                            font-size: 22px;
+                        }
+                        .glyphicon-hover {
+                            display: none;
+                            color: #FFF;
+                        }
+                        &:hover {
+                            .glyphicon-hover {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+                .dropdown-menu {
+                    border: none;
+                    border-top: 4px solid #69a6a6;
+                    border-radius: 0 0 3px 3px;
+                    width: 200px;
+                    li {
+                        a {
+                            &:hover {
+                                background: #69a6a6;
+                                color: #FFF;
+                            }
+                        }
+                    }
+                }
+                .dropdown {
+                    &:hover {
+                        .dropdown-menu {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }   
+    }
+
+/////////////////////////////////////////
+
+@media only screen and (min-width: 768px){
+    
+    .navbar-nav {
+    width: 100%;
+    text-align: center;
+    }
+    .navbar-nav > li {
+    display: table-cell;
+    width: 9%;
+    float: none;
+    }
+    
+
+}
+
+@media only screen and (max-width: 767px) {
+
+    .navbar {
+        .main-for-mobile {
+            display: block;
+        }
+        .container-fluid {
+            .navbar-nav {
+                .dropdown {
+                    float: none !important;
+                    .dropdown-toggle {
+                        margin-left: 85px;
+                        &:hover {
+                            background-color: #33383c;
+                        }
+                    }
+                }
+                .league {
+                    .sprite_header {
+                        bottom: -5px !important;
+                        left: -50px !important;
+                    }
+                }
+                &:last-child {
+                    .glyphicon {
+                        top: -4px !important;
+                        left: -45px !important;
+                    }
+                }
+                .dropdown {
+                    &:hover {
+                        .dropdown-menu {
+                            display: none !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+

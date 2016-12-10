@@ -1,0 +1,93 @@
+
+<div class="modal fade modal-auth" id="authModal" tabindex="-1" role="dialog" aria-labelledby="authModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+
+
+
+
+
+
+
+      <div class="bs-example bs-example-tabs" data-example-id="togglable-tabs"> 
+        <ul class="nav nav-tabs" id="myTabs" role="tablist"> 
+          <li role="presentation" class="active">
+            <a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Вход</a>
+          </li> 
+          <li role="presentation" class="">
+            <a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile" aria-expanded="false">Регистрация</a>
+          </li> 
+        </ul> 
+        <div class="tab-content" id="myTabContent"> 
+          <div class="tab-pane fade active in" role="tabpanel" id="home" aria-labelledby="home-tab">
+
+
+
+            <div class="modal-body">
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                      <div class="btn-group" role="group">
+                        <a href="<%= user_facebook_omniauth_authorize_path %>" class="btn btn-lg btn-facebook"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
+                      </div>
+                      <div class="btn-group" role="group">
+                        <a href="<%= user_google_oauth2_omniauth_authorize_path %>" class="btn btn-lg btn-google"><i class="fa fa-google-plus" aria-hidden="true"></i>Google</a>
+                      </div>
+                  </div>
+                  <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <a href="<%= user_twitter_omniauth_authorize_path %>" class="btn btn-lg btn-twitter"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a>
+                      </div>
+                      <div class="btn-group" role="group">
+                        <a href="<%= user_vkontakte_omniauth_authorize_path %>" class="btn btn-lg btn-vkontakte"><i class="fa fa-vk" aria-hidden="true"></i>Vkontakte</a>
+                      </div>
+                  </div>
+                  <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                      <div class="btn-group" role="group">
+                        <a href="<%= new_user_session_path %>" class="btn btn-lg btn-email">Войти</a>
+                      </div>
+                  </div>
+            </div>
+
+
+          </div> 
+          <div class="tab-pane fade" role="tabpanel" id="profile" aria-labelledby="profile-tab">
+            
+             
+            <div class="modal-body">
+                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                      <div class="btn-group" role="group">
+                        <a href="<%= user_facebook_omniauth_authorize_path %>" class="btn btn-lg btn-facebook"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a>
+                      </div>
+                      <div class="btn-group" role="group">
+                        <a href="<%= user_google_oauth2_omniauth_authorize_path %>" class="btn btn-lg btn-google"><i class="fa fa-google-plus" aria-hidden="true"></i>Google</a>
+                      </div>
+                  </div>
+                  <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <a href="<%= user_twitter_omniauth_authorize_path %>" class="btn btn-lg btn-twitter"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a>
+                      </div>
+                      <div class="btn-group" role="group">
+                        <a href="<%= user_vkontakte_omniauth_authorize_path %>" class="btn btn-lg btn-vkontakte"><i class="fa fa-vk" aria-hidden="true"></i>Vkontakte</a>
+                      </div>
+                  </div>
+                  <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                      <div class="btn-group" role="group">
+                        <a href="<%= new_user_registration_path %>" class="btn btn-lg btn-email">Регистрация</a>
+                      </div>
+                  </div>
+            </div>
+            
+             
+          </div>  
+        </div> 
+      </div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
