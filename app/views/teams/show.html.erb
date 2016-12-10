@@ -9,19 +9,19 @@
         <div class="team-deliver"></div>
 
         <div class="team-general-info-title">Президент</div>
-        <div class="team-general-info-description">Игорь Тихоненко</div>
+        <div class="team-general-info-description"><%= (team_info @team.name)[1] %></div>
 
         <div class="team-general-info-title">Главный тренер</div>
-        <div class="team-general-info-description">Толстяк Геникомастиевич</div>
+        <div class="team-general-info-description"><%= (team_info @team.name)[2] %></div>
 
         <div class="team-general-info-title">Город</div>
-        <div class="team-general-info-description">Купянск</div>
+        <div class="team-general-info-description"><%= (team_info @team.name)[3] %></div>
 
         <div class="team-general-info-title">Стадион</div>
-        <div class="team-general-info-description">Спортик</div>
+        <div class="team-general-info-description"><%= (team_info @team.name)[4] %></div>
 
         <div class="team-general-info-title">Год основания</div>
-        <div class="team-general-info-description">1989</div>
+        <div class="team-general-info-description"><%= (team_info @team.name)[5] %></div>
 
         <% if @team.market_value != 'empty' %>
             <div class="team-general-info-title">Рыночная стоимость</div>
@@ -30,7 +30,7 @@
         <div class="team-deliver"></div>
 
         <div class="team-general-info-title">Сайт клуба</div>
-        <div class="team-general-info-description">lol.com</div>
+        <div class="team-general-info-description"><a href="<%= (team_info @team.name)[6] %>" target="_blank"><%= (team_info @team.name)[6].split('/')[2] %></a></div>
     </div>
 
     <div class="col-md-6 team-col team-col-second">
