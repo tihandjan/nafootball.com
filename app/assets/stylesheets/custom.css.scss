@@ -44,6 +44,30 @@ p::selection {
 p::-moz-selection {
   background: #69a6a6; /* FireFox */
 }
+h1::selection {
+  background: #69a6a6; /* Safari, Chrome, Opera */
+}
+h1::-moz-selection {
+  background: #69a6a6; /* FireFox */
+}
+h2::selection {
+  background: #69a6a6; /* Safari, Chrome, Opera */
+}
+h2::-moz-selection {
+  background: #69a6a6; /* FireFox */
+}
+h3::selection {
+  background: #69a6a6; /* Safari, Chrome, Opera */
+}
+h3::-moz-selection {
+  background: #69a6a6; /* FireFox */
+}
+strong::selection {
+  background: #69a6a6; /* Safari, Chrome, Opera */
+}
+strong::-moz-selection {
+  background: #69a6a6; /* FireFox */
+}
 hr {
     border-top: 1px solid #9e9e9e;
     margin-top: 0;
