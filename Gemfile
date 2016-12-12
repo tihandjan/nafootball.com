@@ -102,3 +102,6 @@ gem 'delayed_job_active_record'
 
 # voting system
 gem 'acts_as_votable', '~> 0.10.0'
+
+# seo tools
+gem 'meta-tags'

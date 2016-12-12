@@ -29,6 +29,26 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     @news = Article.order('created_at DESC').where(category: 'news', league: params[:league_id]).all_except(@article).first(15)
+
+    set_meta_tags title: @article.title,
+                  site: 'nafootball.com',
+                  reverse: true,
+                  description: @article.summary,
+                  keywords: 'футбол, онлайн, таблица, результаты, расписание, новости, трансферы, голы, видео',
+                  twitter: {
+                      card: "summary_large_image",
+                      site: "@nafootball",
+                      title: @article.title,
+                      description: @article.summary,
+                      image: @article.picture.url
+                  },
+                  og: {
+                      title: @article.title,
+                      description: @article.summary,
+                      type: 'website',
+                      url: league_article_path(@article.league, @article),
+                      image: @article.picture.url
+                  }
   end
     
 end

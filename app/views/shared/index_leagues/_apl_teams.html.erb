@@ -37,7 +37,11 @@
         </div>
    </div>
    <div class="container-fluid leagues-submenu-container">
-        <h1 class="league-h1"><span class="hidden-xs">Английская Премьер Лига</span></h1>
+        <% if @is_not_index %>
+            <h2 class="league-h1"><span class="hidden-xs">АПЛ</span></h2>
+        <% else %>
+            <h1 class="league-h1"><span class="hidden-xs">АПЛ</span></h1>
+        <% end %>
         <a href="<%= fixtures_league_path('apl') %>" class="league-col">Календарь</a>
         <a href="<%= results_league_path('apl') %>" class="league-col">Результаты</a>
         <a href="<%= table_league_path('apl') %>" class="league-col">Таблица</a>

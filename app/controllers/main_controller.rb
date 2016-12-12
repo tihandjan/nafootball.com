@@ -8,6 +8,25 @@ class MainController < ApplicationController
         @videos = Video.order('created_at DESC').first(5)
         @table = Table.all
         @teams = Team.all
+        set_meta_tags title: 'Новости футбола, онлайн трасляции, повторы матчей',
+                      site: 'nafootball.com',
+                      reverse: true,
+                      description: 'Футбол сегодня, последние новости, результаты матчей, таблица результатов, смотреть в повторе, обзоры, и многое другое на nafootball.com',
+                      keywords: 'футбол, онлайн, таблица, результаты, расписание, новости, трансферы, голы, видео',
+                      twitter: {
+                          card: "summary_large_image",
+                          site: "@nafootball",
+                          title: "Новости футбола, онлайн трасляции, повторы матчей",
+                          description: "Футбол сегодня, последние новости, результаты матчей, таблица результатов, смотреть в повторе, обзоры, и многое другое на nafootball.com",
+                          image: @articles.last.picture.url
+                      },
+                      og: {
+                          title: "Новости футбола, онлайн трасляции, повторы матчей",
+                          description: "Футбол сегодня, последние новости, результаты матчей, таблица результатов, смотреть в повторе, обзоры, и многое другое на nafootball.com",
+                          type: 'website',
+                          url: root_url,
+                          image: @articles.last.picture.url
+                      }
     end
     
     def change_my_team

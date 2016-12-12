@@ -37,7 +37,11 @@
     </div>
 </div>
 <div class="container-fluid leagues-submenu-container">
-    <h1 class="league-h1"><span class="hidden-xs">Чемпионат Италии</span></h1>
+    <% if @is_not_index %>
+        <h2 class="league-h1"><span class="hidden-xs">Серия А</span></h2>
+    <% else %>
+        <h1 class="league-h1"><span class="hidden-xs">Серия А</span></h1>
+    <% end %>
     <a href="<%= fixtures_league_path('seria-a') %>" class="league-col">Календарь</a>
     <a href="<%= results_league_path('seria-a') %>" class="league-col">Результаты</a>
     <a href="<%= table_league_path('seria-a') %>" class="league-col">Таблица</a>
