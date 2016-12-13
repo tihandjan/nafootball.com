@@ -7,6 +7,7 @@ class Video < ActiveRecord::Base
     validates :code, presence: true
     validates :league, presence: true
     validates :picture, presence: true
+    validates :image_alt, presence: true
 
     accepts_nested_attributes_for :tags
     accepts_nested_attributes_for :taggings

@@ -1,4 +1,4 @@
-<% provide(:title, @article.title) %>
+
 
 
 <div class="row">
@@ -17,13 +17,13 @@
                     <a class="social-btn pocket pocket-btn" href="#"><i class="fa fa-get-pocket" aria-hidden="true"></i></a>
                 </div>
                 <!-- social-media end -->
-                <%= image_tag @article.picture, alt: '', class: 'img-responsive' %>
+                <%= image_tag @article.picture, alt: @article.image_alt, class: 'img-responsive' %>
             </div>
             <h2 class="show-article-summary"><%= @article.summary %></h2>
             <p class="show-article-description"><%= @article.description %></p>
             <% @article.pictures.each do |subarticle| %>
                 <div class="show-article-image">
-                    <%= image_tag subarticle.picture, class: 'img-responsive' %>
+                    <%= image_tag subarticle.picture, alt: subarticle.image_alt, class: 'img-responsive' %>
                 </div>
                 <div class="show-article-description">
                     <p><%= raw simple_format(subarticle.description) %></p>
@@ -55,7 +55,7 @@
                         <div class="col-sm-4 three-article">
                             <a class="a-article" href="<%= article_path(article) %>">
                                 <div class="thumbnail">
-                                    <div class="image-wrapper"><%= image_tag(article.picture.url(:mini), :alt => 'football') %></div>
+                                    <div class="image-wrapper"><%= image_tag(article.picture.url(:mini), :alt => alt: article.image_alt) %></div>
                                     <div class="caption custom-caption">
                                         <h3><strong><%= truncate(article.title, length: 55) %></strong></h3>
                                         <p><%= truncate(article.summary,length: 90) %></p>

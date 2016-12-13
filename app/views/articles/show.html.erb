@@ -17,7 +17,7 @@
                     <a class="social-btn pocket pocket-btn" onclick="$('.ssb-google_plus').click();"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
                 </div>
                 <!-- social-media end -->
-                <%= image_tag @article.picture, alt: '', class: 'img-responsive' %>
+                <%= image_tag @article.picture, alt: @article.image_alt, class: 'img-responsive' %>
             </div>
             <h2 class="show-article-summary"><strong><%= @article.summary %></strong></h2>
             <div class="show-article-description">
@@ -25,7 +25,7 @@
             </div>
             <% @article.pictures.each do |subarticle| %>
                 <div class="show-article-image">
-                    <%= image_tag subarticle.picture, class: 'img-responsive' %>
+                    <%= image_tag subarticle.picture, class: 'img-responsive', alt: subarticle.image_alt %>
                 </div>
                 <div class="show-article-description">
                     <p><%= raw simple_format(subarticle.description) %></p>
@@ -68,7 +68,7 @@
                         <div class="col-sm-4 three-article">
                             <a class="a-article" href="<%= league_article_path(article.league, article) %>">
                                 <div class="thumbnail">
-                                    <div class="image-wrapper"><%= image_tag(article.picture.url(:mini), :alt => 'football') %></div>
+                                    <div class="image-wrapper"><%= image_tag(article.picture.url(:mini), :alt => article.image_alt) %></div>
                                     <div class="caption custom-caption">
                                         <h3 class="index-h3"><strong><%= truncate(article.title, length: 55) %></strong></h3>
                                         <p><%= truncate(article.summary,length: 90) %></p>

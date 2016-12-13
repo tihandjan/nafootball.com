@@ -36,7 +36,7 @@
                     <div class="col-sm-3 three-article">
                         <a class="a-article" href="<%= league_video_path(video.league, video) %>">
                             <div class="thumbnail">
-                                <div class="image-wrapper"><%= image_tag(video.picture.url(:mini), :alt => 'football', class: 'img-responsive') %></div>
+                                <div class="image-wrapper"><%= image_tag(video.picture.url(:mini), :alt => video.image_alt, class: 'img-responsive') %></div>
                                 <div class="caption custom-caption">
                                     <h3 class="video-three-article-title"><strong><%= truncate(video.title, length: 60) %></strong></h3>
                                     <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(video.created_at, "%d %B %Y") %></i></span> 

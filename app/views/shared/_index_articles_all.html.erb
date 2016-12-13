@@ -49,7 +49,7 @@
 		<div class="list-group">
 			<% @articles.each do |article| %>
 				<a href="<%= league_article_path(article.league, article) %>" class="list-group-item clearfix">
-					<%= image_tag(article.picture.url(:mini), alt: '', class: 'img-responsive') %>
+					<%= image_tag(article.picture.url(:mini), alt: article.image_alt, class: 'img-responsive') %>
 					<span class="time"><i><%= Russian::strftime(article.created_at, "%d %B %Y") %></i></span>
 					<h3 class="list-group-item-heading"><%= article.title %></h4>
 					<p class="list-group-item-text"><%= article.summary %></p>
