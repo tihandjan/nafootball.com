@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161209230537) do
+ActiveRecord::Schema.define(version: 20161213122709) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -51,12 +51,15 @@ ActiveRecord::Schema.define(version: 20161209230537) do
     t.string   "title"
     t.string   "summary"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "category"
     t.string   "team"
     t.string   "source"
     t.string   "league"
+    t.string   "team_second"
+    t.string   "image_alt"
+    t.boolean  "main",        default: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -123,6 +126,7 @@ ActiveRecord::Schema.define(version: 20161209230537) do
     t.integer  "article_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "image_alt"
   end
 
   add_index "pictures", ["article_id"], name: "index_pictures_on_article_id"

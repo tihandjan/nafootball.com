@@ -8,6 +8,7 @@ class Article < ActiveRecord::Base
     validates :description, presence: true, length: { minimum: 10, maximum: 10000 }
     validates :picture, presence: true
     validates :league, presence: true
+    validates :image_alt, presence: true
     mount_uploader :picture, PictureUploader
     accepts_nested_attributes_for :pictures
     accepts_nested_attributes_for :tags

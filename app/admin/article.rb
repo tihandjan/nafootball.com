@@ -1,7 +1,7 @@
 ActiveAdmin.register Article do
 
 
-permit_params :league, :category, :title, :summary, :description, :picture, :source, :team, pictures_attributes: [:picture, :description], tags_attributes: [:name], taggings_attributes: [:article_id, :tag_id]
+permit_params :league, :category, :title, :summary, :description, :picture, :source, :image_alt, :main, :team, pictures_attributes: [:picture, :description, :image_alt], tags_attributes: [:name], taggings_attributes: [:article_id, :tag_id]
 
     index do
         column :id
@@ -19,10 +19,13 @@ permit_params :league, :category, :title, :summary, :description, :picture, :sou
         
         inputs 'Статьи/новости' do
           input :source
+          input :main, as: :boolean
           input :category, as: :select, collection: ['news', 'article'], selected: 'news'
           input :league, as: :select, collection: ['apl', 'seria-a', 'bundesliga', 'laliga', 'chempions-league']
           input :team, as: :select, collection: select_team 
+          input :team_second, as: :select, collection: select_team 
           input :picture, as: :file
+          input :image_alt
           input :title
           input :summary
           input :description
@@ -30,6 +33,7 @@ permit_params :league, :category, :title, :summary, :description, :picture, :sou
         inputs 'Добавить больше фото и контента' do
             f.has_many :pictures, new_record: 'добавить фото и контент' do |picture|
               picture.input :picture, as: :file
+              picture.input :image_alt
               picture.input :description
             end
         end
