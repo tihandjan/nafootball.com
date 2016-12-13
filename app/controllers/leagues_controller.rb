@@ -78,7 +78,7 @@ class LeaguesController < ApplicationController
   end
 
   def table
-    @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(12)
+    @news = Article.order('created_at DESC').where(category: 'news').first(12)
     @league = params[:id]
     @is_not_index = true
 
@@ -134,7 +134,7 @@ class LeaguesController < ApplicationController
   end
 
   def fixtures
-    @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(20)
+    @news = Article.order('created_at DESC').where(category: 'news').first(20)
     @fixtures = Match.order('date').where(['date > ? and league = ?', Time.current, params[:id]])
     @league = params[:id]
     @is_not_index = true
@@ -182,7 +182,7 @@ class LeaguesController < ApplicationController
   end
 
   def results
-    @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(20)
+    @news = Article.order('created_at DESC').where(category: 'news').first(20)
     @fixtures = Match.order('date DESC').where(['date < ? and league = ?', Time.current-2.hour, params[:id]])
     @league = params[:id]
     @is_not_index = true

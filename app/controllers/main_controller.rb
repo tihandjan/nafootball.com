@@ -3,7 +3,8 @@ class MainController < ApplicationController
     before_action :set_games_table_data
     before_action :set_onlain_fixtures, only: [:index, :onlain]
     def index
-        @news = Article.order('created_at DESC').where("category = 'news'").first(20)
+        @main_news = Article.order('created_at DESC').where(category: 'news', main: true).first(4)
+        @news = Article.order('created_at DESC').where(category: 'news').all_except(@main_news.map {|a| a.id}).first(20)
         @articles = Article.order('created_at DESC').where("category = 'article'").first(4)
         @videos = Video.order('created_at DESC').first(5)
         @table = Table.all

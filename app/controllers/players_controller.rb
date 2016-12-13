@@ -12,7 +12,7 @@ class PlayersController < ApplicationController
         @league = @team.league
         @teams = Team.all
         @players = @team.players
-        @news = Article.order('created_at DESC').where(team: @team.name).paginate(page: params[:page], per_page: 5)
+        @news = Article.order('created_at DESC').where('team = ? or team_second = ?', @team.name, @team.name).paginate(page: params[:page], per_page: 5)
         @is_not_index = true
         set_meta_tags title: "#{player_translater(@player.name.split("\n")[0])} биография, новости, статистика",
                       site: 'nafootball.com',

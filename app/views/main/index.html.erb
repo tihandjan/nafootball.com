@@ -11,7 +11,7 @@
             
                         
                         <div class="col-sm-7 col-line-one-first">
-                            <% @news.first(4).each do |article| %>
+                            <% @main_news.each do |article| %>
                             <%= image_tag(article.picture.url(:thumb), :alt => article.image_alt, class: 'article-four-image', id: article.id) %>
                             <% end %>
                         </div>
@@ -19,7 +19,7 @@
                         <div class="col-sm-5 col-line-one-second">
                             <div class="list-group">
     
-                                <% @news.first(4).each do |article| %>
+                                <% @main_news.each do |article| %>
                                     <a href="<%= league_article_path(article.league, article) %>" class="list-group-item list-group-custom text-left", onmouseover="$('.article-four-image').hide();$('#<%= article.id %>').show();$('.list-group-custom').css('background', 'transparent');$(this).css('background', '#2a4951')">
                                        <h3 class="list-group-item-heading"><%= truncate(article.title, length: 62) %></h4>
                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %> назад</i></span>
@@ -35,8 +35,8 @@
             <div class="row row-line-two">
                 
                     <!--copy start-->
-                <% if @news[4, 6] %>
-                    <% @news[4, 6].each do |article| %>
+                <% if @news.first(6).any? %>
+                    <% @news.first(6).each do |article| %>
                         <div class="col-sm-4 three-article">
                             <a class="a-article" href="<%= league_article_path(article.league, article) %>">
                                 <div class="thumbnail">
@@ -130,7 +130,7 @@
         (function(){
             setInterval(function(){
                 $('#onlain-submit').submit();
-            }, 240000);
+            }, 200000);
         })()
     </script>
 

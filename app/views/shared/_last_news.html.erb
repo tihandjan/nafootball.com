@@ -5,14 +5,14 @@
     <div class="panel-body" id="last-news">
         <div class="list-group">
             
-          <% if @news[point ||= 10, 13] %>  
-            <% @news[point ||= 10, 13].each do |article| %>
+          <% if @news[point ||= 6, 14] %>  
+            <% @news[point ||= 6, 14].each do |article| %>
             <a href="<%= league_article_path(article.league, article) %>" class="list-group-item text-left">
               <h4 class="list-group-item-heading"><%= truncate(article.title, length: 120) %></h4>
                <i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %> назад</i> 
             </a>
             <% end %>
           <% end %>
-        </div> 
+        </div>  
     </div> 
 </div>
