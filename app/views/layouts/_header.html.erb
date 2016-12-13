@@ -1,7 +1,7 @@
 
   <div class="container-fluid container-fluid-custom-first">
     <div class="col-xs-2 col-sm-1 text-center search"><i class="glyphicon glyphicon-search"></i></div>
-    <div class="col-xs-4 col-sm-5 text-right logo-area hidden-xs"><h1 class="main-logo"><a href="<%= root_path %>">euro<span style="color: #69a6a6">liga</span></a></h1></div>
+    <div class="col-xs-4 col-sm-5 text-right logo-area hidden-xs"><h6 class="main-logo"><a href="<%= root_path %>">euro<span style="color: #69a6a6">liga</span></a></h6></div>
     <div class="col-xs-offset-6 header-profile text-right pull-right">
       
       <ul class="nav nav-pills">
@@ -20,16 +20,16 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Профиль<span class="caret"></span></a>
             <ul class="dropdown-menu custom-dropdown-menu">
-              <li><a href="#" class="header-link">Просмотреть</a></li>
+              <li><a href="#" class="header-link" rel="nofollow">Просмотреть</a></li>
               <% if current_user %>
-              <li><a href="<%= edit_user_path(current_user) %>">Редактировать</a></li>
+              <li><a href="<%= edit_user_path(current_user) %>" rel="nofollow">Редактировать</a></li>
               <% end %>
               <li role="separator" class="divider"></li>
-              <li><%= link_to('Выйти', destroy_user_session_path, :method => :delete) %> </li>
+              <li><%= link_to('Выйти', destroy_user_session_path, :method => :delete, :rel => 'nofollow') %> </li>
             </ul>
           </li>
         <% else %>
-          <li><a href="#" data-toggle="modal" data-target="#authModal"><i class="fa fa-user" aria-hidden="true"></i> Авторизация</a></li>
+          <li><a href="#" data-toggle="modal" data-target="#authModal" rel=="nofollow"><i class="fa fa-user" aria-hidden="true"></i> Авторизация</a></li>
         <% end %> 
       </ul>
       
@@ -184,13 +184,6 @@
             </div>
           </a>
           <ul class="dropdown-menu pull-right">
-            <li><a href="#" class="header-link">Основное</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Календарь</a></li>
-            <li><a href="#">Результаты</a></li>
-            <li><a href="#">Таблица</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Статистика</a></li>
           </ul>
         </li>
           

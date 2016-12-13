@@ -18,11 +18,11 @@
     </div>
     
     <div class="form-group">
-      <%= f.label :team, "Выберите ваш любимый клуб АПЛ" %>
+      <%= f.label :team, "Выберите ваш любимый" %><br>
       <%= f.select :team, options_for_select(select_team), {:include_blank => change_blank(current_user)}, { class: "selectpicker", "data-live-search"=>"true" } %>
     </div>
   
-    <div class="actions">
+    <div class="actions" style="margin-bottom: 15px;">
       <%= f.submit "Обновить", class: "btn btn-primary" %>
     </div>
   <% end %>

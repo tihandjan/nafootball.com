@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
-    
+    include MainHelper
+
     def index
         redirect_to root_path    
     end
@@ -15,6 +16,13 @@ class TeamsController < ApplicationController
         @table_data = Table.where(league: @team.league)
         @fixtures_prev = Match.order('date DESC').where("date BETWEEN ? AND ? and (\"homeTeamName\" = ? or \"awayTeamName\" = ?)", Time.zone.now-60.days, Time.current-2.hour, @team.name, @team.name).first(5)
         @fixtures_next = Match.order('date').where("date BETWEEN ? AND ? and (\"homeTeamName\" = ? or \"awayTeamName\" = ?)", Time.current+3.hour, Time.zone.now+60.days, @team.name, @team.name).first(5)
+        @is_not_index = true
+        set_meta_tags title: full_team_translater(@team.name),
+                      site: 'nafootball.com',
+                      reverse: true,
+                      description: "Футбольный клуб #{full_team_translater(@team.name)}, последние новости, расписание матчей, результаты, турнирное положение, состав команды, видео, рыночная стоимость на nafootball.com",
+                      keywords: 'Футбол, новости, игроки, голы, видео, повторы, таблица, клуб, стоимость',
+                      canonical: team_url(@team)
     end
 
 end

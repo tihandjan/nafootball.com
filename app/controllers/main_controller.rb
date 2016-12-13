@@ -13,6 +13,7 @@ class MainController < ApplicationController
                       reverse: true,
                       description: 'Футбол сегодня, последние новости, результаты матчей, таблица результатов, смотреть в повторе, обзоры, и многое другое на nafootball.com',
                       keywords: 'футбол, онлайн, таблица, результаты, расписание, новости, трансферы, голы, видео',
+                      canonical: root_url,
                       twitter: {
                           card: "summary_large_image",
                           site: "@nafootball",
@@ -65,6 +66,10 @@ class MainController < ApplicationController
     end
 
     def policy
+        set_meta_tags noindex: true,
+                      title: 'Правила пользования',
+                      site: 'nafootball.com',
+                      reverse: true
     end
 
     def set_games_table_data

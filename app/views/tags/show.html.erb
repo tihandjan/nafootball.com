@@ -1,7 +1,7 @@
 
     <div class="row">
         <div class="right-block col-md-9">
-        <h1 class="index-article-h1">Привет я h1 для тега <%= @h1 %></h1>
+        <h1 class="index-article-h1"><%= @h1 %></h1>
         <div class="list-group">
             <% @articles.each do |article| %>
                 <a href="<%= league_article_path(article.league, article) %>" class="list-group-item clearfix">
