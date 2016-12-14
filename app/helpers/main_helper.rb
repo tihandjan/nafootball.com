@@ -589,7 +589,9 @@ module MainHelper
       end
 
       def carma user
-          carma = user.votes.up.size - user.votes.down.size
-          sprintf("%+d", carma)
+        #   carma = user.votes.up.size - user.votes.down.size
+        #   sprintf("%+d", carma)
+        
+        sprintf("%+d", user.comments.count)
       end
 end

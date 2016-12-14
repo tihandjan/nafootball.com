@@ -42,7 +42,7 @@
         <% Article.my_team_news(cookies[:user_team]).each do |article| %>
             <a href="<%= league_article_path(article.league, article) %>" class="list-group-item text-left">
               <h4 class="list-group-item-heading"><%= truncate(article.title, length: 120) %></h4>
-               <i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %></i> 
+               <i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %> назад</i> 
             </a>
         <% end %>
     <% end %>
