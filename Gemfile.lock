@@ -93,6 +93,7 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
+    chronic (0.10.2)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -426,6 +427,8 @@ GEM
       rdoc (~> 4.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
+    sitemap_generator (5.2.0)
+      builder (~> 3.0)
     social-share-button (0.8.5)
       coffee-rails
       sass-rails
@@ -457,6 +460,8 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    whenever (0.9.7)
+      chronic (>= 0.6.3)
     will_paginate (3.1.5)
     xml-simple (1.1.5)
     xpath (2.0.0)
@@ -503,12 +508,14 @@ DEPENDENCIES
   sass-rails (>= 3.2)
   sdoc (~> 0.4.0)
   shoulda-matchers
+  sitemap_generator
   social-share-button
   spring
   sqlite3
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+  whenever
 
 RUBY VERSION
    ruby 2.3.0p0

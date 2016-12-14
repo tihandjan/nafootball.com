@@ -105,3 +105,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 
 # seo tools
 gem 'meta-tags'
+gem 'sitemap_generator'
+
+# sheldure
+gem 'whenever', :require => false
