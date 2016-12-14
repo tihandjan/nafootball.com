@@ -10,6 +10,7 @@ capybara-*.html
 /public/*.gz
 /coverage/
 /spec/tmp
+/config/*.yml
 **.orig
 rerun.txt
 pickle-email-*.html
@@ -45,4 +46,3 @@ bower.json
 # Ignore Byebug command history file.
 .byebug_history
 /.c9
-/config/*.yml
