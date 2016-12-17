@@ -1,6 +1,6 @@
 <div class="container-fluid leagues-team-container">
         <div class="col-md-6 league-col">
-            <% if (@teams = show_team_list_first_half('apl', 'first')).any? %>
+            <% if !(@teams = show_team_list_first_half('apl', 'first')).blank? %>
                 <% @teams.each do |team| %>
                     <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
                 <% end %>
@@ -18,7 +18,7 @@
             <% end %>
         </div>
         <div class="col-md-6 league-col">
-            <% if (@teams = show_team_list_first_half('apl', 'second')).any? %>
+            <% if !(@teams = show_team_list_first_half('apl', 'second')).blank? %>
                 <% @teams.each do |team| %>
                     <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
                 <% end %>
@@ -26,7 +26,7 @@
                 <a href="#"><i class="sprite sprite-sunderland icon-middle"></i></a>
                 <a href="#"><i class="sprite sprite-swansea icon-middle"></i></a>
                 <a href="#"><i class="sprite sprite-crystal icon-middle"></i></a>
-                <a href="#"><i class="sprite sprite-southampto icon-middlen"></i></a>
+                <a href="#"><i class="sprite sprite-southampton icon-middle"></i></a>
                 <a href="#"><i class="sprite sprite-watford icon-middle"></i></a>
                 <a href="#"><i class="sprite sprite-burnley icon-middle"></i></a>
                 <a href="#"><i class="sprite sprite-hull_city icon-middle"></i></a>

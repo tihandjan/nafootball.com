@@ -1,5 +1,5 @@
 
-<% if !cookies[:user_team].blank? %>
+<% if !cookies[:user_team].blank? && !@teams.blank? %>
 <i style="margin: 0 auto;" class="<%= show_team_icon(cookies[:user_team]) %>"></i>
 <div><b><a style="color: inherit;" href="<%= team_path(pass_object(@teams, cookies[:user_team])) %>"><%= cookies[:user_team] %></a></b></div>
 

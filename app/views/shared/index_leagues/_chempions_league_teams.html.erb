@@ -1,6 +1,6 @@
 <div class="container-fluid leagues-team-container">
     <div class="col-md-6 league-col league-col-chempions-league">
-        <% if (@teams = show_team_list_first_half('chempions-league', 'first')).any? %>
+        <% if !(@teams = show_team_list_first_half('chempions-league', 'first')).blank? %>
             <% @teams.each do |team| %>
                 <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
             <% end %>
@@ -16,7 +16,7 @@
         <% end %>
     </div>
     <div class="col-md-6 league-col league-col-chempions-league">
-        <% if (@teams = show_team_list_first_half('chempions-league', 'second')).any? %>
+        <% if !(@teams = show_team_list_first_half('chempions-league', 'second')).blank? %>
             <% @teams.each do |team| %>
                 <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
             <% end %>
@@ -32,7 +32,7 @@
         <% end %>
     </div>
     <div class="col-md-6 league-col league-col-chempions-league">
-        <% if (@teams = show_team_list_first_half('chempions-league', 'third')).any? %>
+        <% if !(@teams = show_team_list_first_half('chempions-league', 'third')).blank? %>
             <% @teams.each do |team| %>
                 <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
             <% end %>
@@ -48,7 +48,7 @@
         <% end %>
     </div>
     <div class="col-md-6 league-col league-col-chempions-league">
-        <% if (@teams = show_team_list_first_half('chempions-league', 'fourth')).any? %>
+        <% if !(@teams = show_team_list_first_half('chempions-league', 'fourth')).blank? %>
             <% @teams.each do |team| %>
                 <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
             <% end %>

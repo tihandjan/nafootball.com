@@ -3,10 +3,11 @@
    <div class="row">
        
        <h1 class="main-h1">Футбол Сегодня</h1>
-   <hr class="main-hr"> 
+       <hr class="main-hr"> 
        <div class="col-md-9 right-block">
-           
-           <div class="statiy-title"><a href="<%= league_news_index_path('all') %>">Новости</a></div>
+           <% if @main_news.any? %>
+                <div class="statiy-title"><a href="<%= league_news_index_path('all') %>">Новости</a></div>
+           <% end %>
             <div class="row row-line-one">
             
                         
@@ -54,8 +55,9 @@
                 <!--end-->
                 
             </div>
-            
-                <div class="statiy-title"><a href="<%= league_articles_path('all') %>"> Статьи</a></div>
+                <% if @articles.any? %>
+                    <div class="statiy-title"><a href="<%= league_articles_path('all') %>"> Статьи</a></div>
+                <% end %>
             <div class="row row-article">
         
                 <% @articles.each do |article| %>
@@ -74,8 +76,9 @@
                 <% end %>
             </div>
             
-            
-            <div class="statiy-title"><a href="<%= league_videos_path('all') %>"> Видео</a></div>
+            <% if @videos.any? %>
+                <div class="statiy-title"><a href="<%= league_videos_path('all') %>"> Видео</a></div>
+            <% end %>
             <div class="row row-line-two video">
                 
                 <% if @videos.any? %>

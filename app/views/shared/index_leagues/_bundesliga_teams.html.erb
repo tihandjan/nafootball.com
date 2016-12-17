@@ -1,6 +1,6 @@
 <div class="container-fluid leagues-team-container">
     <div class="col-md-6 league-col league-col-bundesliga">
-        <% if (@teams = show_team_list_first_half('bundesliga', 'first')).any? %>
+        <% if !(@teams = show_team_list_first_half('bundesliga', 'first')).blank? %>
             <% @teams.each do |team| %>
                 <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
             <% end %>
@@ -17,7 +17,7 @@
         <% end %>
     </div>
     <div class="col-md-6 league-col league-col-bundesliga">
-        <% if (@teams = show_team_list_first_half('bundesliga', 'second')).any? %>
+        <% if !(@teams = show_team_list_first_half('bundesliga', 'second')).blank? %>
             <% @teams.each do |team| %>
                 <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
             <% end %>
