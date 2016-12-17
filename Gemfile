@@ -111,4 +111,7 @@ gem 'meta-tags'
 gem 'sitemap_generator'
 
 # sheldure
-gem 'whenever', :require => false
+gem 'whenever'
+
+# helper gems for solving capistrano problems
+gem 'therubyracer'
