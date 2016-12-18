@@ -70,18 +70,18 @@ class User < ActiveRecord::Base
       end
       user
     else
-      if self.where(email: access_token.info.email).exists?
-        user = self.where(email: access_token.info.email).first
-        user.provider = access_token.provider
-        user.uid = access_token.uid
-        user.avatarc = access_token.info.image
+      if self.where(email: auth.info.email).exists?
+        user = self.where(email: auth.info.email).first
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.avatarc = auth.info.image
       else
         user = self.create do |user|
-        user.provider = access_token.provider
-        user.uid = access_token.uid
-        user.username = access_token.extra.raw_info.name
-        user.email = access_token.info.email
-        user.avatarc = access_token.info.image
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.username = auth.extra.raw_info.name
+        user.email = auth.info.email
+        user.avatarc = auth.info.image
         user.password = Devise.friendly_token[0,20]
         end
       end  
