@@ -1,6 +1,6 @@
 class MainController < ApplicationController
     skip_before_action :verify_authenticity_token
-    before_action :set_games_table_data
+    # before_action :set_games_table_data
     before_action :set_onlain_fixtures, only: [:index, :onlain]
     def index
         @main_news = Article.order('created_at DESC').where(category: 'news', main: true).first(4)
@@ -71,11 +71,11 @@ class MainController < ApplicationController
                       reverse: true
     end
 
-    def set_games_table_data
-        if Delayed::Job.count == 0
-            Match.delay.set_games
-            Table.delay.set_table_data
-        end
-    end
+    # def set_games_table_data
+    #     if Delayed::Job.count == 0
+    #         Match.delay.set_games
+    #         Table.delay.set_table_data
+    #     end
+    # end
  
 end

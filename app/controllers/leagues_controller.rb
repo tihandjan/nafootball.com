@@ -1,6 +1,6 @@
 class LeaguesController < ApplicationController
 
-  before_action :set_games_table_data
+  # before_action :set_games_table_data
   before_action :set_onlain_fixtures, only: [:show]
 
   def index
@@ -229,12 +229,12 @@ class LeaguesController < ApplicationController
     end
   end
 
-  def set_games_table_data
-    if Delayed::Job.count == 0
-        Match.delay.set_games
-        Table.delay.set_table_data
-    end
-  end
+  # def set_games_table_data
+  #   if Delayed::Job.count == 0
+  #       Match.delay.set_games
+  #       Table.delay.set_table_data
+  #   end
+  # end
 
   def set_onlain_fixtures
       @fixtures_en = Match.where(["DATE(date) = ? and league = ?", Time.current+2.hours, 'apl'])
