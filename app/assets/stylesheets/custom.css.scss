@@ -79,6 +79,7 @@ a {
 }
 .main-hr {
     margin-bottom: 10px;
+    visibility: hidden;
 }
 .glyphicon-time {
     margin-right: 3px;
@@ -558,6 +559,9 @@ a {
     .left-block {
         padding-left: 15px;
         padding-right: 15px;
+    }
+    .main-h1 {
+        margin-left: 15px;
     }
 }
 
