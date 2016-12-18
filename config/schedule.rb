@@ -25,7 +25,11 @@ every 1.day, :at => '5:00 am' do
   rake "-s sitemap:refresh"
 end
 
+every 1.hours do
+  runner "Table.set_table_data"
+end
+
 every 4.minute do
-  runner "FixturesapiHelper.set_table"
+  runner "Match.set_games"
 end
 
