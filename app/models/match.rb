@@ -14,19 +14,19 @@ class Match < ActiveRecord::Base
             self.transaction do
                 @data = []
                 @response_en['fixtures'].each do |data|
-                    @data << self.new(homeTeamName: if_nul(data['homeTeamName']),awayTeamName: if_nul(data['awayTeamName']),date: if_nul(data['date']),status: if_nul(data['status']),selfFixtures: if_nul(data['_links']['self']['href']),matchday: if_nul(data['matchday']),goalsHomeTeam: if_nul(data['result']['goalsHomeTeam']),goalsAwayTeam: if_nul(data['result']['goalsAwayTeam']), league: 'apl') 
+                    @data << self.new(homeTeamName: if_nul(data['homeTeamName']),awayTeamName: if_nul(data['awayTeamName']),date: if_nul(data['date'].to_time),status: if_nul(data['status']),selfFixtures: if_nul(data['_links']['self']['href']),matchday: if_nul(data['matchday']),goalsHomeTeam: if_nul(data['result']['goalsHomeTeam']),goalsAwayTeam: if_nul(data['result']['goalsAwayTeam']), league: 'apl') 
                 end
                 @response_sp['fixtures'].each do |data|
-                    @data << self.new(homeTeamName: if_nul(data['homeTeamName']),awayTeamName: if_nul(data['awayTeamName']),date: if_nul(data['date']),status: if_nul(data['status']),selfFixtures: if_nul(data['_links']['self']['href']),matchday: if_nul(data['matchday']),goalsHomeTeam: if_nul(data['result']['goalsHomeTeam']),goalsAwayTeam: if_nul(data['result']['goalsAwayTeam']), league: 'laliga') 
+                    @data << self.new(homeTeamName: if_nul(data['homeTeamName']),awayTeamName: if_nul(data['awayTeamName']),date: if_nul(data['date'].to_time),status: if_nul(data['status']),selfFixtures: if_nul(data['_links']['self']['href']),matchday: if_nul(data['matchday']),goalsHomeTeam: if_nul(data['result']['goalsHomeTeam']),goalsAwayTeam: if_nul(data['result']['goalsAwayTeam']), league: 'laliga') 
                 end
                 @response_it['fixtures'].each do |data|
-                    @data << self.new(homeTeamName: if_nul(data['homeTeamName']),awayTeamName: if_nul(data['awayTeamName']),date: if_nul(data['date']),status: if_nul(data['status']),selfFixtures: if_nul(data['_links']['self']['href']),matchday: if_nul(data['matchday']),goalsHomeTeam: if_nul(data['result']['goalsHomeTeam']),goalsAwayTeam: if_nul(data['result']['goalsAwayTeam']), league: 'seria-a')
+                    @data << self.new(homeTeamName: if_nul(data['homeTeamName']),awayTeamName: if_nul(data['awayTeamName']),date: if_nul(data['date'].to_time),status: if_nul(data['status']),selfFixtures: if_nul(data['_links']['self']['href']),matchday: if_nul(data['matchday']),goalsHomeTeam: if_nul(data['result']['goalsHomeTeam']),goalsAwayTeam: if_nul(data['result']['goalsAwayTeam']), league: 'seria-a')
                 end
                 @response_ge['fixtures'].each do |data|
-                    @data << self.new(homeTeamName: if_nul(data['homeTeamName']),awayTeamName: if_nul(data['awayTeamName']),date: if_nul(data['date']),status: if_nul(data['status']),selfFixtures: if_nul(data['_links']['self']['href']),matchday: if_nul(data['matchday']),goalsHomeTeam: if_nul(data['result']['goalsHomeTeam']),goalsAwayTeam: if_nul(data['result']['goalsAwayTeam']), league: 'bundesliga')
+                    @data << self.new(homeTeamName: if_nul(data['homeTeamName']),awayTeamName: if_nul(data['awayTeamName']),date: if_nul(data['date'].to_time),status: if_nul(data['status']),selfFixtures: if_nul(data['_links']['self']['href']),matchday: if_nul(data['matchday']),goalsHomeTeam: if_nul(data['result']['goalsHomeTeam']),goalsAwayTeam: if_nul(data['result']['goalsAwayTeam']), league: 'bundesliga')
                 end
                 @response_cl['fixtures'].each do |data|
-                    @data << self.new(homeTeamName: if_nul(data['homeTeamName']),awayTeamName: if_nul(data['awayTeamName']),date: if_nul(data['date']),status: if_nul(data['status']),selfFixtures: if_nul(data['_links']['self']['href']),matchday: if_nul(data['matchday']),goalsHomeTeam: if_nul(data['result']['goalsHomeTeam']),goalsAwayTeam: if_nul(data['result']['goalsAwayTeam']), league: 'chempions-league')
+                    @data << self.new(homeTeamName: if_nul(data['homeTeamName']),awayTeamName: if_nul(data['awayTeamName']),date: if_nul(data['date'].to_time),status: if_nul(data['status']),selfFixtures: if_nul(data['_links']['self']['href']),matchday: if_nul(data['matchday']),goalsHomeTeam: if_nul(data['result']['goalsHomeTeam']),goalsAwayTeam: if_nul(data['result']['goalsAwayTeam']), league: 'chempions-league')
                 end
 
                 self.import @data, validate: false
