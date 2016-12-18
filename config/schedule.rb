@@ -29,7 +29,7 @@ every 1.hours do
   runner "Table.set_table_data"
 end
 
-every 4.minute do
+every 2.minute do
   runner "Match.set_games"
 end
 
