@@ -4,18 +4,18 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
   
-  # storage :fog
+  storage :fog
   
   # include CarrierWave::MiniTypes
   # process :set_content_type
  
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
+  # def store_dir
+  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  # end
 
-  def cache_dir
-    Rails.env.test? ? "#{Rails.root}/tmp/spec/uploads/tmp/uploads" : "#{Rails.root}/tmp/uploads"
-  end
+  # def cache_dir
+  #   Rails.env.test? ? "#{Rails.root}/tmp/spec/uploads/tmp/uploads" : "#{Rails.root}/tmp/uploads"
+  # end
   
   
     process :resize_to_fit => [150, 150]
