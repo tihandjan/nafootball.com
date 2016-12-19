@@ -22,7 +22,6 @@ role :web, %w{deployer@138.68.90.35}
 role :db,  %w{deployer@138.68.90.35}, primary: true
 
 set :rails_env, :production
-
 set :stage, :production
 
 # Configuration
