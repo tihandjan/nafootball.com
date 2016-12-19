@@ -39,12 +39,12 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   # put this into an environment variable so that we can use the same for staging and production
-  host = 'localhost:3000'
+  host = '138.68.90.35'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
-    :user_name => ENV['SENDGRID_USERNAME'],
-    :password  => ENV['SENDGRID_PASSWORD'],
-    :domain => 'euroliga.com',
+    :user_name => Rails.application.secrets.sendgrid_username,
+    :password  => Rails.application.secrets.sendgrid_password,
+    :domain => 'nafootball.com',
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
@@ -52,7 +52,7 @@ Rails.application.configure do
   }
 
   config.action_mailer.default_options = {
-    from: "no-reply@euroliga.com"
+    from: "no-reply@nafootball.com"
   }
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
