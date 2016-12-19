@@ -15,7 +15,7 @@ class LeaguesController < ApplicationController
     if params[:id] == 'seria-a'
       @table_data = Table.where(league: params[:id])
       @table_name = 'Серия А Таблица'
-      @h2 = 'Английский футбол'
+      @h2 = 'Итальянский футбол'
       set_meta_tags title: 'Чемпионат Италии по футболу, онлайн трансляции',
                     site: 'nafootball',
                     reverse: true,
