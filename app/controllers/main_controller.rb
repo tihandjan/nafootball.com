@@ -19,13 +19,15 @@ class MainController < ApplicationController
                           card: "summary_large_image",
                           site: "@nafootball",
                           title: "Новости футбола, онлайн трасляции, повторы матчей",
-                          description: "Футбол сегодня, последние новости, результаты матчей, таблица результатов, смотреть в повторе, обзоры, и многое другое на nafootball.com"
+                          description: "Футбол сегодня, последние новости, результаты матчей, таблица результатов, смотреть в повторе, обзоры, и многое другое на nafootball.com",
+                          image: "http://nafootball.com/#{@main_news.first.picture.url}"
                       },
                       og: {
                           title: "Новости футбола, онлайн трасляции, повторы матчей",
                           description: "Футбол сегодня, последние новости, результаты матчей, таблица результатов, смотреть в повторе, обзоры, и многое другое на nafootball.com",
                           type: 'website',
-                          url: root_url
+                          url: root_url,
+                          image: "http://nafootball.com/#{@main_news.first.picture.url}"
                       }
     end
     
