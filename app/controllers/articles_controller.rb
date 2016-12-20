@@ -69,7 +69,7 @@ class ArticlesController < ApplicationController
                   canonical: league_article_url(@article.league, @article),
                   twitter: {
                       card: "summary_large_image",
-                      site: "@nafootball",
+                      site: "@nafootball_com",
                       title: @article.title,
                       description: @article.summary,
                       image: "http://nafootball.com#{@article.picture.url}"

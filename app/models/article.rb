@@ -28,6 +28,7 @@ class Article < ActiveRecord::Base
 
     if Rails.env.production?
         after_create :fb_page_post
+        after_create :twitter_post
         def fb_page_post
                 # oauth = Koala::Facebook::OAuth.new('549133155280089', '0977f0831e25d61eddbe2bd3b5227896')
                 # long_live_access_token = oauth.exchange_access_token('EAAHzbwanpNkBAC2atjjI4XZC3ColFcOEyq4nSeuIwtRLuFdmBoPUo25VEZBDEZAGKOdKZAI6AECBrtvZBY8cbBJUzIgcb622NikW3nlORHykD1lbcdOlxLD8fYyy9ZCZAcY7ZBBdEfTtmFZBeg7SpcwthBOuZCZBMd75o7N1fZA0OHeyyQZDZD')
@@ -44,6 +45,20 @@ class Article < ActiveRecord::Base
 
             })
         end
+        def twitter_post
+            begin
+            client = Twitter::REST::Client.new do |config|
+                config.consumer_key        = "NzO3p13LKOVQkBoU0r5y5Air0"
+                config.consumer_secret     = "M1LQAA08SpjDGRvWVWESUYHQhAsFZ2hUKfFQxevIqGebIJywOG"
+                config.access_token="3547350743-xwu8igclJuxppTG5mL4clGPnIGvuRkNfFrkoYq4"
+                config.access_token_secret="qUyd8S3721AXt0h2JRe58itaYY2UeNeJWurLt6Al6waKY"
+            end
+            client.update_with_media("http://nafootball.com #{self.summary[0...115]}", open("http://nafootball.com#{Article.last.picture.url}"))
+            rescue Exception => exc
+            @message = exc.message
+            end
+        end
     end
+
     
 end

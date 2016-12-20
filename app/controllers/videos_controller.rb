@@ -72,7 +72,7 @@ class VideosController < ApplicationController
                       keywords: 'Спорт, видео, бесплатно, клипы, футбол, чемпионат, интервью, основные моменты, УЕФА, Чемпионов, Лиги, онлайн, в повторе, запись',
                       twitter: {
                           card: "summary_large_image",
-                          site: "@nafootball",
+                          site: "@nafootball_com",
                           title: @video.title,
                           description: "Смотреть матчи в записи, обзоры, превью, повторы голов, футбольные ток шоу от nafootball.com",
                           image: "http://nafootball.com#{@video.picture.url}"

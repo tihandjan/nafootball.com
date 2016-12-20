@@ -14,10 +14,10 @@ class PlayersController < ApplicationController
         @players = @team.players
         @news = Article.order('created_at DESC').where('team = ? or team_second = ?', @team.name, @team.name).paginate(page: params[:page], per_page: 5)
         @is_not_index = true
-        set_meta_tags title: "#{player_translater(@player.name.split("\n")[0])} биография, новости, статистика",
+        set_meta_tags title: "#{player_translater((@player.name.split("\n")[0]), 1)} биография, новости, статистика",
                       site: 'nafootball.com',
                       reverse: true,
-                      description: "Просмотреть профиль игрока #{full_team_translater(@team.name)} #{player_translater(@player.name.split("\n")[0])}, включая статистику и рыночную стоимость от nafootball.com",
+                      description: "Просмотреть профиль игрока #{full_team_translater(@team.name)} #{player_translater((@player.name.split("\n")[0]), 4)}, включая статистику и рыночную стоимость от nafootball.com",
                       keywords: 'Футбол, новости, игроки, голы, видео, повторы, таблица, клуб, стоимость',
                       canonical: player_url(@player)
     end

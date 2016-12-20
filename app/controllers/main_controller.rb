@@ -17,7 +17,7 @@ class MainController < ApplicationController
                       canonical: root_url,
                       twitter: {
                           card: "summary_large_image",
-                          site: "@nafootball",
+                          site: "@nafootball_com",
                           title: "Новости футбола, онлайн трасляции, повторы матчей",
                           description: "Футбол сегодня, последние новости, результаты матчей, таблица результатов, смотреть в повторе, обзоры, и многое другое на nafootball.com",
                           image: ("http://nafootball.com#{@main_news.first.picture.url}" if @main_news.first.presence)

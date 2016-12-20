@@ -1,6 +1,6 @@
 ActiveAdmin.register Video do
 
-permit_params :title, :picture, :team_first, :team_second, :code, :league, :image_alt, tags_attributes: [:name], taggings_attributes: [:video_id, :tag_id]
+permit_params :title, :picture, :team_first, :team_second, :code, :time, :league, :image_alt, tags_attributes: [:name], taggings_attributes: [:video_id, :tag_id]
 
     index do
         column :id
@@ -17,6 +17,7 @@ permit_params :title, :picture, :team_first, :team_second, :code, :league, :imag
           input :league, as: :select, collection: ['apl', 'seria-a', 'bundesliga', 'laliga', 'chempions-league']
           input :team_first, as: :select, collection: select_team 
           input :team_second, as: :select, collection: select_team 
+          input :time
           input :picture, as: :file
           input :image_alt
           input :code

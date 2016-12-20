@@ -162,7 +162,7 @@
                     <% @players.each do |player| %>
                         <% if (player_position(player, 'вратари')) %>
                             <div class="row player-info">
-                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater(player.name.split("\n")[0]), length: 20, omission: ' ') %></a></div>
+                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater((player.name.split("\n")[0]), 1), length: 20, omission: ' ') %></a></div>
                                 <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
                             </div>
                             <span class="footballer-deliver"></span>
@@ -174,7 +174,7 @@
                     <% @players.each do |player| %>
                         <% if (player_position(player, 'защита')) %>
                             <div class="row player-info">
-                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater(player.name.split("\n")[0]), length: 20, omission: ' ') %></a></div>
+                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater((player.name.split("\n")[0]), 1), length: 20, omission: ' ') %></a></div>
                                 <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
                             </div>
                             <span class="footballer-deliver"></span>
@@ -186,7 +186,7 @@
                     <% @players.each do |player| %>
                         <% if (player_position(player, 'полузащита')) %>
                             <div class="row player-info">
-                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater(player.name.split("\n")[0]), length: 20, omission: ' ') %></a></div>
+                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater((player.name.split("\n")[0]), 1), length: 20, omission: ' ') %></a></div>
                                 <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
                             </div>
                             <span class="footballer-deliver"></span>
@@ -198,7 +198,7 @@
                     <% @players.each do |player| %>
                         <% if (player_position(player, 'нападение')) %>
                             <div class="row player-info">
-                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater(player.name.split("\n")[0]), length: 20, omission: ' ') %></a></div>
+                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater((player.name.split("\n")[0]), 1), length: 20, omission: ' ') %></a></div>
                                 <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
                             </div>
                             <span class="footballer-deliver"></span>

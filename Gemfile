@@ -91,6 +91,7 @@ gem 'bootstrap-select-rails'
 gem 'russian', '~> 0.6.0'
 
 gem "koala", "~> 2.2"
+gem 'twitter'
 gem 'bootstrap-will_paginate'
 gem 'social-share-button'
 
