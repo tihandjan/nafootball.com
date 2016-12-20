@@ -39,7 +39,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   # put this into an environment variable so that we can use the same for staging and production
-  host = 'localhost:3000'
+  host = 'http://nafootball.com'
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
     :user_name => Rails.application.secrets.sendgrid_username,
