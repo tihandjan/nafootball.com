@@ -72,14 +72,14 @@ class ArticlesController < ApplicationController
                       site: "@nafootball",
                       title: @article.title,
                       description: @article.summary,
-                      image: @article.picture.url
+                      image: "http://nafootball.com/#{@article.picture.url}"
                   },
                   og: {
                       title: @article.title,
                       description: @article.summary,
                       type: 'website',
                       url: league_article_path(@article.league, @article),
-                      image: @article.picture.url
+                      image: "http://nafootball.com/#{@article.picture.url}"
                   }
   end
     
