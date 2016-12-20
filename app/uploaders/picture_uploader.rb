@@ -5,18 +5,18 @@ class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   # include CarrierWave::ImageOptimizer
   
-  storage :fog
+  # storage :fog
   
   # include CarrierWave::MiniTypes
   # process :set_content_type
  
-  # def store_dir
-  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  # end
+  def store_dir
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
 
-  # def cache_dir
-  #   Rails.env.test? ? "#{Rails.root}/tmp/spec/uploads/tmp/uploads" : "#{Rails.root}/tmp/uploads"
-  # end
+  def cache_dir
+    Rails.env.test? ? "#{Rails.root}/tmp/spec/uploads/tmp/uploads" : "#{Rails.root}/tmp/uploads"
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
