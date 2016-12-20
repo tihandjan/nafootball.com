@@ -1,5 +1,5 @@
 class Video < ActiveRecord::Base
-    has_many :taggings
+    has_many :taggings, dependent: :destroy
     has_many :tags, through: :taggings
     has_many :comments, as: :commentable
     mount_uploader :picture, PictureUploader
@@ -12,7 +12,7 @@ class Video < ActiveRecord::Base
     accepts_nested_attributes_for :tags
     accepts_nested_attributes_for :taggings
 
-    # after_create :fb_page_post
+    after_create :fb_page_post
     
     def to_param
       "#{id} #{title}".parameterize

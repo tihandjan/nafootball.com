@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
     has_many :pictures, dependent: :destroy
-    has_many :taggings
+    has_many :taggings, dependent: :destroy
     has_many :tags, through: :taggings
     has_many :comments, as: :commentable
     validates :title, presence: true, length: { minimum: 10, maximum: 150 }

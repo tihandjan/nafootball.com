@@ -587,6 +587,7 @@ a {
     .row-line-one {
         .col-line-one-second {
             a {
+                .list-group-item-heading {font-size: 15px;}
                 height: 68px;
                 &:last-child {
                     height: 70px;
