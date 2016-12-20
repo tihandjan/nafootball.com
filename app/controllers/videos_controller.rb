@@ -75,13 +75,13 @@ class VideosController < ApplicationController
                           site: "@nafootball",
                           title: @video.title,
                           description: "Смотреть матчи в записи, обзоры, превью, повторы голов, футбольные ток шоу от nafootball.com",
-                          image: "http://nafootball.com/#{@video.picture.url}"
+                          image: "http://nafootball.com#{@video.picture.url}"
                       },
                       og: {
                           title: @video.title,
                           description: "Смотреть матчи в записи, обзоры, превью, повторы голов, футбольные ток шоу от nafootball.com",
                           type: 'website',
-                          image: "http://nafootball.com/#{@video.picture.url}"
+                          image: "http://nafootball.com#{@video.picture.url}"
                       }
     end
     
