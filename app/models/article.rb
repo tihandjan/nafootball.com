@@ -36,10 +36,11 @@ class Article < ActiveRecord::Base
         # only this part right
         page_graph = Koala::Facebook::API.new('EAAHzbwanpNkBAF3pDmYuU3cRn7equ2QkpOISwdFdRCJXHsCp7FZBDPwWgGjinUfguvcZB6hxhkWbEjCZBdJkczWfAE1NH7BzZC8ZAzxR7slvtITsoYonzaLrdcpgsfZBnw3ZBnXXq3ZARCTZBQUHdNF3nNZCU9FfW2I8gZD')
         page_graph.put_wall_post((self.title[0...80]) , {
-        "link" => "http://ueroliga.herokuapp.com/#{Rails.application.routes.url_helpers.league_article_path(self.league, self)}",
+        "link" => "http://nafootball.com/#{Rails.application.routes.url_helpers.league_article_path(self.league, self)}",
         "name" => (self.summary[0...120]),
         "description" => (self.description[0...100]),
-        "picture" => Article.last.picture.url
+        "picture" => "http://nafootball.com/#{Article.last.picture.url}"
+
         })
     end
     
