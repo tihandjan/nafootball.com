@@ -52,7 +52,7 @@
                                         <h3 class="video-three-article-title"><strong><%= truncate(video.title, length: 65) %></strong></h3>
                                         <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(video.created_at) %> назад</i></span> 
                                         <span class="video-icon-four"><i class="glyphicon glyphicon-play"></i></span>
-                                        <span class="video-icon-four video-icon-four-time">00:29</span>
+                                        <span class="video-icon-four video-icon-four-time"><%= video.time %></span>
                                     </div>
                                 </div>
                             </a>

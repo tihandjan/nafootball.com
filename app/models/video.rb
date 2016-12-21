@@ -45,7 +45,7 @@ class Video < ActiveRecord::Base
                 config.access_token="3547350743-xwu8igclJuxppTG5mL4clGPnIGvuRkNfFrkoYq4"
                 config.access_token_secret="qUyd8S3721AXt0h2JRe58itaYY2UeNeJWurLt6Al6waKY"
             end
-            client.update_with_media("http://nafootball.com #{self.title[0...115]}", open("http://nafootball.com#{Video.last.picture.url}"))
+            client.update_with_media("http://nafootball.com #{self.title}"[0...120], open("http://nafootball.com#{Video.last.picture.url}"))
             rescue Exception => exc
             @message = exc.message
             end
