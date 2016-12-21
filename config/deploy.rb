@@ -47,4 +47,5 @@ namespace :deploy do
 
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
+  after :finishing, 'sitemap:refresh'
 end
