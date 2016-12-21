@@ -8,6 +8,7 @@ require 'capistrano/bundler'
 require 'capistrano/rails'
 require 'whenever/capistrano'
 require 'capistrano3/unicorn'
+require 'capistrano/sitemap_generator'
 
 
 # Load the SCM plugin appropriate to your project:
