@@ -53,7 +53,7 @@ class Article < ActiveRecord::Base
                 config.access_token="3547350743-xwu8igclJuxppTG5mL4clGPnIGvuRkNfFrkoYq4"
                 config.access_token_secret="qUyd8S3721AXt0h2JRe58itaYY2UeNeJWurLt6Al6waKY"
             end
-            client.update_with_media("http://nafootball.com #{self.summary[0...110]}", open("http://nafootball.com#{Article.last.picture.url}"))
+            client.update_with_media("http://nafootball.com #{self.summary}"[0...140], open("http://nafootball.com#{Article.last.picture.url}"))
             rescue Exception => exc
             @message = exc.message
             end
