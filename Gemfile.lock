@@ -285,6 +285,7 @@ GEM
     formtastic_i18n (0.6.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    google-analytics-rails (1.1.0)
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -554,6 +555,7 @@ DEPENDENCIES
   factory_girl_rails
   fog
   font-awesome-sass
+  google-analytics-rails
   htmlcompressor (~> 0.2.0)
   httparty
   jbuilder (~> 2.0)

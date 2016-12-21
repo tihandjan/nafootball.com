@@ -119,3 +119,6 @@ gem 'therubyracer'
 
 # unicorn
 gem 'unicorn'
+
+# google analytics
+gem 'google-analytics-rails'
