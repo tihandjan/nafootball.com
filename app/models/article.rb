@@ -14,17 +14,17 @@ class Article < ActiveRecord::Base
     accepts_nested_attributes_for :tags
     accepts_nested_attributes_for :taggings
 
-    
+    extend FriendlyId
+    friendly_id :title, use: [:slugged, :history, :finders]
+    def should_generate_new_friendly_id?
+        slug.blank? || title_changed?
+    end
     
     
     scope :all_except, ->(article) { where.not(id: article) }
     
     scope :my_team_news, ->(cookie) { order('created_at DESC').where('team = ? or team_second = ?', cookie, cookie).first(4) }
     
-    
-    def to_param
-      "#{id} #{title}".parameterize
-    end 
 
     if Rails.env.production?
         require 'uri'

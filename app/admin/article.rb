@@ -1,7 +1,7 @@
 ActiveAdmin.register Article do
 
 
-permit_params :league, :category, :title, :summary, :description, :picture, :source, :image_alt, :main, :team, pictures_attributes: [:picture, :description, :image_alt], tags_attributes: [:name], taggings_attributes: [:article_id, :tag_id]
+permit_params :league, :category, :title, :summary, :description, :picture, :source, :image_alt, :main, :team, :slug, pictures_attributes: [:picture, :description, :image_alt], tags_attributes: [:name], taggings_attributes: [:article_id, :tag_id]
 
     index do
         column :id

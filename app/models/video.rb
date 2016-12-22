@@ -13,9 +13,10 @@ class Video < ActiveRecord::Base
     accepts_nested_attributes_for :tags
     accepts_nested_attributes_for :taggings
 
-    
-    def to_param
-      "#{id} #{title}".parameterize
+    extend FriendlyId
+    friendly_id :title, use: [:slugged, :history, :finders]
+    def should_generate_new_friendly_id?
+        slug.blank? || title_changed?
     end
 
     scope :all_except, ->(video) { where.not(id: video) }

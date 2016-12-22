@@ -1,9 +1,11 @@
 class Team < ActiveRecord::Base
     has_many :players, dependent: :destroy
 
-    def to_param
-      "#{id} #{name}".parameterize
-    end 
+    extend FriendlyId
+    friendly_id :name, use: [:slugged, :history, :finders]
+    def should_generate_new_friendly_id?
+        slug.blank? || name_changed?
+    end
     
     def self.set_teams_premier_league
         where(league: 'apl').destroy_all
