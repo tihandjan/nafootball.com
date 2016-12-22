@@ -18,9 +18,14 @@
                 display: block;
             }
             .show-article-image {
-                padding: 0 20px 0 80px;
+                padding: 0 20px 0 92px;
                 position: relative;
-                img {margin-bottom: 10px;}
+                .image-alt {
+                    padding: .75em;
+                    line-height: 1.3em;
+                    background: #f4f4f4;
+                    font-size: 1.1em;
+                }
                 .share-buttons {
                     position: absolute;
                     top: 0;
@@ -61,10 +66,11 @@
                 }
             }
             .show-article-summary {
-                padding: 0 20px 0 80px;
+                padding: 0 20px 0 92px;
+                font-size: 17px;
             }
             .show-article-description {
-                padding: 0 20px 0 80px;
+                padding: 0 20px 0 92px;
                 font-size: 17px;
                 p {
                     font-size: 17px;
@@ -72,7 +78,7 @@
             }
             .article-source {
                 color: #222528;
-                padding: 0 20px 0 80px;
+                padding: 0 20px 0 92px;
                 display: block;
                 font-weight: bold;
                 text-transform: uppercase;
@@ -84,7 +90,7 @@
                 }
             }
             .share-buttons-bottom {
-                padding: 0 0 0 80px;
+                padding: 0 0 0 92px;
                 font-size: 0;
                 margin-bottom: 30px;
                 .social-btn {
@@ -119,7 +125,7 @@
                 }
             }
             .show-article-tegs {
-                padding: 0 0 30px 80px;
+                padding: 0 0 30px 92px;
                 .teg {
                     color: #FFF;
                     background: #69a6a6;
@@ -168,6 +174,7 @@
 .social-share-button{display: none;}
 
 @media only screen and (max-width: 653px) {
+    .vk {margin-right: 250px;}
     .share-buttons {
         display: none;
     }

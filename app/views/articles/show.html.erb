@@ -18,6 +18,9 @@
                 </div>
                 <!-- social-media end -->
                 <%= image_tag @article.picture, alt: @article.image_alt, class: 'img-responsive' %>
+                <div class="image-alt">
+                    <%= @article.image_alt %>
+                </div>
             </div>
             <h2 class="show-article-summary"><strong><%= @article.summary %></strong></h2>
             <div class="show-article-description">
@@ -26,6 +29,7 @@
             <% @article.pictures.each do |subarticle| %>
                 <div class="show-article-image">
                     <%= image_tag subarticle.picture, class: 'img-responsive', alt: subarticle.image_alt %>
+                    <div class="image-alt"><%= subarticle.image_alt %></div>
                 </div>
                 <div class="show-article-description">
                     <p><%= raw simple_format(subarticle.description) %></p>

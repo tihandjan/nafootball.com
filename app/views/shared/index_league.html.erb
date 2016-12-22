@@ -23,7 +23,7 @@
 
                             <% @news.first(4).each do |article| %>
                                 <a href="<%= league_article_path(article.league, article) %>" class="list-group-item list-group-custom text-left", onmouseover="$('.article-four-image').hide();$('#<%= article.id %>').show();$('.list-group-custom').css('background', 'transparent');$(this).css('background', '#2a4951')">
-                                   <h3 class="list-group-item-heading"><%= truncate(article.title, length: 70) %></h4>
+                                   <h3 class="list-group-item-heading"><%= truncate(article.title, length: 90) %></h4>
                                    <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %> назад</i></span>
                                 </a>
                             <% end %>
