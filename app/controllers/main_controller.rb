@@ -73,6 +73,12 @@ class MainController < ApplicationController
                       reverse: true
     end
 
+    def search
+        if params[:query].strip != ""
+            @videos = Video.search(params[:query])
+        end
+    end
+
     # def set_games_table_data
     #     if Delayed::Job.count == 0
     #         Match.delay.set_games

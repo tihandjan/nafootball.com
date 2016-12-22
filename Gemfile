@@ -48,7 +48,6 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  gem 'sqlite3'
   gem 'letter_opener'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -125,3 +124,7 @@ gem 'google-analytics-rails'
 
 # friendly -id
 gem 'friendly_id', '~> 5.1.0'
+
+# search engine
+gem 'mysql2', '~> 0.3.18', :platform => :ruby
+gem 'thinking-sphinx'
