@@ -195,7 +195,7 @@ a {
             }
             .list-group-item-heading {
                 color: #FFF;
-                font-size: 16px;
+                font-size: 15px;
             }
         }
     }
@@ -567,6 +567,7 @@ a {
 
 @media only screen and (max-width: 991px) {
     .row-line-one .col-line-one-second a {
+        .list-group-item-heading {font-size: 15px;}
         height: 72px;
         &:last-child {
             height: 66px;
@@ -587,7 +588,6 @@ a {
     .row-line-one {
         .col-line-one-second {
             a {
-                .list-group-item-heading {font-size: 15px;}
                 height: 68px;
                 &:last-child {
                     height: 70px;
