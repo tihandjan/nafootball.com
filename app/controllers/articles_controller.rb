@@ -80,6 +80,12 @@ class ArticlesController < ApplicationController
                       type: 'website',
                       url: league_article_path(@article.league, @article),
                       image: "http://nafootball.com#{@article.picture.url}"
+                  },
+                  article: {
+                    published_time:    @article.created_at,
+                    modified_time:     @article.updated_at,
+                    section:           @article.league,
+                    tag:               @article.tags.pluck(:name).join(',')
                   }
   end
     
