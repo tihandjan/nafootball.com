@@ -14,11 +14,12 @@
                 font-size: 26px;
             }
             .show-article-time {
-                padding: 0 0 10px 15px;
+                padding: 0 0 0 15px;
                 display: block;
+                margin-bottom: -10px;
             }
             .show-article-image {
-                padding: 0 20px 0 92px;
+                padding: 20px 20px 0 92px;
                 position: relative;
                 .image-alt {
                     padding: .75em;
@@ -28,7 +29,7 @@
                 }
                 .share-buttons {
                     position: absolute;
-                    top: 0;
+                    top: 20px;
                     left: 10px;
                     .social-btn {
                         display: block;
