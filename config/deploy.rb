@@ -17,7 +17,7 @@ set :deploy_user, 'deployer'
 
 # Default value for linked_dirs is []
 # set :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/uploads"
-set :linked_files, %w{config/database.yml config/secrets.yml public/sitemap.xml.gz tmp/searchd.pid config/production.sphinx.conf config/thinking_sphinx.yml}
+set :linked_files, %w{config/database.yml config/secrets.yml public/sitemap.xml.gz}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads db/sphinx binlog}
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -44,8 +44,30 @@ namespace :deploy do
         end
       end
     end
+    desc 'Run Sphinx'
+      task :sphinx_rebuild do
+        on roles :app do
+          within release_path do
+            with rails_env: fetch(:rails_env) do
+            execute :rake, "ts:rebuild"
+            end
+          end
+        end
+      end
+      desc 'Indexing Sphinx'
+      task :sphinx_index do
+        on roles :app do
+          within release_path do
+            with rails_env: fetch(:rails_env) do
+            execute :rake, "ts:index"
+            end
+          end
+        end
+      end
 
   after :publishing, 'deploy:restart'
-  after :finishing, 'deploy:cleanup'
-  after :finishing, 'sitemap:refresh'
+  after :finishing,  'deploy:cleanup'
+  after :finishing,  'sitemap:refresh'
+  after :finishing,  'ts:rebuild'
+  after :finishing,  'ts:index'
 end
