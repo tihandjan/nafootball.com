@@ -75,7 +75,7 @@ class MainController < ApplicationController
 
     def search
         if params[:query].strip != ""
-            @data = ThinkingSphinx.search(params[:query], page: params[:page], per_page: 16, :classes => [Article, Video])
+            @data = ThinkingSphinx.search(params[:query], field_weights: {title: 20, name: 10}, page: params[:page], per_page: 16, :classes => [Article, Video])
         else
             flash[:alert] = 'Вы ничего не ввели в поле поиска'
             redirect_to :back

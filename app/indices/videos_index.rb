@@ -1,8 +1,4 @@
 ThinkingSphinx::Index.define :video, with: :active_record do
-    indexes title
-    indexes team_first
-    indexes team_second
+    indexes :title, sortable: true
     indexes tags.name, as: :name
-
-    has created_at
 end
