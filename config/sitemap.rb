@@ -26,25 +26,25 @@ SitemapGenerator::Sitemap.create do
   add league_articles_path('all'), priority: ABOVE_AVERAGE
 
   Article.find_each do |article|
-    add league_article_path(article.league, article), lastmod: article.updated_at, changefreq: 'daily', priority: HIGH
+    add league_article_path(article.league, article), lastmod: article.updated_at, changefreq: 'daily', priority: ABOVE_AVERAGE 
     article.tags.each do |tag|
-      add tag_path(tag), lastmod: tag.updated_at, priority: MEDIUM, changefreq: 'daily'
+      add tag_path(tag), lastmod: tag.updated_at, priority: BELOW_AVERAGE, changefreq: 'daily'
     end
   end
 
   Video.find_each do |video|
     add league_video_path(video.league, video), lastmod: video.updated_at, changefreq: 'daily', priority: HIGH
     video.tags.each do |tag|
-      add videos_tag_path(tag), lastmod: tag.updated_at, priority: MEDIUM, changefreq: 'daily'
+      add videos_tag_path(tag), lastmod: tag.updated_at, priority: BELOW_AVERAGE, changefreq: 'daily'
     end
   end
 
   Team.find_each do |team|
-    add team_path(team), lastmod: team.updated_at, priority: HIGH
+    add team_path(team), lastmod: team.updated_at, priority: MEDIUM
   end
 
   Player.find_each do |player|
-    add player_path(player), lastmod: player.updated_at, priority: ABOVE_AVERAGE
+    add player_path(player), lastmod: player.updated_at, priority: LOW
   end
 
 

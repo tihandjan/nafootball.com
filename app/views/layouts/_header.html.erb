@@ -1,6 +1,6 @@
 
   <div class="container-fluid container-fluid-custom-first">
-    <div class="col-xs-2 col-sm-1 text-center search"><i class="glyphicon glyphicon-search"></i></div>
+    <div class="col-xs-2 col-sm-1 text-center search" onclick="Search();"><i class="glyphicon glyphicon-search"></i></div>
     <div class="col-xs-4 col-sm-5 text-right logo-area hidden-xs"><h6 class="main-logo"><a href="<%= root_path %>"><i class="sprite sprite-Logo_NF"></i></a></h6></div>
     <div class="col-xs-offset-6 header-profile text-right pull-right">
       
@@ -193,3 +193,13 @@
     <a href="<%= root_path %>" class="main-for-mobile">Главная</a>
   </nav>
   
+  <script>
+    function Search(){
+      $('.search-wrapper').slideDown(250);
+      $('.search-overlay').show();
+    }
+    function Searchhide(){
+      $('.search-overlay').hide();
+      $('.search-wrapper').slideUp(250);
+    }
+  </script>

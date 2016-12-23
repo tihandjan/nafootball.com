@@ -75,15 +75,11 @@ class MainController < ApplicationController
 
     def search
         if params[:query].strip != ""
-            @videos = Video.search(params[:query])
+            @data = ThinkingSphinx.search(params[:query], page: params[:page], per_page: 4, :classes => [Article, Video])
+        else
+            flash[:alert] = 'Вы ничего не ввели в поле поиска'
+            redirect_to :back
         end
     end
-
-    # def set_games_table_data
-    #     if Delayed::Job.count == 0
-    #         Match.delay.set_games
-    #         Table.delay.set_table_data
-    #     end
-    # end
- 
+    
 end

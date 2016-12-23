@@ -1,7 +1,7 @@
 Rails.application.configure do
   # Use environment names or environment variables:
   # break unless Rails.env.production? 
-  # break unless ENV['ENABLE_COMPRESSION'] == '1'
+  break unless Rails.env.production?
   
   # Strip all comments from JavaScript files, even copyright notices.
   # By doing so, you are legally required to acknowledge

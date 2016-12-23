@@ -4,29 +4,42 @@
     <div class="right-block col-md-9">
             
         <div class="row row-line-two">
-            <h1 class="index-article-h1"><%= @h1 %></h1>
+            <h6 class="index-article-h1">Результаты Поиска</h6>
             <hr>
                 <!--copy start-->
-            <% if @videos.any? %>
-                <% @videos.each do |video| %>
-                    <div class="col-sm-3 three-article">
-                        <a class="a-article" href="<%= league_video_path(video.league, video) %>">
-                            <div class="thumbnail">
-                                <div class="image-wrapper"><%= image_tag(video.picture.url(:mini), :alt => video.image_alt, class: 'img-responsive') %></div>
-                                <div class="caption custom-caption">
-                                    <h3 class="video-three-article-title"><strong><%= truncate(video.title, length: 60) %></strong></h3>
-                                    <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(video.created_at, "%d %B %Y") %></i></span> 
-                                    <span class="video-icon-four"><i class="glyphicon glyphicon-play"></i></span>
-                                    <span class="video-icon-four video-icon-four-time"><%= video.time %></span>
+                <% @data.each do |data| %>
+                    <% if data.model_name.human == 'Video' %>
+                        <div class="col-sm-3 three-article">
+                            <a class="a-article" href="<%= league_video_path(data.league, data) %>">
+                                <div class="thumbnail">
+                                    <div class="image-wrapper"><%= image_tag(data.picture.url(:mini), :alt => data.image_alt, class: 'img-responsive') %></div>
+                                    <div class="caption custom-caption">
+                                        <h3 class="video-three-article-title"><strong><%= truncate(data.title, length: 60) %></strong></h3>
+                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(data.created_at, "%d %B %Y") %></i></span> 
+                                        <span class="video-icon-four"><i class="glyphicon glyphicon-play"></i></span>
+                                        <span class="video-icon-four video-icon-four-time"><%= data.time %></span>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                      <% elsif data.model_name.human == 'Article' %>
+                        <div class="col-sm-3 three-article">
+                            <a class="a-article" href="<%= league_article_path(data.league, data) %>">
+                                <div class="thumbnail">
+                                    <div class="image-wrapper"><%= image_tag(data.picture.url(:mini), :alt => data.image_alt, class: 'img-responsive') %></div>
+                                    <div class="caption custom-caption">
+                                        <h3 class="video-three-article-title"><strong><%= truncate(data.title, length: 60) %></strong></h3>
+                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(data.created_at, "%d %B %Y") %></i></span> 
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    <% end %>
                 <% end %>
-            <% end %>
+                
             <!--end-->
         </div>
-        <div class="text-center paginate-block"><%= will_paginate @videos, page_links: true %></div>
+        <div class="text-center paginate-block"><%= will_paginate @data, page_links: true %></div>
 
     </div>
     <div class="left-block col-md-3"><%= render 'shared/my_team' %></div>
