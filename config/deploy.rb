@@ -17,8 +17,8 @@ set :deploy_user, 'deployer'
 
 # Default value for linked_dirs is []
 # set :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system", "public/uploads"
-set :linked_files, %w{config/database.yml config/secrets.yml public/sitemap.xml.gz}
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+set :linked_files, %w{config/database.yml config/secrets.yml public/sitemap.xml.gz tmp/searchd.pid config/production.sphinx.conf config/thinking_sphinx.yml}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads db/sphinx binlog}
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
