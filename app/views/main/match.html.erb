@@ -1,0 +1,148 @@
+<% @editional_class = 'teams' %>
+<div class="row team-row">
+    <div class="col-md-12 col-show-teams">
+        <div class="teams-wrapper">
+            <div class="row">
+                <div class="game-date text-center">
+                    <%= Russian.strftime(@match.date, "%A %d %B %Y") %>
+                </div>
+                <div class="stadium text-center">
+                    <%= (team_info @hometeam)[4] %>    
+                </div>    
+            </div>   
+        </div>    
+    </div>
+    <div class="col-md-8 team-col team-col-second">
+         <div class="row">
+            <div class="team-fixtures col-xs-6 text-left"><span class="team-fixture team-fixture-first team-fixture-active" onclick="$('.team-fixture-first').removeClass('team-fixture-active');$(this).addClass('team-fixture-active');$('.team-table-wrapper').hide();$('#prev-fixtures').show();"><%= full_team_translater(@hometeam) %></span></div>
+            <div class="team-fixtures col-xs-6 text-right"><span class="team-fixture team-fixture-first" style="margin-right:15px;" onclick="$('.team-fixture-first').removeClass('team-fixture-active');$(this).addClass('team-fixture-active');$('.team-table-wrapper').hide();$('#next-fixtures').show();"><%= full_team_translater(@awayteam) %></span></div>
+        </div>
+        <div class="fixtures-deliver"></div>
+        <div class="team-table-wrapper" id="prev-fixtures">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th class="hidden-xs">Турнир</th>
+                        <th class="hidden-xs">Тур</th>
+                        <th></th>
+                        <th></th>
+                        <th>Матч</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @fixtures_first_team.each do |team| %>
+                        <tr>
+                            <td class="team-date"><%= team.date.strftime('%d.%m.%y') %></td>
+                            <td class="team-competition hidden-xs"><%= translate_league team.league %></td>
+                            <td class="team-match-day hidden-xs"><%= team.matchday %> тур</td>
+                            <td class="team-name-first"><a href="<%= team_path(pass_object(@teams, team.homeTeamName)) %>"><%= team_translater team.homeTeamName %></a></td>
+                            <td class="team-icon team-icon-first"><i class="<%= show_team_icon team.homeTeamName %> icon-small"></i></td>
+                            <td class="team-result"><%= team.goalsHomeTeam %>:<%= team.goalsAwayTeam %></td>
+                            <td class="team-icon team-icon-second"><i class="<%= show_team_icon team.awayTeamName %> icon-small"></i></td>
+                            <td class="team-name-second"><a href="<%= team_path(pass_object(@teams, team.awayTeamName)) %>"><%= team_translater team.awayTeamName %></a></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div class="team-table-wrapper" id="next-fixtures">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Дата</th>
+                        <th class="hidden-xs">Турнир</th>
+                        <th class="hidden-xs">Тур</th>
+                        <th></th>
+                        <th></th>
+                        <th>Матч</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @fixtures_second_team.each do |team| %>
+                        <tr>
+                            <td class="team-date"><%= team.date.strftime('%d.%m.%y') %></td>
+                            <td class="team-competition hidden-xs"><%= translate_league team.league %></td>
+                            <td class="team-match-day hidden-xs"><%= team.matchday %> тур</td>
+                            <td class="team-name-first"><a href="<%= team_path(pass_object(@teams, team.homeTeamName)) %>"><%= team_translater team.homeTeamName %></a></td>
+                            <td class="team-icon team-icon-first"><i class="<%= show_team_icon team.homeTeamName %> icon-small"></i></td>
+                            <td class="team-result"><%= team.date.strftime('%H:%M') %></td>
+                            <td class="team-icon team-icon-second"><i class="<%= show_team_icon team.awayTeamName %> icon-small"></i></td>
+                            <td class="team-name-second"><a href="<%= team_path(pass_object(@teams, team.awayTeamName)) %>"><%= team_translater team.awayTeamName %></a></td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="team-fixtures team-nav"><span class="team-fixture team-fixture-active team-fixture-second" onclick="$('.team-fixture-second').removeClass('team-fixture-active');$(this).addClass('team-fixture-active');$('.team-news-wrapper').hide();$('#video1').show();">Видео 1</span></div>
+            <div class="team-fixtures team-nav"><span class="team-fixture team-fixture-second" onclick="$('.team-fixture-second').removeClass('team-fixture-active');$(this).addClass('team-fixture-active');$('.team-news-wrapper').hide();$('#video2').show();">Видео 2</span></div>
+            <div class="team-fixtures team-nav"><span class="team-fixture team-fixture-second" onclick="$('.team-fixture-second').removeClass('team-fixture-active');$(this).addClass('team-fixture-active');$('.team-news-wrapper').hide();$('#video3').show();">Видео 3</span></div> 
+            <div class="team-fixtures team-nav"><span class="team-fixture team-fixture-second" onclick="$('.team-fixture-second').removeClass('team-fixture-active');$(this).addClass('team-fixture-active');$('.team-news-wrapper').hide();$('#video4').show();">Видео 4</span></div>
+        </div>
+        <div class="fixtures-deliver"></div>
+        <div class="team-video-wrapper">
+            <div class="streaming">
+                Трансляции онлайн:
+            </div>
+
+            
+            <div class="team-news-wrapper" id="video1">
+                1    
+            </div>
+            <div class="team-news-wrapper" id="video2">
+                2
+            </div>
+            <div class="team-news-wrapper" id="video3">
+                3
+            </div>
+            <div class="team-news-wrapper" id="video4">
+                4    
+            </div>
+
+
+        </div>
+    </div>
+    <div class="col-md-4 team-col team-col-third">
+        <div class="team-line-up">
+            <h2 class="team-line-up-h2">Ссылки</h2>
+            <div class="team-line-up-break"></div>
+            <div class="team-line-up-wrapper">
+                <div class="footballer-wrapper">
+                    <div class="footballer-position">Sopcast</div>
+                </div>
+            </div>
+            <div class="team-line-up-wrapper">
+                <div class="footballer-wrapper">
+                    <div class="footballer-position">Ace Stream</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

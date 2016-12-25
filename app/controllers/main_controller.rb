@@ -47,7 +47,8 @@ class MainController < ApplicationController
     end
 
     def set_onlain_fixtures
-        @fixtures_en = Match.where(["DATE(date) = ? and league = ?", Time.current, 'apl'])
+        @fixtures_en = Match.last(5)
+        # @fixtures_en = Match.where(["DATE(date) = ? and league = ?", Time.current, 'apl'])
         @fixtures_it = Match.where(["DATE(date) = ? and league = ?", Time.current, 'seria-a'])
         @fixtures_sp = Match.where(["DATE(date) = ? and league = ?", Time.current, 'laliga'])
         @fixtures_ge = Match.where(["DATE(date) = ? and league = ?", Time.current, 'bundesliga'])
@@ -80,6 +81,15 @@ class MainController < ApplicationController
             flash[:alert] = 'Вы ничего не ввели в поле поиска'
             redirect_to :back
         end
+    end
+
+    def match
+        @time =     params[:time].split('-')
+        @hometeam = params[:hometeam].split('-').join(' ')
+        @awayteam = params[:awayteam].split('-').join(' ')
+        @match = Match.where("extract(year from date) = ? and extract(month from date) = ? and extract(day from date) = ? and \"homeTeamName\" = ? and \"awayTeamName\" = ?", @time[0].to_i, @time[1].to_i, @time[2].to_i, @hometeam, @awayteam).last
+        @fixtures_first_team = Match.order('date DESC').where("date BETWEEN ? AND ? and (\"homeTeamName\" = ? or \"awayTeamName\" = ?)", Time.zone.now-60.days, Time.current-2.hour, @hometeam, @hometeam).first(3)
+        @fixtures_second_team = Match.order('date DESC').where("date BETWEEN ? AND ? and (\"homeTeamName\" = ? or \"awayTeamName\" = ?)", Time.zone.now-60.days, Time.current-2.hour, @awayteam, @awayteam).first(3)
     end
     
 end
