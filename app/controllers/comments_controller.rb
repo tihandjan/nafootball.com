@@ -5,10 +5,12 @@ class CommentsController < ApplicationController
       @comment = @commentable.comments.create(comment_params)
       @data = Article.find(params[:article_id]) if params[:article_id]
       @data = Video.find(params[:video_id]) if params[:video_id]
+      @data = Onlain.find(params[:onlain_id]) if params[:onlain_id]
       if params[:comment_id]
         @com = Comment.find(params[:comment_id]) 
         @data = Article.find(@com.commentable_id) if @com.commentable_type == 'Article'
         @data = Video.find(@com.commentable_id) if @com.commentable_type == 'Video'
+        @data = Onlain.find(@com.commentable_id) if @com.commentable_type == 'Onlain'
       end
       respond_to do |format|
           format.html { redirect_to :back }
@@ -44,6 +46,7 @@ class CommentsController < ApplicationController
       @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
       @commentable = Article.find_by_id(params[:article_id]) if params[:article_id]
       @commentable = Video.find_by_id(params[:video_id])     if params[:video_id]
+      @commentable = Onlain.find_by_id(params[:onlain_id])     if params[:onlain_id]
     end
     
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161222151235) do
+ActiveRecord::Schema.define(version: 20161226203007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -137,6 +137,22 @@ ActiveRecord::Schema.define(version: 20161222151235) do
     t.string   "league"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "onlains", force: :cascade do |t|
+    t.string   "sopcast"
+    t.string   "sopcast_quality"
+    t.string   "acestream"
+    t.string   "acestream_quality"
+    t.string   "video_first"
+    t.string   "video_second"
+    t.string   "video_third"
+    t.string   "video_fourth"
+    t.string   "home_team"
+    t.string   "away_team"
+    t.datetime "date"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "pictures", force: :cascade do |t|

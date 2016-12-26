@@ -82,7 +82,25 @@ module MainHelper
             ["RC Celta de Vigo", "Сельта",           "icon-small sprite sprite-selta"],
             ["CD Leganes", "Леганес",                "icon-small sprite sprite-leganes"],
             ["Valencia CF", "Валенсия",              "icon-small sprite sprite-valensia"],
-            ["UD Las Palmas", "Лас-Пальмас",         "icon-small sprite sprite-las_palmas"]
+            ["UD Las Palmas", "Лас-Пальмас",         "icon-small sprite sprite-las_palmas"],
+            ["FC Basel", "Базель",                   "icon-small sprite sprite-basel"],
+            ["Ludogorez Rasgrad", "Лудогорец",       "icon-small sprite sprite-ludogorets"], 
+            ["FC Rostov", "Ростов",                  "icon-small sprite sprite-rostov"],
+            ["PSV Eindhoven", "ПСВ",                 "icon-small sprite sprite-psv"],
+            ["Celtic FC", "Селтик",                  "icon-small sprite sprite-seltic"],
+            ["Dynamo Kyiv", "Динамо К",              "icon-small sprite sprite-dynamo_k"],
+            ["SL Benfica", "Бенфика",                "icon-small sprite sprite-benfica"],
+            ["Besiktas JK", "Бешикташ",              "icon-small sprite sprite-besiktash"],
+            ["Paris Saint-Germain", "ПСЖ",           "icon-small sprite sprite-psg"],
+            ["Legia Warszawa", "Легия",              "icon-small sprite sprite-legia"],
+            ["Olympique Lyonnais", "Лион",           "icon-small sprite sprite-lyon"],
+            ["GNK Dinamo Zagreb", "Динамо Загр",     "icon-small sprite sprite-dynamo_z"],
+            ["FC Porto", "Порту",                    "icon-small sprite sprite-porto"],
+            ["FC Copenhagen", "Копенгаген",          "icon-small sprite sprite-kopengagen"], 
+            ["Club Brugge", "Брюгге",                "icon-small sprite sprite-brugge"],
+            ["Sporting CP", "Спортинг",              "icon-small sprite sprite-sporting_l"],
+            ["CSKA Moscow", "ЦСКА",                  "icon-small sprite sprite-cska"],
+            ["AS Monaco FC", "Монако",               "icon-small sprite sprite-monaco"]
         ].map{ |team_en, team_ru, team_sprite| [team_ru, team_en, {'data-icon' => "select-box-sprite #{team_sprite}" }] }
     end
     
@@ -447,15 +465,23 @@ module MainHelper
     def time_or_result team
         if team.status == 'FINISHED' || team.status == "IN_PLAY"
             if team.goalsHomeTeam == '-' || team.goalsAwayTeam == '-'
-                '?' + ' - ' + '?'
+                if team.status == "IN_PLAY"
+                    'live'
+                else
+                    '?' + ' - ' + '?'
+                end
             else
                 team.goalsHomeTeam.to_s + " - " + team.goalsAwayTeam.to_s
             end
         else
             if (team.date..team.date+120.minutes).cover?(Time.current)
-                '?' + ' - ' + '?'
+                'live'
             else
-                team.date.strftime('%H:%M')
+                if Time.current > team.date+150.minutes
+                    '?' + ' - ' + '?'
+                else
+                    team.date.strftime('%H:%M')
+                end
             end
         end
     end
@@ -570,15 +596,6 @@ module MainHelper
             'Сменить Клуб'
         end
     end
-    
-      def set_title(title = '')
-            basic_title = 'Последние новости АПЛ, Серия А, Ла Лига, Бундеслиги, Лига Чемпионов, футбол онлайн'
-            if title.empty?
-                  basic_title
-            else
-                  title
-            end
-      end
 
       def avatar_to_comments user=nil
           if user != nil && (user.avatar.presence || user.avatarc.presence) 

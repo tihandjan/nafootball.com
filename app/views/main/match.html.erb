@@ -4,7 +4,7 @@
         <div class="teams-wrapper">
             <div class="row">
                 <div class="game-date text-center">
-                    <%= Russian.strftime(@match.date, "%A %d %B %Y") %>
+                    <%= Russian.strftime(@match.date, "%A %d %B %Y") %><%= @match.homeTeamName %>
                 </div>
                 <div class="stadium text-center">
                     <%= (team_info @hometeam)[4] %>    
@@ -18,7 +18,7 @@
                             <td class="td-to-hide"></td>
                             <td class="team-name-first"><%= full_team_translater @hometeam %></td>
                             <td class="team-icon-first"><i class="<%= show_team_icon @hometeam %>"></i></td>
-                            <td class="team-score">1 - 2</td>
+                            <td class="team-score"><%= time_or_result @match  %></td>
                             <td class="team-icon-second"><i class="<%= show_team_icon @awayteam %>"></i></td>
                             <td class="team-name-second"><%= full_team_translater @awayteam %></td>
                             <td class="td-to-hide"></td>
@@ -114,20 +114,23 @@
 
             
             <div class="team-news-wrapper" id="video1">
-                1    
+                <%= raw @onlain.video_first if @onlain %> 
             </div>
             <div class="team-news-wrapper" id="video2">
-                2
+                <%= raw @onlain.video_second if @onlain %> 
             </div>
             <div class="team-news-wrapper" id="video3">
-                3
+                <%= raw @onlain.video_third if @onlain %> 
             </div>
             <div class="team-news-wrapper" id="video4">
-                4    
+                <%= raw @onlain.video_fourth if @onlain %>   
             </div>
 
 
         </div>
+        <% if @onlain %>
+            <%= render 'shared/comments', data: @onlain, url: onlain_comments_path(@onlain) %>
+        <% end %>
     </div>
     <div class="col-md-4 team-col team-col-third">
         <div class="team-line-up">
@@ -136,19 +139,26 @@
             <div class="team-line-up-wrapper">
                 <div class="footballer-wrapper">
                     <div class="footballer-position">Sopcast</div>
-                    <div class="player-info"><a href="sop://broker.sopcast.com:3912/140544"><span style="color: green;"><span id="selection_index7" class="selection_index"></span>140544</span></a>&nbsp;- 2000 Кбит/с&nbsp;</div>
-                    <span class="footballer-deliver"></span>
-                    <div class="player-info"><a href="sop://broker.sopcast.com:3912/140544"><span style="color: green;"><span id="selection_index7" class="selection_index"></span>140544</span></a>&nbsp;- 2000 Кбит/с&nbsp;</div>
-                    <span class="footballer-deliver"></span>
-                    <div class="player-info"><a href="sop://broker.sopcast.com:3912/140544"><span style="color: green;"><span id="selection_index7" class="selection_index"></span>140544</span></a>&nbsp;- 2000 Кбит/с&nbsp;</div>
-                    <span class="footballer-deliver"></span>
+                    <% @number = 0 %>
+                    <% if @onlain %>
+                        <% @onlain.sopcast.split(',').each do |sop| %>
+                            <div class="player-info"><a href="sop://broker.sopcast.com:3912/<%= sop %>"><span style="color: green;">140544</span></a>&nbsp;- <%= @onlain.sopcast_quality.split(',')[@number-1] %> Кбит/с&nbsp;</div>
+                            <span class="footballer-deliver"></span>
+                        <% end %>
+                    <% end %>
                 </div>
             </div>
             <div class="team-line-up-wrapper">
                 <div class="footballer-wrapper">
                     <div class="footballer-position">Ace Stream</div>
-                    <div class="player-info"><a href="acestream://98f56bc9301044d4e11b1339283b02eec0850f2b"><span style="color: red;"><span id="selection_index15" class="selection_index"></span>Халл Сити - Манчестер Сити</span></a>&nbsp;- 2000 Кбит/с&nbsp;</div>
-                    <div class="footballer-deliver"></div>
+                    <% @number = 0 %>
+                    <% if @onlain %>
+                        <% @onlain.acestream.split(',').each do |ace| %>
+                            <% @number += 1 %>
+                            <div class="player-info"><a href="acestream://<%= ace %>"><span style="color: green;"><%= ace %></span></a>&nbsp;- <%= @onlain.acestream_quality.split(',')[@number-1] %> Кбит/с&nbsp;</div>
+                            <div class="footballer-deliver"></div>
+                        <% end %>
+                    <% end %>
                 </div>
             </div>
         </div>

@@ -30,11 +30,13 @@ permit_params :league, :category, :title, :summary, :description, :picture, :sou
           input :summary
           input :description
         end
-        inputs 'Добавить больше фото и контента' do
-            f.has_many :pictures, new_record: 'добавить фото и контент' do |picture|
-              picture.input :picture, as: :file
-              picture.input :image_alt
-              picture.input :description
+        if f.object.new_record?
+            inputs 'Добавить больше фото и контента' do
+                f.has_many :pictures, new_record: 'добавить фото и контент' do |picture|
+                picture.input :picture, as: :file
+                picture.input :image_alt
+                picture.input :description
+                end
             end
         end
         if f.object.new_record?

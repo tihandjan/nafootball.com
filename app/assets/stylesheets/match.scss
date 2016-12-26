@@ -63,6 +63,9 @@
             }
             .team-news-wrapper {
                 display: none;
+                iframe {
+                    width: 100%;
+                }
             }
             #video1 {display: block;}
         }

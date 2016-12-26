@@ -38,6 +38,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :onlain, only: [:create] do
+    resources :comments, only:[:create]
+  end
+
   resources :teams, only: [:show, :index] do
   end
   resources :players, only: [:show, :index]

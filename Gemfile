@@ -64,7 +64,7 @@ end
 gem 'font-awesome-sass'
 
 # admin panel
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 
 # authentication
 gem 'devise'
