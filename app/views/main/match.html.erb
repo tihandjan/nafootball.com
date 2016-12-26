@@ -8,7 +8,27 @@
                 </div>
                 <div class="stadium text-center">
                     <%= (team_info @hometeam)[4] %>    
-                </div>    
+                </div> 
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td class="td-to-hide"></td>
+                            <td class="td-to-hide"></td>
+                            <td class="td-to-hide"></td>
+                            <td class="td-to-hide"></td>
+                            <td class="team-name-first"><%= full_team_translater @hometeam %></td>
+                            <td class="team-icon-first"><i class="<%= show_team_icon @hometeam %>"></i></td>
+                            <td class="team-score">1 - 2</td>
+                            <td class="team-icon-second"><i class="<%= show_team_icon @awayteam %>"></i></td>
+                            <td class="team-name-second"><%= full_team_translater @awayteam %></td>
+                            <td class="td-to-hide"></td>
+                            <td class="td-to-hide"></td>
+                            <td class="td-to-hide"></td>
+                            <td class="td-to-hide"></td>
+                        </tr>
+                    </tbody>
+                </table>   
+                <div class="league text-center"><%= @match.league %></div>
             </div>   
         </div>    
     </div>
@@ -111,16 +131,24 @@
     </div>
     <div class="col-md-4 team-col team-col-third">
         <div class="team-line-up">
-            <h2 class="team-line-up-h2">Ссылки</h2>
+            <h6 class="team-line-up-h2">Ссылки</h6>
             <div class="team-line-up-break"></div>
             <div class="team-line-up-wrapper">
                 <div class="footballer-wrapper">
                     <div class="footballer-position">Sopcast</div>
+                    <div class="player-info"><a href="sop://broker.sopcast.com:3912/140544"><span style="color: green;"><span id="selection_index7" class="selection_index"></span>140544</span></a>&nbsp;- 2000 Кбит/с&nbsp;</div>
+                    <span class="footballer-deliver"></span>
+                    <div class="player-info"><a href="sop://broker.sopcast.com:3912/140544"><span style="color: green;"><span id="selection_index7" class="selection_index"></span>140544</span></a>&nbsp;- 2000 Кбит/с&nbsp;</div>
+                    <span class="footballer-deliver"></span>
+                    <div class="player-info"><a href="sop://broker.sopcast.com:3912/140544"><span style="color: green;"><span id="selection_index7" class="selection_index"></span>140544</span></a>&nbsp;- 2000 Кбит/с&nbsp;</div>
+                    <span class="footballer-deliver"></span>
                 </div>
             </div>
             <div class="team-line-up-wrapper">
                 <div class="footballer-wrapper">
                     <div class="footballer-position">Ace Stream</div>
+                    <div class="player-info"><a href="acestream://98f56bc9301044d4e11b1339283b02eec0850f2b"><span style="color: red;"><span id="selection_index15" class="selection_index"></span>Халл Сити - Манчестер Сити</span></a>&nbsp;- 2000 Кбит/с&nbsp;</div>
+                    <div class="footballer-deliver"></div>
                 </div>
             </div>
         </div>

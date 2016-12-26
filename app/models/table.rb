@@ -1,7 +1,7 @@
 class Table < ActiveRecord::Base
 
     def self.set_table_data
-      if self.count < 10 || (Time.current - self.last.created_at)/60 > 60 && (HTTParty.get("http://api.football-data.org/v1/competitions/426/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})).code == 200
+      if self.count < 10 && (HTTParty.get("http://api.football-data.org/v1/competitions/426/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})).code == 200
          
           
           @en = HTTParty.get("http://api.football-data.org/v1/competitions/426/leagueTable", :headers =>{"X-Auth-Token" => '568ace863a0348b896cc43d897338062'})

@@ -7,9 +7,46 @@
             padding: 20px 0;
             .game-date {
                 text-transform: uppercase;
+                font-size: 13px;
             }
             .stadium {
                 text-transform: uppercase;
+                font-size: 13px;
+                margin-bottom: 15px;
+            }
+            .league {
+                text-transform: uppercase;
+                font-size: 13px;
+            }
+            .table {
+                tr {
+                    td {
+                        border-top: none;
+                        font-size: 17px;
+                        text-transform: uppercase;
+                        vertical-align: middle;
+                    }
+                    .team-name-first {
+                        text-align: right;
+                        width: 235px;
+                        word-spacing: 200px;
+                    }
+                    .team-name-second {
+                        width: 235px;
+                        word-spacing: 200px;
+                    }
+                    .team-icon-first {
+                        float: right;
+                    }
+                    .team-icon-second {
+                    }
+                    .team-score {
+                        text-align: center;
+                        white-space: nowrap;
+                        color: #2bab51;
+                        font-size: 20px;
+                    }
+                }
             }
         }
     }
@@ -31,4 +68,39 @@
         }
     }
     
+}
+
+@media only screen and (max-width: 600px) {
+    .team-row {
+        .col-show-teams {
+            .teams-wrapper {
+                .table {
+                    tr {
+                        td {
+                            font-size: 14px;
+                            padding: 0;
+                        }
+                        .team-icon-first {
+                            padding: 0;
+                            float: none;
+                        }
+                        .team-icon-second {
+                            padding: 0;
+                        }
+                        .team-score {
+                            font-size: 15px;
+                        }
+                        .td-to-hide {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+        .team-col-second {
+            .team-fixture {
+                font-size: 14px;
+            }
+        }
+    }
 }
