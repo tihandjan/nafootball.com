@@ -117,7 +117,7 @@ Devise.setup do |config|
     CALLBACK_URL='http://nafootball.com/users/auth/google_oauth/callback'
   end
   
-  config.omniauth :google_oauth, Rails.application.secrets.google_app_id, Rails.application.secrets.google_app_key, {
+  config.omniauth :google_oauth2, Rails.application.secrets.google_app_id, Rails.application.secrets.google_app_key, {
     :client_options => {:ssl => {:ca_file => 'C:\Ruby21\cacert.pem'}},
     :provider_ignores_state => true,
     :prompt => "select_account",
