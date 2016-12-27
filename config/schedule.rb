@@ -38,6 +38,6 @@ every 60.minutes do
 end
 
 every 1.minutes do 
-  runner "MainControllerr.onlain"
+  runner "MainController.onlain"
 end
 
