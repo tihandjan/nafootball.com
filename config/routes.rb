@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   
   # authentication start
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }, :path => 'users', :path_names => { :sign_in => 'login', :sign_up => 'new', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification' }
   namespace :users do
     get 'omniauth_callbacks/facebook'
-    get 'omniauth_callbacks/google_oauth2'
+    get 'omniauth_callbacks/google_oauth'
     get 'omniauth_callbacks/twitter'
     get 'omniauth_callbacks/vkontakte'
   end
