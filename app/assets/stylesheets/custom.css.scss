@@ -243,6 +243,9 @@ a {
                 border-radius: 0;
                 border: none;
                 margin-bottom: 15px;
+                webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
+                box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
+
                 img {
                     width: 100%;
                 }
@@ -310,6 +313,9 @@ a {
                 padding: 0;
                 margin-bottom: 10px;
                 border: none;
+                webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
+                box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
+
                 img {
                     width: 100%;
                 }
@@ -371,6 +377,9 @@ a {
             border: none;
             padding: 0;
             border-radius: 0px;
+            webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
+            box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
+
             .caption {
                 height: 199px;
                 &:hover {
@@ -390,6 +399,8 @@ a {
             border: none;
             padding: 0;
             border-radius: 0px;
+            webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
+            box-shadow: 0 1px 4px 0 rgba(0,0,0,0.14);
             .video-caption {
                 &:hover {
                     background: #f5f5f5;

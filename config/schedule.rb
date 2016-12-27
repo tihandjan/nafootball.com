@@ -29,11 +29,11 @@ every 1.hours do
   runner "Table.set_table_data"
 end
 
-every 2.minute do
+every 1.minute do
   runner "Match.set_games"
 end
 
-every 60.minutes do
+every 30.minutes do
   rake "ts:index"
 end
 
