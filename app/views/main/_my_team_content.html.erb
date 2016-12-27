@@ -5,14 +5,14 @@
 
  
 
-<div class="panel-body" id="match-today">
+<div class="panel-body" id="match-today"> 
     <div class="table">
         <table class="table">
             <% if @my_team_results = Match.my_team_results(cookies[:user_team]) %>
                 
                 <% if @my_team_next_game = Match.my_team_next_game(cookies[:user_team]) %>
                     <%= raw(show_date_of_the_game @my_team_next_game) %>
-                    <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
+                    <tr class='clickable-row a-onlain' data-href='<%= match_path((@my_team_next_game.homeTeamName.split(' ').join('-')), (@my_team_next_game.date.strftime('%Y-%m-%d')), (@my_team_next_game.awayTeamName.split(' ').join('-'))) %>'>
                         <td><%= team_translater(@my_team_next_game.homeTeamName) %></td>
                         <td><i class="<%= show_team_icon(@my_team_next_game.homeTeamName) %> icon-small"></i></td>
                         <td class="time"><div style="background:#6a6a6a" class="score_or_time"><%= @my_team_next_game.date.strftime('%H:%M') %></div></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
@@ -23,7 +23,7 @@
                 
 
                 <% @my_team_results.each do |team| %>
-                            <tr class='clickable-row a-onlain' data-href='<%= root_path %>'>
+                            <tr class='clickable-row a-onlain' data-href='<%= match_path((team.homeTeamName.split(' ').join('-')), (team.date.strftime('%Y-%m-%d')), (team.awayTeamName.split(' ').join('-'))) %>'>
                                 <td><%= team_translater(team.homeTeamName) %></td>
                                 <td><i class="<%= show_team_icon(team.homeTeamName) %> icon-small"></i></td>
                                 <td class="time"><div style="background:#243843" class="score_or_time"><%= team.goalsHomeTeam %> - <%= team.goalsAwayTeam %></div></td> <!--('%a %b %d %H:%M:%S %Z %Y')-->
