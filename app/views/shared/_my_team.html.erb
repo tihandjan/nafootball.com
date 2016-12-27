@@ -45,6 +45,11 @@
     $('.countries').hide();
     var country = $('#country').val();
     $('#' + country).show();
+
+    // make table clickable
+    $(".clickable-row").click(function() {
+        window.document.location = $(this).data("href");
+    });
   })();
     
     function changeCountry(){
