@@ -128,3 +128,6 @@ gem 'friendly_id', '~> 5.1.0'
 # search engine
 gem 'mysql2', '~> 0.3.18', :platform => :ruby
 gem 'thinking-sphinx'
+
+# adsense
+gem 'ads-rails'
