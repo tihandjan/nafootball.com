@@ -52,7 +52,7 @@ Rails.application.routes.draw do
 
   # single pages and actions start
   get  'policy'    => 'main#policy',         as: :policy
-  post 'onlain'    => 'main#onlain',         as: :onlain
+  post 'onlain-game'    => 'main#onlain',    as: :onlain_game
   post 'my_team'   => 'main#change_my_team', as: :change_my_team
   get  'search'    => 'main#search',         as: :search
   post 'feedback'  => 'feedback#create',     as: :feedbacks
