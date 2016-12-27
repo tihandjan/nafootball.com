@@ -156,7 +156,7 @@
                         <% @number = 0 %>
                         <% @onlain.acestream.split(',').each do |ace| %>
                             <% @number += 1 %>
-                            <div class="player-info"><a href="acestream://<%= ace %>"><span style="color: green;"><%= ace %></span></a>&nbsp;- <%= @onlain.acestream_quality.split(',')[@number-1] %> Кбит/с&nbsp;</div>
+                            <div class="player-info"><a href="acestream://<%= ace %>"><span style="color: green;"><%= truncate(ace, length: 15) %></span></a>&nbsp;- <%= @onlain.acestream_quality.split(',')[@number-1] %> Кбит/с&nbsp;</div>
                             <div class="footballer-deliver"></div>
                         <% end %>
                     <% end %>
