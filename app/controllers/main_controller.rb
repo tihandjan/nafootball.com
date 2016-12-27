@@ -90,6 +90,7 @@ class MainController < ApplicationController
         @fixtures_first_team = Match.order('date DESC').where("date BETWEEN ? AND ? and (\"homeTeamName\" = ? or \"awayTeamName\" = ?)", Time.zone.now-60.days, Time.current-2.hour, @hometeam, @hometeam).first(3)
         @fixtures_second_team = Match.order('date DESC').where("date BETWEEN ? AND ? and (\"homeTeamName\" = ? or \"awayTeamName\" = ?)", Time.zone.now-60.days, Time.current-2.hour, @awayteam, @awayteam).first(3)
         @onlain = Onlain.find_by(date: @match.date, home_team: @hometeam, away_team: @awayteam)
+        @teams = Team.all
         set_meta_tags title: "#{full_team_translater @hometeam} #{full_team_translater @awayteam} смотреть онлайн, прямая трансляция матча #{params[:time]}",
                       site: 'nafootball.com',
                       reverse: true,
