@@ -58,8 +58,8 @@
             </div>
             
             <% if @articles.any? %>
-            <div class="statiy-title"><a href="<%= league_articles_path(@news.last.league) %>"> Статьи</a></div>
-            <div class="row row-article">
+            <div class="statiy-title"><a href="<%= league_articles_path(@articles.last.league) %>"> Статьи</a></div>
+            <div class="row row-article"> 
         
                 <% @articles.each do |article| %>
                 <div class="col-article col-sm-6">
