@@ -112,9 +112,9 @@ Devise.setup do |config|
   config.omniauth :vkontakte, Rails.application.secrets.vk_app_id, Rails.application.secrets.vk_app_key
   
   if Rails.env=="production"
-    CALLBACK_URL='http://nafootball.com/users/auth/google_oauth/callback'
+    CALLBACK_URL='http://nafootball.com/users/auth/google_oauth2/callback'
   else
-    CALLBACK_URL='http://nafootball.com/users/auth/google_oauth/callback'
+    CALLBACK_URL='http://nafootball.com/users/auth/google_oauth2/callback'
   end
   
   config.omniauth :google_oauth2, Rails.application.secrets.google_app_id, Rails.application.secrets.google_app_key, {

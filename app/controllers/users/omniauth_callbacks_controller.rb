@@ -11,7 +11,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       end
     end
     
-    def google_oauth
+    def google_oauth2
       @user = User.find_for_google_oauth request.env["omniauth.auth"]
       if @user.persisted?
         flash[:notice] = "Вы успешно вошли с помощью Google"
