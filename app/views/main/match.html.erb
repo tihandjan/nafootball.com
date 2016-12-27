@@ -139,9 +139,10 @@
             <div class="team-line-up-wrapper">
                 <div class="footballer-wrapper">
                     <div class="footballer-position">Sopcast</div>
-                    <% @number = 0 %>
                     <% if @onlain %>
+                        <% @number = 0 %>
                         <% @onlain.sopcast.split(',').each do |sop| %>
+                            <% @number += 1 %>
                             <div class="player-info"><a href="sop://broker.sopcast.com:3912/<%= sop %>"><span style="color: green;">140544</span></a>&nbsp;- <%= @onlain.sopcast_quality.split(',')[@number-1] %> Кбит/с&nbsp;</div>
                             <span class="footballer-deliver"></span>
                         <% end %>
@@ -151,8 +152,8 @@
             <div class="team-line-up-wrapper">
                 <div class="footballer-wrapper">
                     <div class="footballer-position">Ace Stream</div>
-                    <% @number = 0 %>
                     <% if @onlain %>
+                        <% @number = 0 %>
                         <% @onlain.acestream.split(',').each do |ace| %>
                             <% @number += 1 %>
                             <div class="player-info"><a href="acestream://<%= ace %>"><span style="color: green;"><%= ace %></span></a>&nbsp;- <%= @onlain.acestream_quality.split(',')[@number-1] %> Кбит/с&nbsp;</div>
