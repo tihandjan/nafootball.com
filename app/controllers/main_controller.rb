@@ -1,6 +1,5 @@
 class MainController < ApplicationController
     skip_before_action :verify_authenticity_token
-    # before_action :set_games_table_data
     before_action :set_onlain_fixtures, only: [:index, :onlain]
     def index
         @main_news = Article.order('created_at DESC').where(category: 'news', main: true).first(4)
@@ -82,6 +81,7 @@ class MainController < ApplicationController
         end
     end
 
+    include MainHelper
     def match
         @time =     params[:time].split('-')
         @hometeam = params[:hometeam].split('-').join(' ')
@@ -90,6 +90,11 @@ class MainController < ApplicationController
         @fixtures_first_team = Match.order('date DESC').where("date BETWEEN ? AND ? and (\"homeTeamName\" = ? or \"awayTeamName\" = ?)", Time.zone.now-60.days, Time.current-2.hour, @hometeam, @hometeam).first(3)
         @fixtures_second_team = Match.order('date DESC').where("date BETWEEN ? AND ? and (\"homeTeamName\" = ? or \"awayTeamName\" = ?)", Time.zone.now-60.days, Time.current-2.hour, @awayteam, @awayteam).first(3)
         @onlain = Onlain.find_by(date: @match.date, home_team: @hometeam, away_team: @awayteam)
+        set_meta_tags title: "#{full_team_translater @hometeam} #{full_team_translater @awayteam} смотреть онлайн, прямая трансляция матча #{params[:time]}",
+                      site: 'nafootball.com',
+                      reverse: true,
+                      description: "Смотреть онлайн прямую видео трансляцию матча #{full_team_translater @hometeam} #{full_team_translater @awayteam} в хорошем качестве FULL HD на nafootball.com",
+                      keywords: 'футбол, онлайн, таблица, результаты, расписание, новости, трансферы, голы, видео'
     end
     
 end

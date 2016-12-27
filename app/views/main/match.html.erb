@@ -4,7 +4,7 @@
         <div class="teams-wrapper">
             <div class="row">
                 <div class="game-date text-center">
-                    <%= Russian.strftime(@match.date, "%A %d %B %Y") %><%= @match.homeTeamName %>
+                    <%= Russian.strftime(@match.date, "%A %d %B %Y") %>
                 </div>
                 <div class="stadium text-center">
                     <%= (team_info @hometeam)[4] %>    
@@ -109,7 +109,7 @@
         <div class="fixtures-deliver"></div>
         <div class="team-video-wrapper">
             <div class="streaming">
-                Трансляции онлайн:
+                <h1 style="font-size:16px;margin:0;">Трансляции онлайн:</h1>
             </div>
 
             
