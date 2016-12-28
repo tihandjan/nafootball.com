@@ -22,7 +22,7 @@ permit_params :league, :category, :title, :summary, :description, :picture, :sou
           input :main, as: :boolean
           input :category, as: :select, collection: ['news', 'article'], selected: 'news'
           input :league, as: :select, collection: ['apl', 'seria-a', 'bundesliga', 'laliga', 'chempions-league']
-          input :team, as: :select, collection: select_team 
+          input :team, as: :select, collection: select_team, :input_html => { :class => 'selectpicker', 'data-live-search' => "true" }
           input :team_second, as: :select, collection: select_team 
           input :picture, as: :file
           input :image_alt

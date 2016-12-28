@@ -37,7 +37,4 @@ every 30.minutes do
   rake "ts:index"
 end
 
-every 1.minutes do 
-  runner "MainController.onlain"
-end
 
