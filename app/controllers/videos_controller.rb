@@ -64,7 +64,7 @@ class VideosController < ApplicationController
         @editional_class = 'articles'
         @video = Video.find(params[:id])
         @videos = Video.order('created_at DESC').where(league: params[:league_id]).all_except(@video).first(4)
-        @news = Article.order('created_at DESC').where(category: 'news').first(12)
+        @news = Article.order('created_at DESC').where(category: 'news').first(10)
         set_meta_tags title: @video.title,
                       site: 'nafootball.com',
                       reverse: true,

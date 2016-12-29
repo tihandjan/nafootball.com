@@ -59,7 +59,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
-    @news = Article.order('created_at DESC').where(category: 'news').all_except(@article).first(15)
+    @news = Article.order('created_at DESC').where(category: 'news').all_except(@article).first(10)
 
     set_meta_tags title: @article.title,
                   site: 'nafootball.com',

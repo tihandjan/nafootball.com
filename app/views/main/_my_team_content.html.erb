@@ -55,5 +55,10 @@
         if (navigator.userAgent.indexOf("Firefox") > 0) {
             $('.left-block .icon-small').hide();
         }
+
+        // make table clickable
+        $(".clickable-row").click(function() {
+            window.document.location = $(this).data("href");
+        });
     })();
 </script>

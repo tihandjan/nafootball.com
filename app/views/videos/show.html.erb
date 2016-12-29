@@ -67,7 +67,7 @@
         </div>
     </div>
 
-    <div class="left-block col-md-3"><%= render 'shared/last_news', point: 0 %></div>
+    <div class="left-block col-md-3"><%= render 'shared/last_news', point: 0 %><%= render 'shared/first_ad' %></div>
 </div>
 
 <%= social_share_button_tag(@video.title, :image => "http://nafootball.com#{@video.picture.url}", :'data-type' => 'photo', via: "nafootball_com") %>
