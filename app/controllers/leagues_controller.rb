@@ -10,7 +10,8 @@ class LeaguesController < ApplicationController
   def show
     @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(20)
     @articles = Article.order('created_at DESC').where(category: 'article', league: params[:id]).first(2)
-    @videos = Video.order('created_at DESC').where(league: params[:id]).first(5)
+    @videos = Video.order('created_at DESC').where(league: params[:id], category: 'full').first(5)
+    @videos_short = Video.order('created_at DESC').where(league: params[:id], category: 'overview').first(4)
     @league = params[:id]
     if params[:id] == 'seria-a'
       @table_data = Table.where(league: params[:id])

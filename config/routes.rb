@@ -62,7 +62,7 @@ Rails.application.routes.draw do
   # admin start
   namespace :manager do
     root :to => 'admin#index'
-    resources :articles, :videos, :pictures, :onlains
+    resources :articles, :videos, :pictures, :onlains, :teams, :players
   end
   # admin end
 

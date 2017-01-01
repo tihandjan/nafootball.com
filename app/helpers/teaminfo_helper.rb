@@ -116,5 +116,6 @@ module TeaminfoHelper
                 return team
             end
         end
+        return ['','','','','','','']
     end
 end

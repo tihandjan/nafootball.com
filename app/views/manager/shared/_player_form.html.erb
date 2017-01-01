@@ -1,0 +1,53 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">Добавить игрока</div>
+    <div class="panel-body">
+
+        <div class="well">
+            
+            <%= render 'manager/shared/errors', model: model %>   
+
+            <%= form_for model, url: (model.new_record? ? manager_players_path : manager_player_path) do |f| %>
+         
+                <div class="form-group">
+                    <%= f.label :team_id, 'Выбрать команду' %> <br>
+                    <%= f.select :team_id, options_for_select(Team.all.map {|team| [team.name, team.id]}), {include_blank: ''}, { class: 'selectpicker', "data-live-search"=>"true", required: true } %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :name %>
+                    <%= f.text_field :name, class: 'form-control', required: true, maxlength: 90 %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :market_value %>
+                    <%= f.text_field :market_value, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :date_of_birth, 'День рождения в формате(1994-06-15)'  %>
+                    <%= f.text_field :date_of_birth, class: 'form-control', required: true, maxlength: 90 %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :number %>
+                    <%= f.text_field :number, class: 'form-control', required: true, maxlength: 90 %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :position %>
+                    <%= f.select :position, options_for_select([["Centre Forward"], ["Right Wing"], ["Left Midfield"], ["Left Wing"], ["Secondary Striker"], ["Defensive Midfield"], ["Central Midfield"], ["Right Midfield"], ["Keeper"], ["Attacking Midfield"], ["Midfield"], ["Right-Back"], ["Centre Back"], ["Left-Back"], ["Mittelfeld"]] ), {}, {class: 'form-control', required: true, maxlength: 90, style: 'width: 200px'} %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :nationality %>
+                    <%= f.text_field :nationality, class: 'form-control', required: true, maxlength: 90 %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :contract_until %>
+                    <%= f.text_field :contract_until, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                    <% if model.new_record? %>
+                        <%= f.submit 'Добавить', class: 'btn btn-primary' %>
+                    <% else %>
+                        <%= f.submit 'Обновить', class: 'btn btn-primary' %>
+                    <% end %>
+                </div>
+            <% end %> 
+        </div>
+    </div>
+</div>

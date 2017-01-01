@@ -1,0 +1,19 @@
+
+<div class="well">
+    <div class="nav nav-pills">
+        <li role="presentation" class="active"><a class="btn btn-info" href="<%= new_manager_team_path %>">Добавить команду</a></li>
+    </div>
+</div>
+<div class="well">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Список всех Команда</div>
+        <div class="panel-body">
+            <div class="list-group">
+                <% @teams.each do |team| %>
+                    <button type="button" class="list-group-item"><span style="color: #337ab7;"><%= team.id %></span> | <%= truncate(team.name, lenght: 60) %> <%= link_to 'Удалить', manager_team_path(team), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger', style: 'float: right; margin-left: 10px;' %><a href="<%= edit_manager_team_path(team) %>" style="float: right;" class="btn btn-warning">Редактировать</a><%= link_to 'Просмотреть', team_path(team), class: 'btn btn-success', style: 'float: right; margin-right: 10px;' %></button>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <%= will_paginate @teams %>
+</div>

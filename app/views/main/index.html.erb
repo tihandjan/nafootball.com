@@ -121,6 +121,26 @@
                 </div>
                 
             </div>
+            <div class="row row-line-two video">
+                <div class="col-sm-12 video-col" style="padding-left: 0;padding-right: 0;">
+                   
+                        <% @videos_short.each do |video| %>
+                        <div class="col-xs-3 video-four">
+                            <a class="a-video" href="<%= league_video_path(video.league, video) %>">
+                                <div class="thumbnail">
+                                    <div class="image-wrapper"><%= image_tag(video.picture.url(:mini), :alt => video.image_alt) %></div>
+                                    <div class="caption video-caption">
+                                        <h4 class="video-title-four"><strong><%= truncate(video.title, length: 55) %></strong></h3>
+                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(video.created_at) %> назад</i></span> 
+                                        <span class="video-icon-four"><i class="glyphicon glyphicon-play"></i></span>
+                                        <span class="video-icon-four video-icon-four-time"><%= video.time %></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <% end %>
+                </div>
+            </div>
             
             <%= render 'shared/table' %>
            

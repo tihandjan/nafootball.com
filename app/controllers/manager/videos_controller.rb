@@ -41,6 +41,6 @@ class Manager::VideosController < ApplicationController
 
     private
     def video_params
-        params.require(:video).permit(:title, :team_first, :team_second, :code, :image_alt, :time, :league, :picture, tags_attributes: [:name], taggings_attributes: [:video_id, :tag_id])
+        params.require(:video).permit(:category, :title, :team_first, :team_second, :code, :image_alt, :time, :league, :picture, tags_attributes: [:name], taggings_attributes: [:video_id, :tag_id])
     end
 end

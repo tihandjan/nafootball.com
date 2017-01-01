@@ -1,0 +1,55 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">Добавить клуб</div>
+    <div class="panel-body">
+
+        <div class="well">
+            
+            <%= render 'manager/shared/errors', model: model %>   
+        
+            
+            <%= form_for model, url: (model.new_record? ? manager_teams_path : manager_team_path) do |f| %>
+         
+                <div class="form-group">
+                    <%= f.label :league, 'Выбрать лигу:' %><br>
+                    <%= f.label :league, 'Англия', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'apl', required: 'required' %><br>
+                    <%= f.label :league,'Испания', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'laliga', required: 'required' %><br>
+                    <%= f.label :league, 'Германия', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'bundesliga', required: 'required' %><br>
+                    <%= f.label :league,'Италия', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'seria-a', required: 'required' %><br>
+                    <%= f.label :league, 'Лига Чемпионов', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'chempions-league', required: 'required' %><br>
+                    <%= f.label :league, 'Украина', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'ukraine', required: 'required' %> <br>
+                    <%= f.label :league, 'Россия', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'russia', required: 'required' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :name %>
+                    <%= f.text_field :name, class: 'form-control', required: true, maxlength: 90 %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :market_value %>
+                    <%= f.text_field :market_value, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :icon_url %>
+                    <%= f.text_field :icon_url, class: 'form-control', required: true, maxlength: 90 %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :market_value %>
+                    <%= f.text_field :market_value, class: 'form-control', required: true, maxlength: 90 %>
+                </div>
+                <div class="form-group">
+                    <% if model.new_record? %>
+                        <%= f.submit 'Добавить', class: 'btn btn-primary' %>
+                    <% else %>
+                        <%= f.submit 'Обновить', class: 'btn btn-primary' %>
+                    <% end %>
+                </div>
+            <% end %> 
+        </div>
+    </div>
+</div>
