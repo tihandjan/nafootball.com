@@ -10,9 +10,9 @@ class Article < ActiveRecord::Base
     validates :league, presence: true
     validates :image_alt, presence: true
     mount_uploader :picture, PictureUploader
-    accepts_nested_attributes_for :pictures
-    accepts_nested_attributes_for :tags
-    accepts_nested_attributes_for :taggings
+    accepts_nested_attributes_for :pictures, :allow_destroy => true 
+    accepts_nested_attributes_for :tags, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true 
+    accepts_nested_attributes_for :taggings, :allow_destroy => true 
 
     extend FriendlyId
     friendly_id :title, use: [:slugged, :history, :finders]
@@ -46,19 +46,19 @@ class Article < ActiveRecord::Base
 
             })
         end
-        def twitter_post
-            begin
-            client = Twitter::REST::Client.new do |config|
-                config.consumer_key        = "NzO3p13LKOVQkBoU0r5y5Air0"
-                config.consumer_secret     = "M1LQAA08SpjDGRvWVWESUYHQhAsFZ2hUKfFQxevIqGebIJywOG"
-                config.access_token="3547350743-xwu8igclJuxppTG5mL4clGPnIGvuRkNfFrkoYq4"
-                config.access_token_secret="qUyd8S3721AXt0h2JRe58itaYY2UeNeJWurLt6Al6waKY"
-            end
-            client.update_with_media("http://nafootball.com #{self.summary}"[0...125], open("http://nafootball.com#{Article.last.picture.url}"))
-            rescue Exception => exc
-            @message = exc.message
-            end
-        end
+        # def twitter_post
+        #     begin
+        #     client = Twitter::REST::Client.new do |config|
+        #         config.consumer_key        = "NzO3p13LKOVQkBoU0r5y5Air0"
+        #         config.consumer_secret     = "M1LQAA08SpjDGRvWVWESUYHQhAsFZ2hUKfFQxevIqGebIJywOG"
+        #         config.access_token="3547350743-xwu8igclJuxppTG5mL4clGPnIGvuRkNfFrkoYq4"
+        #         config.access_token_secret="qUyd8S3721AXt0h2JRe58itaYY2UeNeJWurLt6Al6waKY"
+        #     end
+        #     client.update_with_media("http://nafootball.com #{self.summary}"[0...125], open("http://nafootball.com#{Article.last.picture.url}"))
+        #     rescue Exception => exc
+        #     @message = exc.message
+        #     end
+        # end
     end
 
     

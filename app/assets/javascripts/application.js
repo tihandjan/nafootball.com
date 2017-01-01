@@ -19,3 +19,4 @@
 //= require bootstrap/dropdown
 //= require_tree .
 //= require social-share-button
+//= require bootstrap-wysihtml5

@@ -1,0 +1,11 @@
+<div class="fieldset" style="margin-bottom: 10px;">
+    <%= f.label :tag_id, 'Выбрать тег из списка:', style: 'width: 180px;' %>
+    <%= f.select :tag_id, options_for_select(Tag.all.map {|name| [name.name, name.id]}), {}, {class: 'selectpicker', 'data-live-search' => true} %>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to 'Удалить', '#', class: 'btn btn-danger btn-destroy' %>
+</div>
+<script>
+    $('.selectpicker').selectpicker({
+      size: 10
+    });
+</script>

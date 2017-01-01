@@ -56,7 +56,14 @@ Rails.application.routes.draw do
   post 'my_team'   => 'main#change_my_team', as: :change_my_team
   get  'search'    => 'main#search',         as: :search
   post 'feedback'  => 'feedback#create',     as: :feedbacks
-  get  ':hometeam/:time/:awayteam' => 'main#match', as: :match
+  get  'onlain/:hometeam/:time/:awayteam' => 'main#match', as: :match
   # single pages and actions end
+
+  # admin start
+  namespace :manager do
+    root :to => 'admin#index'
+    resources :articles, :videos
+  end
+  # admin end
 
 end

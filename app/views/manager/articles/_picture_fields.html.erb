@@ -1,0 +1,15 @@
+<div class="fieldset" style="margin-bottom: 10px;">
+    <%= f.label :picture, 'Дополнительное фото', style: 'width: 180px' %>
+    <%= f.file_field :picture, class: 'form-control', required: true %>
+    <%= f.label :image_alt, 'Alt для фото (краткое описание того, что изображено на фото)' %>
+    <%= f.text_field :image_alt, class: 'form-control', required: true %>
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control wysihtml5' %>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to 'Удалить', '#', class: 'btn btn-danger btn-destroy', style: 'margin-top: 10px;' %>
+</div>
+<script>
+    $(function(){
+        $('.wysihtml5').last().wysihtml5({ toolbar:{ 'image': false } });
+    })
+</script>

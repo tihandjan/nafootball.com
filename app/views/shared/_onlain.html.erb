@@ -40,3 +40,11 @@
 </div>
  <%= form_tag onlain_game_path, id: 'onlain-submit', remote: true do %>
  <% end %>
+
+<script>
+    (function(){
+        $(".clickable-row").click(function() {
+            window.document.location = $(this).data("href");
+        });
+    })();
+</script>

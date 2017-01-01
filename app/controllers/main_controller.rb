@@ -4,7 +4,7 @@ class MainController < ApplicationController
     def index
         @main_news = Article.order('created_at DESC').where(category: 'news', main: true).first(4)
         @news = Article.order('created_at DESC').where(category: 'news').all_except(@main_news.map {|a| a.id}).first(20)
-        @articles = Article.order('created_at DESC').where("category = 'article'").first(4)
+        @articles = Article.order('created_at DESC').where(category: 'article').first(4)
         @videos = Video.order('created_at DESC').first(5)
         @table = Table.all
         @teams = Team.all

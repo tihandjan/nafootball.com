@@ -1,0 +1,126 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">Написать статью</div>
+    <div class="panel-body">
+
+        <div class="well">
+
+            <%= render 'manager/shared/errors', model: model %>  
+            
+            <%= form_for model, url: (model.new_record? ? manager_articles_path : manager_article_path) do |f| %>
+
+                <div class="form-group">
+                    <%= f.label :category, 'Новость', style: 'width: 150px;' %>
+                    <%= f.radio_button :category, 'news', checked: true %><br>
+                    <%= f.label :category,'Статья', style: 'width: 150px;' %>
+                    <%= f.radio_button :category, 'article' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :main, 'Главная(нет/да)', style: 'width: 150px;' %>
+                    <%= f.check_box :main %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :league, 'Выбрать лигу:' %><br>
+                    <%= f.label :league, 'Англия', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'apl', required: 'required' %><br>
+                    <%= f.label :league,'Испания', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'laliga', required: 'required' %><br>
+                    <%= f.label :league, 'Германия', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'bundesliga', required: 'required' %><br>
+                    <%= f.label :league,'Италия', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'seria-a', required: 'required' %><br>
+                    <%= f.label :league, 'Лига Чемпионов', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'chempions-league', required: 'required' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :team, 'Выбрать команду' %> <br>
+                    <%= f.select :team, options_for_select(Team.all.map {|team| [team.name]}), {include_blank: ''}, { class: 'selectpicker', "data-live-search"=>"true" } %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :team_second, 'Выбрать вторую команду' %> <br>
+                    <%= f.select :team_second, options_for_select(Team.all.map {|team| [team.name]}), {include_blank: ''}, { class: 'selectpicker', "data-live-search"=>"true" } %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :picture, 'Главное Фото' %>
+                    <%= f.file_field :picture, class: 'form-control', required: true %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :image_alt, 'Alt для фото (краткое описание того, что изображено на фото)' %>
+                    <%= f.text_field :image_alt, class: 'form-control', required: true %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :title %>
+                    <%= f.text_field :title, class: 'form-control', required: true, maxlength: 90 %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :summary %>
+                    <%= f.text_field :summary, class: 'form-control', required: true %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :description %>
+                    <%= f.text_area :description, class: 'form-control wysihtml5', required: true %>
+                </div>
+                <% if model.new_record? %>
+                    <div class="form-group">
+                        <%= f.fields_for @picture do |builder| %>
+
+                        <% end %>
+                        <%= link_to_add_fields 'Дополнительный контент', f, :pictures %>
+                    </div>
+                <% end %>
+                <div class="form-group">
+                    <%= f.label :source, 'Источник' %>
+                    <%= f.text_field :source, class: 'form-control' %>
+                </div>
+                <% if model.new_record? %>
+                    <div class="form-group">
+                        <%= f.fields_for :taggings do |builder| %>
+                            
+                        <% end %>
+                        <%= link_to_add_fields "Выбрать тег из списка", f, :taggings %>
+                    </div>
+                    <div class="form-group">
+                        <%= f.fields_for :tags do |builder| %>
+                            
+                        <% end %>
+                        <%= link_to_add_fields "Добавить новый тег(сначала проверить в списке выше)", f, :tags %>
+                    </div>
+                <% end %>
+                <div class="form-group">
+                    <% if model.new_record? %>
+                        <%= f.submit 'Создать', class: 'btn btn-primary' %>  
+                    <% else %>
+                        <%= f.submit 'Обновить', class: 'btn btn-primary' %>  
+                    <% end %>
+                </div>
+            <% end %> 
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        $('form').on('click', '.btn-destroy', function(event){
+            $(this).prev('input[type=hidden]').attr('value',1);
+            $(this).closest('.fieldset').remove();
+            event.preventDefault();
+        })
+
+        function add_fields(link, association, content) {  
+            var new_id = new Date().getTime();  
+            var regexp = new RegExp("new_" + association, "g");  
+            $(link).parent().before(content.replace(regexp, new_id));  
+        }
+
+        $('form').on('click', '.add_fields', function(event) {
+            var regexp, time;
+            time = new Date().getTime();
+            regexp = new RegExp($(this).data('id'), 'g');
+            $(this).before($(this).data('fields').replace(regexp, time));
+            return event.preventDefault();
+        });
+
+        $('.wysihtml5').each(function(i, elem) {
+            $(elem).wysihtml5({ toolbar:{ 'image': false } });
+        });
+    })
+</script>

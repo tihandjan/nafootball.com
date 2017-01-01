@@ -1,0 +1,11 @@
+<div class="fieldset" style="margin-bottom: 10px;">
+    <%= f.label :name, 'Добавить новый тег:', style: 'width: 180px' %>
+    <%= f.text_field :name, class: 'form-control', style: 'width: 220px; display: inline-block;', required: true %>
+    <%= f.hidden_field :_destroy %>
+    <%= link_to 'Удалить', '#', class: 'btn btn-danger btn-destroy' %>
+</div>
+<script>
+    $('.selectpicker').selectpicker({
+      size: 10
+    });
+</script>
