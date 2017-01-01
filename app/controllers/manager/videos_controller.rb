@@ -1,4 +1,6 @@
 class Manager::VideosController < ApplicationController
+    load_and_authorize_resource
+
     def index
         @videos = Video.order('created_at DESC').paginate(page: params[:page], per_page: 10)
     end
@@ -20,11 +22,9 @@ class Manager::VideosController < ApplicationController
     end
 
     def edit
-        @video = Video.find(params[:id])
     end
 
     def update
-        @video = Video.find(params[:id])
         if @video.update_attributes(video_params)
             flash[:notice] = 'Видео успешно обновлено'
             redirect_to manager_videos_path

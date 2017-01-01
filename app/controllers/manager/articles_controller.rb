@@ -1,4 +1,5 @@
 class Manager::ArticlesController < ApplicationController
+    load_and_authorize_resource
 
     def index
         @articles = Article.order('created_at DESC').paginate(page: params[:page], per_page: 10)
@@ -15,18 +16,16 @@ class Manager::ArticlesController < ApplicationController
         @article = Article.new(article_params)
         if @article.save
             flash[:notice] = 'Статья успешно создана'
-            redirect_to :index
+            redirect_to manager_articles_path
         else
             render :new
         end
     end
 
     def edit
-        @article = Article.find(params[:id])
     end
 
     def update
-        @article = Article.find(params[:id])
         if @article.update_attributes(article_params)
             flash[:notice] = 'Статья успешно обновлена'
             redirect_to manager_articles_path

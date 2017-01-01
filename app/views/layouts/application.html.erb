@@ -35,6 +35,9 @@
   <%= render 'layouts/additional_header' %>
     
   <div class="container">
+    <% if current_user && (current_user.has_role? :admin) %>
+      <%= render 'manager/shared/menu' %>
+    <% end %>
     <%= render 'layouts/messages' %>
 
     <%= yield %>

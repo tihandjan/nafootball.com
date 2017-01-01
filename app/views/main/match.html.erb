@@ -139,7 +139,7 @@
             <div class="team-line-up-wrapper">
                 <div class="footballer-wrapper">
                     <div class="footballer-position">Sopcast</div>
-                    <% if @onlain %>
+                    <% if @onlain && !@onlain.sopcast.blank? %>
                         <% @number = 0 %>
                         <% @onlain.sopcast.split(',').each do |sop| %>
                             <% @number += 1 %>
@@ -152,7 +152,7 @@
             <div class="team-line-up-wrapper">
                 <div class="footballer-wrapper">
                     <div class="footballer-position">Ace Stream</div>
-                    <% if @onlain %>
+                    <% if @onlain && !@onlain.acestream.blank? %>
                         <% @number = 0 %>
                         <% @onlain.acestream.split(',').each do |ace| %>
                             <% @number += 1 %>

@@ -1,0 +1,69 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">Создать Onlain</div>
+    <div class="panel-body">
+
+        <div class="well">
+            
+            <%= render 'manager/shared/errors', model: @onlain %>   
+        
+            
+            <%= form_for @onlain, url: manager_onlains_path do |f| %>
+         
+                
+                <div class="form-group">
+                    <%= f.label :home_team, 'Выбрать домашнюю команду' %> <br>
+                    <%= f.select :home_team, options_for_select(Team.all.map {|team| [team.name]}), {include_blank: ''}, { class: 'selectpicker', "data-live-search"=>"true", required: true } %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :away_team, 'Выбрать выездную команду' %> <br>
+                    <%= f.select :away_team, options_for_select(Team.all.map {|team| [team.name]}), {include_blank: ''}, { class: 'selectpicker', "data-live-search"=>"true", required: true } %>
+                </div>
+                <div class="form-group date-form-control">
+                    <%= f.label :date, 'Дата проведения матча(MSK)' %> <br>
+                    <%= f.datetime_select :date, class: 'form-control', required: true, style: 'width: 250px;' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :sopcast, 'Sopcast(перечислять через запятую)' %>
+                    <%= f.text_field :sopcast, class: 'form-control', style: 'width: 400px;' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :sopcast_quality, 'Sopcast quaility(перечислять через запятую)' %>
+                    <%= f.text_field :sopcast_quality, class: 'form-control', style: 'width: 400px;' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :acestream, 'Acestream(перечислять через запятую)' %>
+                    <%= f.text_field :acestream, class: 'form-control', style: 'width: 400px;' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :acestream_quality, 'Acestream quaility(перечислять через запятую)' %>
+                    <%= f.text_field :acestream_quality, class: 'form-control', style: 'width: 400px;' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :video_first %>
+                    <%= f.text_field :video_first, class: 'form-control', style: 'width: 600px;' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :video_second %>
+                    <%= f.text_field :video_second, class: 'form-control', style: 'width: 600px;' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :video_third %>
+                    <%= f.text_field :video_third, class: 'form-control', style: 'width: 600px;' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :video_fourth %>
+                    <%= f.text_field :video_fourth, class: 'form-control', style: 'width: 600px;' %>
+                </div>
+                <div class="form-group">
+                    <%= f.submit 'Создать', class: 'btn btn-primary' %>
+                </div>
+            <% end %> 
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function(){
+        $('.date-form-control > select').addClass('form-control').css({'width': '100px', 'display': 'inline-block'});
+    })
+</script>

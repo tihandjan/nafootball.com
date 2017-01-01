@@ -46,7 +46,7 @@ class CommentsController < ApplicationController
       @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
       @commentable = Article.find_by_id(params[:article_id]) if params[:article_id]
       @commentable = Video.find_by_id(params[:video_id])     if params[:video_id]
-      @commentable = Onlain.find_by_id(params[:onlain_id])     if params[:onlain_id]
+      @commentable = Onlain.find_by_id(params[:onlain_id])   if params[:onlain_id]
     end
     
 end

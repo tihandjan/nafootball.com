@@ -1,0 +1,14 @@
+
+<div class="well">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Список дополнительного контента Статей</div>
+        <div class="panel-body">
+            <div class="list-group">
+                <% @pictures.each do |picture| %>
+                    <button type="button" class="list-group-item"><span style="color: #337ab7;"><%= picture.id %></span> | <%= truncate(picture.description, lenght: 60) %> <%= link_to 'Удалить', manager_picture_path(picture), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger', style: 'float: right; margin-left: 10px;' %><a href="<%= edit_manager_picture_path(picture) %>" style="float: right;" class="btn btn-warning">Редактировать</a><%= link_to 'Просмотреть', league_article_path(picture.article.league, picture.article), class: 'btn btn-success', style: 'float: right; margin-right: 10px;' %></button>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <%= will_paginate @pictures %>
+</div>

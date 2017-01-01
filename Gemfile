@@ -68,6 +68,8 @@ gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
 
 # authentication
 gem 'devise'
+gem 'cancancan'
+gem 'rolify'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'

@@ -43,8 +43,8 @@
                                 <div class="thumbnail">
                                     <div class="image-wrapper"><%= image_tag(article.picture.url(:mini), :alt => article.image_alt) %></div>
                                     <div class="caption custom-caption">
-                                        <h3 class="index-h3"><strong><%= truncate(article.title, length: 55) %></strong></h3>
-                                        <p><%= truncate(article.summary,length: 90) %></p>
+                                        <h3 class="index-h3"><strong><%= truncate(article.title, length: 70) %></strong></h3>
+                                        <p><%= truncate(article.summary,length: 80) %></p>
                                         <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %> назад</i></span> 
                                     </div>
                                 </div>
