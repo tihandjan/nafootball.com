@@ -338,7 +338,7 @@ a {
 // article item 2 end
 
 .image-wrapper {
-    min-height: 110px;
+    min-height: 75px;
     background: #000;
     img {
         opacity: 0.9;
@@ -582,7 +582,7 @@ a {
 @media only screen and (max-width: 991px) {
     .row-line-one .col-line-one-second a {
         .list-group-item-heading {font-size: 15px;}
-        height: 72px;
+        height: 72px !important;
         &:last-child {
             height: 66px;
         }

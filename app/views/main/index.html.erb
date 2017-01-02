@@ -23,7 +23,7 @@
                                 <% @main_news.each do |article| %>
                                     <a href="<%= league_article_path(article.league, article) %>" class="list-group-item list-group-custom text-left", onmouseover="$('.article-four-image').hide();$('#<%= article.id %>').show();$('.list-group-custom').css('background', 'transparent');$(this).css('background', '#2a4951')">
                                        <h3 class="list-group-item-heading"><%= truncate(article.title, length: 90) %></h4>
-                                       <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %> назад</i></span>
+                                       <span class="article-time hidden-md hidden-sm"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %> назад</i></span>
                                     </a>
                                 <% end %>
                                 
@@ -43,8 +43,8 @@
                                 <div class="thumbnail">
                                     <div class="image-wrapper"><%= image_tag(article.picture.url(:mini), :alt => article.image_alt) %></div>
                                     <div class="caption custom-caption">
-                                        <h3 class="index-h3"><strong><%= truncate(article.title, length: 70) %></strong></h3>
-                                        <p><%= truncate(article.summary,length: 80) %></p>
+                                        <h3 class="index-h3"><strong><%= truncate(article.title, length: 75) %></strong></h3>
+                                        <p><%= truncate(article.summary,length: 90) %></p>
                                         <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(article.created_at) %> назад</i></span> 
                                     </div>
                                 </div>
@@ -125,15 +125,14 @@
                 <div class="col-sm-12 video-col" style="padding-left: 0;padding-right: 0;">
                    
                         <% @videos_short.each do |video| %>
-                        <div class="col-xs-3 video-four">
+                        <div class="col-xs-6 col-sm-3 col-md-2 video-four">
                             <a class="a-video" href="<%= league_video_path(video.league, video) %>">
                                 <div class="thumbnail">
                                     <div class="image-wrapper"><%= image_tag(video.picture.url(:mini), :alt => video.image_alt) %></div>
                                     <div class="caption video-caption">
-                                        <h4 class="video-title-four"><strong><%= truncate(video.title, length: 55) %></strong></h3>
-                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(video.created_at) %> назад</i></span> 
-                                        <span class="video-icon-four"><i class="glyphicon glyphicon-play"></i></span>
-                                        <span class="video-icon-four video-icon-four-time"><%= video.time %></span>
+                                        <h4 class="video-title-four" style="font-size: 13px;"><strong><%= truncate(video.title, length: 55) %></strong></h3> 
+                                        <span class="video-icon-four" style="font-size: 12px;"><i class="glyphicon glyphicon-play"></i></span>
+                                        <span class="video-icon-four video-icon-four-time" style="font-size:12px;padding:2px;"><%= video.time %></span>
                                     </div>
                                 </div>
                             </a>

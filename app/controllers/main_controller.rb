@@ -6,7 +6,7 @@ class MainController < ApplicationController
         @news = Article.order('created_at DESC').where(category: 'news').all_except(@main_news.map {|a| a.id}).first(20)
         @articles = Article.order('created_at DESC').where(category: 'article').first(4)
         @videos = Video.order('created_at DESC').where(category: 'full').first(5)
-        @videos_short = Video.order('created_at DESC').where(category: 'overview').first(4)
+        @videos_short = Video.order('created_at DESC').where(category: 'overview').first(6)
         @table = Table.all
         @teams = Team.all
         set_meta_tags title: 'Новости футбола, онлайн трасляции, повторы матчей',
