@@ -2,7 +2,7 @@ class Manager::TablesController < ApplicationController
     load_and_authorize_resource
 
     def index
-        @tables = Table.order('created_at DESC').paginate(page: params[:page], per_page: 30)
+        @tables = Table.order(:league).paginate(page: params[:page], per_page: 30)
     end
 
     def new

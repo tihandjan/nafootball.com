@@ -2,7 +2,7 @@ class Manager::TeamsController < ApplicationController
     load_and_authorize_resource
 
     def index
-        @teams = Team.order('created_at DESC').paginate(page: params[:page], per_page: 30)
+        @teams = Team.order(:league).paginate(page: params[:page], per_page: 30)
     end
 
     def new
