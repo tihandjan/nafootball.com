@@ -1,0 +1,79 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">Добавить запись</div>
+    <div class="panel-body">
+
+        <div class="well">
+            
+            <%= render 'manager/shared/errors', model: model %>   
+        
+            
+            <%= form_for model, url: (model.new_record? ? manager_tables_path : manager_table_path) do |f| %>
+         
+                <div class="form-group">
+                    <%= f.label :league, 'Выбрать лигу:' %><br>
+                    <%= f.label :league, 'Англия', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'apl', required: 'required' %><br>
+                    <%= f.label :league,'Испания', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'laliga', required: 'required' %><br>
+                    <%= f.label :league, 'Германия', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'bundesliga', required: 'required' %><br>
+                    <%= f.label :league,'Италия', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'seria-a', required: 'required' %><br>
+                    <%= f.label :league, 'Лига Чемпионов', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'chempions-league', required: 'required' %><br>
+                    <%= f.label :league, 'Украина', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'ukraine', required: 'required' %> <br>
+                    <%= f.label :league, 'Россия', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'russia', required: 'required' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :teamName %>
+                    <%= f.select :teamName, options_for_select(Team.all.map {|team| [team.name]}), {}, { class: 'selectpicker', required: true, 'data-live-search': true } %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :position %>
+                    <%= f.text_field :position, class: 'form-control', required: true, style: 'width: 100px' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :playedGames %>
+                    <%= f.text_field :playedGames, class: 'form-control', required: true, style: 'width: 100px' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :points %>
+                    <%= f.text_field :points, class: 'form-control', required: true, style: 'width: 100px' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :goals %>
+                    <%= f.text_field :goals, class: 'form-control', required: true, style: 'width: 100px' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :goalsAgainst %>
+                    <%= f.text_field :goalsAgainst, class: 'form-control', required: true, style: 'width: 100px' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :goalDifference %>
+                    <%= f.text_field :goalDifference, class: 'form-control', required: true, style: 'width: 100px' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :wins %>
+                    <%= f.text_field :wins, class: 'form-control', required: true, style: 'width: 100px' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :draws %>
+                    <%= f.text_field :draws, class: 'form-control', required: true, style: 'width: 100px' %>
+                </div>
+                <div class="form-group">
+                    <%= f.label :losses %>
+                    <%= f.text_field :losses, class: 'form-control', required: true, style: 'width: 100px' %>
+                </div>
+                <div class="form-group">
+                    <% if model.new_record? %>
+                        <%= f.submit 'Добавить', class: 'btn btn-primary' %>
+                    <% else %>
+                        <%= f.submit 'Обновить', class: 'btn btn-primary' %>
+                    <% end %>
+                </div>
+            <% end %> 
+        </div>
+    </div>
+</div>
