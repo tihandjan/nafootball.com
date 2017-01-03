@@ -433,7 +433,7 @@ module MainHelper
                 return team_en_ru[2]
             end
         end
-        return "sprite sprite-default_icon"
+        return "sprite sprite-default-icon"
     end
     
     def in_play_or_finished team

@@ -86,22 +86,28 @@
 .sprite-Keln {
     width: 56px;
     height: 42px;
-    background-position: 0 -42px;
+    background-position: -504px 0;
 }
 
 .sprite-Leipzig {
     width: 56px;
     height: 42px;
-    background-position: -56px -42px;
+    background-position: 0 -42px;
 }
 
 .sprite-Logo_NF {
     width: 210px;
     height: 31px;
-    background-position: -112px -42px;
+    background-position: -56px -42px;
 }
 
 .sprite-Mainz {
+    width: 56px;
+    height: 42px;
+    background-position: -266px -42px;
+}
+
+.sprite-Oleksandriya {
     width: 56px;
     height: 42px;
     background-position: -322px -42px;
@@ -113,648 +119,815 @@
     background-position: -378px -42px;
 }
 
-.sprite-apl {
-    width: 32px;
-    height: 32px;
+.sprite-amkar {
+    width: 56px;
+    height: 42px;
     background-position: -434px -42px;
 }
 
-.sprite-apl_hover {
-    width: 32px;
-    height: 32px;
-    background-position: -466px -42px;
-}
-
-.sprite-arsenal {
-    width: 56px;
-    height: 42px;
-    background-position: -112px -74px;
-}
-
-.sprite-atalanta {
-    width: 56px;
-    height: 42px;
-    background-position: -168px -74px;
-}
-
-.sprite-ath_bilbao {
-    width: 56px;
-    height: 42px;
-    background-position: -224px -74px;
-}
-
-.sprite-atletico {
-    width: 56px;
-    height: 42px;
-    background-position: -434px -74px;
-}
-
-.sprite-barselona {
-    width: 56px;
-    height: 42px;
-    background-position: 0 -116px;
-}
-
-.sprite-basel {
-    width: 56px;
-    height: 42px;
-    background-position: -56px -116px;
-}
-
-.sprite-benfica {
-    width: 56px;
-    height: 42px;
-    background-position: -112px -116px;
-}
-
-.sprite-besiktash {
-    width: 56px;
-    height: 42px;
-    background-position: -168px -116px;
-}
-
-.sprite-bologna {
-    width: 56px;
-    height: 42px;
-    background-position: -224px -116px;
-}
-
-.sprite-books {
-    width: 32px;
-    height: 32px;
-    background-position: -280px -74px;
-}
-
-.sprite-books_hover {
-    width: 32px;
-    height: 32px;
-    background-position: -280px -116px;
-}
-
-.sprite-bournem {
-    width: 56px;
-    height: 42px;
-    background-position: -312px -116px;
-}
-
-.sprite-brugge {
-    width: 56px;
-    height: 42px;
-    background-position: -368px -116px;
-}
-
-.sprite-bundesliga {
-    width: 32px;
-    height: 32px;
-    background-position: -424px -116px;
-}
-
-.sprite-bundesliga_hover {
-    width: 32px;
-    height: 32px;
-    background-position: -456px -116px;
-}
-
-.sprite-burnley {
-    width: 56px;
-    height: 42px;
-    background-position: -424px -148px;
-}
-
-.sprite-cagliari {
-    width: 56px;
-    height: 42px;
-    background-position: 0 -190px;
-}
-
-.sprite-chelsea {
-    width: 56px;
-    height: 42px;
-    background-position: -56px -190px;
-}
-
-.sprite-chievo {
-    width: 56px;
-    height: 42px;
-    background-position: -112px -190px;
-}
-
-.sprite-cl_hover {
-    width: 32px;
-    height: 32px;
-    background-position: -280px -148px;
-}
-
-.sprite-crotone {
-    width: 56px;
-    height: 42px;
-    background-position: -168px -190px;
-}
-
-.sprite-crystal {
-    width: 56px;
-    height: 42px;
-    background-position: -224px -190px;
-}
-
-.sprite-cska {
-    width: 56px;
-    height: 42px;
-    background-position: -280px -190px;
-}
-
-.sprite-darmshtad {
-    width: 56px;
-    height: 42px;
-    background-position: -336px -190px;
-}
-
-.sprite-darmstadt {
-    width: 56px;
-    height: 42px;
-    background-position: -392px -190px;
-}
-
-.sprite-default_icon {
-    width: 32px;
-    height: 32px;
-    background-position: -448px -190px;
-}
-
-.sprite-deportivo {
-    width: 56px;
-    height: 42px;
-    background-position: -448px -222px;
-}
-
-.sprite-dynamo_k {
-    width: 56px;
-    height: 42px;
-    background-position: 0 -264px;
-}
-
-.sprite-dynamo_z {
-    width: 56px;
-    height: 42px;
-    background-position: -56px -264px;
-}
-
-.sprite-eibar {
-    width: 56px;
-    height: 42px;
-    background-position: -112px -264px;
-}
-
-.sprite-empoli {
-    width: 56px;
-    height: 42px;
-    background-position: -168px -264px;
-}
-
-.sprite-england_another {
-    width: 24px;
-    height: 24px;
-    background-position: -480px -148px;
-}
-
-.sprite-espaniol {
-    width: 56px;
-    height: 42px;
-    background-position: -224px -264px;
-}
-
-.sprite-europe {
-    width: 24px;
-    height: 24px;
-    background-position: -480px -172px;
-}
-
-.sprite-everton {
-    width: 56px;
-    height: 42px;
-    background-position: -280px -264px;
-}
-
-.sprite-fiorentina {
-    width: 56px;
-    height: 42px;
-    background-position: -336px -264px;
-}
-
-.sprite-genoa {
-    width: 56px;
-    height: 42px;
-    background-position: -392px -264px;
-}
-
-.sprite-germany {
-    width: 24px;
-    height: 24px;
-    background-position: -480px -196px;
-}
-
-.sprite-granada {
-    width: 56px;
-    height: 42px;
-    background-position: -448px -264px;
-}
-
-.sprite-hamburg {
-    width: 56px;
-    height: 42px;
-    background-position: 0 -306px;
-}
-
-.sprite-hull_city {
-    width: 56px;
-    height: 42px;
-    background-position: -56px -306px;
-}
-
-.sprite-ingolstad {
-    width: 56px;
-    height: 42px;
-    background-position: -112px -306px;
-}
-
-.sprite-inter {
-    width: 56px;
-    height: 42px;
-    background-position: -168px -306px;
-}
-
-.sprite-italy {
-    width: 24px;
-    height: 24px;
-    background-position: -224px -306px;
-}
-
-.sprite-juventus {
-    width: 56px;
-    height: 42px;
-    background-position: -248px -306px;
-}
-
-.sprite-kopengagen {
-    width: 56px;
-    height: 42px;
-    background-position: -304px -306px;
-}
-
-.sprite-laliga {
-    width: 32px;
-    height: 32px;
-    background-position: -360px -306px;
-}
-
-.sprite-laliga_hover {
-    width: 32px;
-    height: 32px;
-    background-position: -392px -306px;
-}
-
-.sprite-las_palmas {
-    width: 56px;
-    height: 42px;
-    background-position: -424px -306px;
-}
-
-.sprite-lazio {
-    width: 56px;
-    height: 42px;
-    background-position: 0 -348px;
-}
-
-.sprite-lc {
-    width: 32px;
-    height: 32px;
-    background-position: -56px -348px;
-}
-
-.sprite-leganes {
-    width: 56px;
-    height: 42px;
-    background-position: -88px -348px;
-}
-
-.sprite-legia {
-    width: 56px;
-    height: 42px;
-    background-position: -144px -348px;
-}
-
-.sprite-leicester {
-    width: 56px;
-    height: 42px;
-    background-position: -200px -348px;
-}
-
-.sprite-liver {
-    width: 56px;
-    height: 42px;
-    background-position: -256px -348px;
-}
-
-.sprite-ludogorets {
-    width: 56px;
-    height: 42px;
-    background-position: -312px -348px;
-}
-
-.sprite-lyon {
-    width: 56px;
-    height: 42px;
-    background-position: -368px -348px;
-}
-
-.sprite-malaga {
-    width: 56px;
-    height: 42px;
-    background-position: -424px -348px;
-}
-
-.sprite-mc {
-    width: 56px;
-    height: 42px;
-    background-position: 0 -390px;
-}
-
-.sprite-midl {
-    width: 56px;
-    height: 42px;
-    background-position: -56px -390px;
-}
-
-.sprite-milan {
-    width: 56px;
-    height: 42px;
-    background-position: -112px -390px;
-}
-
-.sprite-monaco {
-    width: 56px;
-    height: 42px;
-    background-position: -168px -390px;
-}
-
-.sprite-mu {
-    width: 56px;
-    height: 42px;
-    background-position: -224px -390px;
-}
-
-.sprite-napoli {
-    width: 56px;
-    height: 42px;
-    background-position: -280px -390px;
-}
-
-.sprite-news {
-    width: 32px;
-    height: 32px;
-    background-position: -336px -390px;
-}
-
-.sprite-ossasuna {
-    width: 56px;
-    height: 42px;
-    background-position: -368px -390px;
-}
-
-.sprite-palermo {
-    width: 56px;
-    height: 42px;
-    background-position: -424px -390px;
-}
-
-.sprite-pescara {
-    width: 56px;
-    height: 42px;
-    background-position: 0 -432px;
-}
-
-.sprite-play {
-    width: 32px;
-    height: 32px;
-    background-position: -56px -432px;
-}
-
-.sprite-play_hover {
-    width: 32px;
-    height: 32px;
-    background-position: -88px -432px;
-}
-
-.sprite-porto {
-    width: 56px;
-    height: 42px;
-    background-position: -120px -432px;
-}
-
-.sprite-psg {
-    width: 56px;
-    height: 42px;
-    background-position: -176px -432px;
-}
-
-.sprite-psv {
-    width: 56px;
-    height: 42px;
-    background-position: -232px -432px;
-}
-
-.sprite-real_betis {
-    width: 56px;
-    height: 42px;
-    background-position: -288px -432px;
-}
-
-.sprite-real_m {
-    width: 56px;
-    height: 42px;
-    background-position: -344px -432px;
-}
-
-.sprite-real_sosiedad {
-    width: 56px;
-    height: 42px;
-    background-position: -400px -432px;
-}
-
-.sprite-roma {
-    width: 56px;
-    height: 42px;
-    background-position: -504px 0;
-}
-
-.sprite-rostov {
-    width: 56px;
-    height: 42px;
-    background-position: -498px -42px;
-}
-
-.sprite-sampdoria {
-    width: 56px;
-    height: 42px;
-    background-position: -490px -84px;
-}
-
-.sprite-sassuolo {
-    width: 56px;
-    height: 42px;
-    background-position: -504px -126px;
-}
-
-.sprite-selta {
-    width: 56px;
-    height: 42px;
-    background-position: -504px -168px;
-}
-
-.sprite-seltic {
+.sprite-anzhi {
     width: 56px;
     height: 42px;
-    background-position: -504px -210px;
+    background-position: -490px -42px;
 }
 
-.sprite-seria_a {
+.sprite-apl {
     width: 32px;
     height: 32px;
     background-position: 0 -84px;
 }
 
-.sprite-seria_a_hover {
+.sprite-apl_hover {
     width: 32px;
     height: 32px;
     background-position: -32px -84px;
 }
 
+.sprite-arsenal {
+    width: 56px;
+    height: 42px;
+    background-position: -64px -84px;
+}
+
+.sprite-arsenal-tula {
+    width: 56px;
+    height: 42px;
+    background-position: -120px -84px;
+}
+
+.sprite-atalanta {
+    width: 56px;
+    height: 42px;
+    background-position: -176px -84px;
+}
+
+.sprite-ath_bilbao {
+    width: 56px;
+    height: 42px;
+    background-position: -232px -84px;
+}
+
+.sprite-atletico {
+    width: 56px;
+    height: 42px;
+    background-position: -288px -84px;
+}
+
+.sprite-barselona {
+    width: 56px;
+    height: 42px;
+    background-position: -344px -84px;
+}
+
+.sprite-basel {
+    width: 56px;
+    height: 42px;
+    background-position: -400px -84px;
+}
+
+.sprite-benfica {
+    width: 56px;
+    height: 42px;
+    background-position: -456px -84px;
+}
+
+.sprite-besiktash {
+    width: 56px;
+    height: 42px;
+    background-position: 0 -126px;
+}
+
+.sprite-bologna {
+    width: 56px;
+    height: 42px;
+    background-position: -56px -126px;
+}
+
+.sprite-books {
+    width: 32px;
+    height: 32px;
+    background-position: -512px -84px;
+}
+
+.sprite-books_hover {
+    width: 32px;
+    height: 32px;
+    background-position: -512px -116px;
+}
+
+.sprite-bournem {
+    width: 56px;
+    height: 42px;
+    background-position: -112px -126px;
+}
+
+.sprite-brugge {
+    width: 56px;
+    height: 42px;
+    background-position: -168px -126px;
+}
+
+.sprite-bundesliga {
+    width: 32px;
+    height: 32px;
+    background-position: -224px -148px;
+}
+
+.sprite-bundesliga_hover {
+    width: 32px;
+    height: 32px;
+    background-position: -256px -148px;
+}
+
+.sprite-burnley {
+    width: 56px;
+    height: 42px;
+    background-position: -288px -126px;
+}
+
+.sprite-cagliari {
+    width: 56px;
+    height: 42px;
+    background-position: -344px -126px;
+}
+
+.sprite-chelsea {
+    width: 56px;
+    height: 42px;
+    background-position: -400px -126px;
+}
+
+.sprite-chievo {
+    width: 56px;
+    height: 42px;
+    background-position: -456px -126px;
+}
+
+.sprite-chornomorets {
+    width: 56px;
+    height: 42px;
+    background-position: 0 -168px;
+}
+
+.sprite-cl_hover {
+    width: 32px;
+    height: 32px;
+    background-position: -512px -148px;
+}
+
+.sprite-crotone {
+    width: 56px;
+    height: 42px;
+    background-position: -56px -168px;
+}
+
+.sprite-crystal {
+    width: 56px;
+    height: 42px;
+    background-position: -112px -168px;
+}
+
+.sprite-cska {
+    width: 56px;
+    height: 42px;
+    background-position: -168px -168px;
+}
+
+.sprite-darmshtad {
+    width: 56px;
+    height: 42px;
+    background-position: -288px -168px;
+}
+
+.sprite-darmstadt {
+    width: 56px;
+    height: 42px;
+    background-position: -344px -168px;
+}
+
+.sprite-default-icon {
+    width: 48px;
+    height: 48px;
+    background-position: -224px -180px;
+}
+
+.sprite-default-icon2 {
+    width: 32px;
+    height: 32px;
+    background-position: -400px -180px;
+}
+
+.sprite-default_icon {
+    width: 32px;
+    height: 32px;
+    background-position: -432px -180px;
+}
+
+.sprite-deportivo {
+    width: 56px;
+    height: 42px;
+    background-position: -464px -180px;
+}
+
+.sprite-dynamo {
+    width: 56px;
+    height: 42px;
+    background-position: 0 -222px;
+}
+
+.sprite-dynamo_k {
+    width: 56px;
+    height: 42px;
+    background-position: -56px -222px;
+}
+
+.sprite-dynamo_z {
+    width: 56px;
+    height: 42px;
+    background-position: -112px -222px;
+}
+
+.sprite-eibar {
+    width: 56px;
+    height: 42px;
+    background-position: -168px -222px;
+}
+
+.sprite-empoli {
+    width: 56px;
+    height: 42px;
+    background-position: -272px -222px;
+}
+
+.sprite-england_another {
+    width: 24px;
+    height: 24px;
+    background-position: -520px -180px;
+}
+
+.sprite-espaniol {
+    width: 56px;
+    height: 42px;
+    background-position: -328px -222px;
+}
+
+.sprite-europe {
+    width: 24px;
+    height: 24px;
+    background-position: -520px -204px;
+}
+
+.sprite-everton {
+    width: 56px;
+    height: 42px;
+    background-position: -384px -222px;
+}
+
+.sprite-fiorentina {
+    width: 56px;
+    height: 42px;
+    background-position: -440px -222px;
+}
+
+.sprite-genoa {
+    width: 56px;
+    height: 42px;
+    background-position: -496px -228px;
+}
+
+.sprite-germany {
+    width: 24px;
+    height: 24px;
+    background-position: -224px -228px;
+}
+
+.sprite-granada {
+    width: 56px;
+    height: 42px;
+    background-position: 0 -270px;
+}
+
+.sprite-hamburg {
+    width: 56px;
+    height: 42px;
+    background-position: -56px -270px;
+}
+
+.sprite-hull_city {
+    width: 56px;
+    height: 42px;
+    background-position: -112px -270px;
+}
+
+.sprite-ingolstad {
+    width: 56px;
+    height: 42px;
+    background-position: -168px -270px;
+}
+
+.sprite-inter {
+    width: 56px;
+    height: 42px;
+    background-position: -224px -270px;
+}
+
+.sprite-italy {
+    width: 24px;
+    height: 24px;
+    background-position: -248px -228px;
+}
+
+.sprite-juventus {
+    width: 56px;
+    height: 42px;
+    background-position: -280px -270px;
+}
+
+.sprite-karpaty {
+    width: 56px;
+    height: 42px;
+    background-position: -336px -270px;
+}
+
+.sprite-kopengagen {
+    width: 56px;
+    height: 42px;
+    background-position: -392px -270px;
+}
+
+.sprite-krasnodar {
+    width: 56px;
+    height: 42px;
+    background-position: -448px -270px;
+}
+
+.sprite-laliga {
+    width: 32px;
+    height: 32px;
+    background-position: -504px -270px;
+}
+
+.sprite-laliga_hover {
+    width: 32px;
+    height: 32px;
+    background-position: -504px -302px;
+}
+
+.sprite-las_palmas {
+    width: 56px;
+    height: 42px;
+    background-position: 0 -334px;
+}
+
+.sprite-lazio {
+    width: 56px;
+    height: 42px;
+    background-position: -56px -334px;
+}
+
+.sprite-lc {
+    width: 32px;
+    height: 32px;
+    background-position: -112px -334px;
+}
+
+.sprite-leganes {
+    width: 56px;
+    height: 42px;
+    background-position: -144px -334px;
+}
+
+.sprite-legia {
+    width: 56px;
+    height: 42px;
+    background-position: -200px -334px;
+}
+
+.sprite-leicester {
+    width: 56px;
+    height: 42px;
+    background-position: -256px -334px;
+}
+
+.sprite-liver {
+    width: 56px;
+    height: 42px;
+    background-position: -312px -334px;
+}
+
+.sprite-lokomotiv {
+    width: 56px;
+    height: 42px;
+    background-position: -368px -334px;
+}
+
+.sprite-ludogorets {
+    width: 56px;
+    height: 42px;
+    background-position: -424px -334px;
+}
+
+.sprite-lyon {
+    width: 56px;
+    height: 42px;
+    background-position: -480px -334px;
+}
+
+.sprite-malaga {
+    width: 56px;
+    height: 42px;
+    background-position: 0 -376px;
+}
+
+.sprite-mc {
+    width: 56px;
+    height: 42px;
+    background-position: -56px -376px;
+}
+
+.sprite-midl {
+    width: 56px;
+    height: 42px;
+    background-position: -112px -376px;
+}
+
+.sprite-milan {
+    width: 56px;
+    height: 42px;
+    background-position: -168px -376px;
+}
+
+.sprite-monaco {
+    width: 56px;
+    height: 42px;
+    background-position: -224px -376px;
+}
+
+.sprite-mu {
+    width: 56px;
+    height: 42px;
+    background-position: -280px -376px;
+}
+
+.sprite-napoli {
+    width: 56px;
+    height: 42px;
+    background-position: -336px -376px;
+}
+
+.sprite-news {
+    width: 32px;
+    height: 32px;
+    background-position: -392px -376px;
+}
+
+.sprite-olimpic {
+    width: 56px;
+    height: 42px;
+    background-position: -424px -376px;
+}
+
+.sprite-orenburg {
+    width: 56px;
+    height: 42px;
+    background-position: -480px -376px;
+}
+
+.sprite-ossasuna {
+    width: 56px;
+    height: 42px;
+    background-position: 0 -418px;
+}
+
+.sprite-palermo {
+    width: 56px;
+    height: 42px;
+    background-position: -56px -418px;
+}
+
+.sprite-pescara {
+    width: 56px;
+    height: 42px;
+    background-position: -112px -418px;
+}
+
+.sprite-play {
+    width: 32px;
+    height: 32px;
+    background-position: -168px -418px;
+}
+
+.sprite-play_hover {
+    width: 32px;
+    height: 32px;
+    background-position: -200px -418px;
+}
+
+.sprite-porto {
+    width: 56px;
+    height: 42px;
+    background-position: -232px -418px;
+}
+
+.sprite-psg {
+    width: 56px;
+    height: 42px;
+    background-position: -288px -418px;
+}
+
+.sprite-psv {
+    width: 56px;
+    height: 42px;
+    background-position: -344px -418px;
+}
+
+.sprite-real_betis {
+    width: 56px;
+    height: 42px;
+    background-position: -400px -418px;
+}
+
+.sprite-real_m {
+    width: 56px;
+    height: 42px;
+    background-position: -456px -418px;
+}
+
+.sprite-real_sosiedad {
+    width: 56px;
+    height: 42px;
+    background-position: 0 -460px;
+}
+
+.sprite-roma {
+    width: 56px;
+    height: 42px;
+    background-position: -56px -460px;
+}
+
+.sprite-rostov {
+    width: 56px;
+    height: 42px;
+    background-position: -112px -460px;
+}
+
+.sprite-rubin {
+    width: 56px;
+    height: 42px;
+    background-position: -168px -460px;
+}
+
+.sprite-russia {
+    width: 24px;
+    height: 24px;
+    background-position: -536px -270px;
+}
+
+.sprite-samara {
+    width: 56px;
+    height: 42px;
+    background-position: -224px -460px;
+}
+
+.sprite-sampdoria {
+    width: 56px;
+    height: 42px;
+    background-position: -280px -460px;
+}
+
+.sprite-sassuolo {
+    width: 56px;
+    height: 42px;
+    background-position: -336px -460px;
+}
+
+.sprite-selta {
+    width: 56px;
+    height: 42px;
+    background-position: -392px -460px;
+}
+
+.sprite-seltic {
+    width: 56px;
+    height: 42px;
+    background-position: -448px -460px;
+}
+
+.sprite-seria_a {
+    width: 32px;
+    height: 32px;
+    background-position: -512px -418px;
+}
+
+.sprite-seria_a_hover {
+    width: 32px;
+    height: 32px;
+    background-position: -512px -450px;
+}
+
 .sprite-sevilla {
     width: 56px;
     height: 42px;
-    background-position: -504px -252px;
+    background-position: -504px -482px;
+}
+
+.sprite-shakhtar {
+    width: 56px;
+    height: 42px;
+    background-position: 0 -524px;
 }
 
 .sprite-shalke_04 {
     width: 56px;
     height: 42px;
-    background-position: -504px -294px;
+    background-position: -56px -524px;
 }
 
 .sprite-southampton {
     width: 56px;
     height: 42px;
-    background-position: -480px -336px;
+    background-position: -112px -524px;
 }
 
 .sprite-spain {
     width: 24px;
     height: 24px;
-    background-position: -64px -84px;
+    background-position: -536px -294px;
+}
+
+.sprite-sparak {
+    width: 56px;
+    height: 42px;
+    background-position: -168px -524px;
 }
 
 .sprite-sporting {
     width: 56px;
     height: 42px;
-    background-position: -480px -378px;
+    background-position: -224px -524px;
 }
 
 .sprite-sporting_l {
     width: 56px;
     height: 42px;
-    background-position: -480px -420px;
+    background-position: -280px -524px;
 }
 
 .sprite-sporting_lisabon {
     width: 56px;
     height: 42px;
-    background-position: -456px -462px;
+    background-position: -336px -524px;
+}
+
+.sprite-stal {
+    width: 56px;
+    height: 42px;
+    background-position: -392px -524px;
 }
 
 .sprite-stoke_city {
     width: 56px;
     height: 42px;
-    background-position: 0 -504px;
+    background-position: -448px -524px;
 }
 
 .sprite-sunderland {
     width: 56px;
     height: 42px;
-    background-position: -56px -504px;
+    background-position: -504px -524px;
 }
 
 .sprite-swansea {
     width: 56px;
     height: 42px;
-    background-position: -112px -504px;
+    background-position: -560px 0;
+}
+
+.sprite-terek {
+    width: 56px;
+    height: 42px;
+    background-position: -546px -42px;
+}
+
+.sprite-tom {
+    width: 56px;
+    height: 42px;
+    background-position: -544px -84px;
 }
 
 .sprite-torino {
     width: 56px;
     height: 42px;
-    background-position: -168px -504px;
+    background-position: -544px -126px;
 }
 
 .sprite-totenhem {
     width: 56px;
     height: 42px;
-    background-position: -224px -504px;
+    background-position: -544px -168px;
 }
 
 .sprite-udineze {
     width: 56px;
     height: 42px;
-    background-position: -280px -504px;
+    background-position: -552px -210px;
+}
+
+.sprite-ufa {
+    width: 56px;
+    height: 42px;
+    background-position: -560px -252px;
+}
+
+.sprite-ukraine {
+    width: 24px;
+    height: 24px;
+    background-position: -560px -294px;
+}
+
+.sprite-ural {
+    width: 56px;
+    height: 42px;
+    background-position: -536px -318px;
 }
 
 .sprite-valensia {
     width: 56px;
     height: 42px;
-    background-position: -336px -504px;
+    background-position: -536px -360px;
 }
 
 .sprite-video {
     width: 32px;
     height: 32px;
-    background-position: -312px -84px;
+    background-position: -544px -402px;
 }
 
 .sprite-villareal {
     width: 56px;
     height: 42px;
-    background-position: -392px -504px;
+    background-position: -544px -434px;
+}
+
+.sprite-volin {
+    width: 56px;
+    height: 42px;
+    background-position: -560px -476px;
+}
+
+.sprite-vorskla {
+    width: 56px;
+    height: 42px;
+    background-position: -560px -518px;
 }
 
 .sprite-watford {
     width: 56px;
     height: 42px;
-    background-position: -448px -504px;
+    background-position: -560px -560px;
 }
 
 .sprite-werder {
     width: 56px;
     height: 42px;
-    background-position: -504px -504px;
+    background-position: -616px 0;
 }
 
 .sprite-west_brom {
     width: 56px;
     height: 42px;
-    background-position: -560px 0;
+    background-position: -602px -42px;
 }
 
 .sprite-west_ham {
     width: 56px;
     height: 42px;
-    background-position: -554px -42px;
+    background-position: -600px -84px;
 }
 
 .sprite-wolsburg {
     width: 56px;
     height: 42px;
-    background-position: -546px -84px;
+    background-position: -600px -126px;
 }
 
+.sprite-zenit {
+    width: 56px;
+    height: 42px;
+    background-position: -600px -168px;
+}
+
+.sprite-zirka {
+    width: 56px;
+    height: 42px;
+    background-position: -608px -210px;
+}
+
+.sprite-zorya {
+    width: 56px;
+    height: 42px;
+    background-position: -616px -252px;
+}
 
 
 
