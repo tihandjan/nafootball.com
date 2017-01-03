@@ -10,7 +10,7 @@
         <div class="panel-body">
             <div class="list-group">
                 <% @tables.each do |row| %>
-                    <button type="button" class="list-group-item"><span style="color: #337ab7;"><%= row.id %></span> | <%= truncate(row.teamName, lenght: 60) %> <%= link_to 'Удалить', manager_table_path(row), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger', style: 'float: right; margin-left: 10px;' %><a href="<%= edit_manager_table_path(row) %>" style="float: right;" class="btn btn-warning">Редактировать</a></button>
+                    <button type="button" class="list-group-item"><span style="color: #337ab7;"><%= row.id %></span> | <%= row.league %> | <%= truncate(row.teamName, lenght: 60) %> <%= link_to 'Удалить', manager_table_path(row), method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger', style: 'float: right; margin-left: 10px;' %><a href="<%= edit_manager_table_path(row) %>" style="float: right;" class="btn btn-warning">Редактировать</a></button>
                 <% end %>
             </div>
         </div>

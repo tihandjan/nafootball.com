@@ -95,6 +95,13 @@
             <li><a href="<%= results_league_path('apl') %>">Результаты</a></li>
             <li><a href="<%= table_league_path('apl') %>">Таблица</a></li>
             <li><a href="<%= league_videos_path('apl') %>">Видео</a></li>
+            <div class="header-teams-wrapper">
+              <% Team.where(league: 'apl').each do |team| %>
+                <a href="<%= team_path(team) %>">
+                  <span class="header-team"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
+                </a>
+              <% end %>
+            </div>
           </ul>
         </li>
         
@@ -206,5 +213,9 @@
     function Searchhide(){
       $('.search-overlay').hide();
       $('.search-wrapper').slideUp(250);
+    }
+    
+    if(navigator.userAgent.indexOf("Firefox") > 0) {
+      $('.header-team i').css({'top': '-2px'})
     }
   </script>
