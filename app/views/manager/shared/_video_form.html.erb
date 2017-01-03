@@ -28,6 +28,9 @@
                     <%= f.label :category,'Беглый обзор', style: 'width: 150px;' %>
                     <%= f.radio_button :category, 'overview' %>
                 </div>
+                <% unless model.new_record? %>
+                  <div class="alert alert-info"><a class="close" data-dismiss="alert">&#215;</a>Незабываем выбирать команды(даже при редактировании!!!)</div>
+                <% end %>
                 <div class="form-group">
                     <%= f.label :team_first, 'Выбрать команду' %> <br>
                     <%= f.select :team_first, options_for_select(Team.all.map {|team| [team.name]}), {include_blank: ''}, { class: 'selectpicker', "data-live-search"=>"true" } %>
