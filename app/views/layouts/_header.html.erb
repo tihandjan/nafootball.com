@@ -143,7 +143,7 @@
             <li><a href="<%= results_league_path('bundesliga') %>">Результаты</a></li>
             <li><a href="<%= table_league_path('bundesliga') %>">Таблица</a></li>
             <li><a href="<%= league_videos_path('bundesliga') %>">Видео</a></li>
-            <div class="header-teams-wrapper hidden-sm" style="left: -400px">
+            <div class="header-teams-wrapper hidden-sm" style="left: -400px;box-shadow: -20px 6px 20px -14px rgba(0,0,0,0.175);">
               <% @teams_all.where(league: 'bundesliga').each do |team| %>
                 <a href="<%= team_path(team) %>">
                   <span class="header-team"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
@@ -167,7 +167,7 @@
             <li><a href="<%= results_league_path('seria-a') %>">Результаты</a></li>
             <li><a href="<%= table_league_path('seria-a') %>">Таблица</a></li>
             <li><a href="<%= league_videos_path('seria-a') %>">Видео</a></li>
-            <div class="header-teams-wrapper hidden-sm hidden-sm" style="left: -400px">
+            <div class="header-teams-wrapper hidden-sm hidden-sm" style="left: -400px;box-shadow: -20px 6px 20px -14px rgba(0,0,0,0.175);">
               <% @teams_all.where(league: 'seria-a').each do |team| %>
                 <a href="<%= team_path(team) %>">
                   <span class="header-team"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
