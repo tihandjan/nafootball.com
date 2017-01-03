@@ -11,22 +11,10 @@
 				display: inline-block;
 				float: left;
 				width: 10%;
-				-webkit-transition: 0.5s;
-				-o-transition: 0.5s;
-				transition: 0.5s;
 				padding: 12px 0;
 				height: 60px;
 				position: relative;
-				&:hover {
-					i {
-						-moz-transform:scale(1);
-						-webkit-zoom: 1;
-						-moz-zoom: 1;
-						-ms-zoom: 1;
-						-o-zoom: 1;
-						zoom: 1;
-					}
-				}
+				text-decoration: none;
 				i {
 					position: absolute;
 					left: 20%;

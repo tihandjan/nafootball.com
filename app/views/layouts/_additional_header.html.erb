@@ -10,3 +10,13 @@
     <% @add_class = 'league-row-cl' %>
     <%= render 'shared/index_leagues/chempions_league_teams' %>
 <% end %>
+
+<script>
+        var element = $('.league-col a i');
+        element.css({'zoom': '0.79'})
+        element.hover(function(){
+            $(this).stop(true, false).animate({ zoom: "1" }, "fast");
+        }, function() {
+            $(this).stop(true, false).animate({ zoom: "0.79" }, "fast");
+        });
+</script>
