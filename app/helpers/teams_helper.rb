@@ -7,6 +7,8 @@ module TeamsHelper
             ['bundesliga', 'Бундеслига'],
             ['seria-a', 'Серия А'],
             ['chempions-league', 'ЛЧ'],
+            ['ukraine', 'УПЛ'],
+            ['russian', 'РФПЛ']
         ].each do |item|
             if item[0] == league
                 return item[1]
@@ -36,9 +38,9 @@ module TeamsHelper
 
     def pass_object(obj=nil, name=nil)
         if obj == nil || name == nil
-            '#'
+            '1'
         else
-            obj.find_by(name: name)
+            (o = obj.find_by(name: name)) ? o : '1'
         end
     end
 

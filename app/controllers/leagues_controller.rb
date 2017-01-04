@@ -73,6 +73,30 @@ class LeaguesController < ApplicationController
                     canonical: league_url('apl')
 
       render 'shared/index_league'
+    elsif params[:id] == 'ukraine'
+      @table_data = Table.where(league: params[:id]).order('points DESC')
+      @table_name = 'Таблица Украинской Премьер Лиги'
+      @h2 = 'Украинский футбол'
+      set_meta_tags title: "Чемпионат Украины по футболу, онлайн трансляции",
+                    site: "nafootball",
+                    reverse: true,
+                    description: "Украинская Премьер Лига, последние новости УПЛ, таблица, результаты матчей, смотреть в записи, расписание, краткие обзоры, трансферы на nafootball",
+                    keywords: "Спорт, Футбол, Новости, премьер, лига, результаты, таблицы, Шахтер, Динамо, Киев, Заря, Днепр, Металлист, Олимпик, Черноморец, Карпаты, Ворскла, Зирка, Олександрия, Волынь, смотреть, записи, онлайн",
+                    canonical: league_url('ukraine')
+
+      render 'shared/index_league'
+    elsif params[:id] == 'russian'
+      @table_data = Table.where(league: params[:id]).order('points DESC')
+      @table_name = 'Таблица Российской Премьер Лиги'
+      @h2 = 'Российский футбол'
+      set_meta_tags title: "Чемпионат России по футболу, онлайн трансляции",
+                    site: "nafootball",
+                    reverse: true,
+                    description: "Российская Премьер Лига, последние новости РФПЛ, таблица, результаты матчей, смотреть в записи, расписание, краткие обзоры, трансферы на nafootball",
+                    keywords: "Спорт, Футбол, Новости, премьер, лига, результаты, таблицы, Зенит, ЦСКА, Спартак, Локомотив, Ростов, Анжи, Краснодар, Динамо, Москва, Уфа, Терек, смотреть, записи, онлайн",
+                    canonical: league_url('russian')
+
+      render 'shared/index_league'
     else
       redirect_to root_path
     end
@@ -85,8 +109,8 @@ class LeaguesController < ApplicationController
 
     if params[:id] == 'chempions-league'
       @table = Table.where(league: params[:id])
-    elsif params[:id] == 'apl' || params[:id] == 'laliga' || params[:id] == 'bundesliga' || params[:id] == 'seria-a'
-      @table = Table.where(league: params[:id])
+    elsif params[:id] == 'apl' || params[:id] == 'laliga' || params[:id] == 'bundesliga' || params[:id] == 'seria-a' || params[:id] == 'ukraine' || params[:id] == 'russian'
+      @table = Table.where(league: params[:id]).order('points DESC')
     else
       redirect_to root_path
     end
@@ -131,6 +155,22 @@ class LeaguesController < ApplicationController
                     description: "Таблица Серии А, турнирное положение, сезон 2016/2017 и многое другое от nafootball.com",
                     keywords: "Футбол, Новости, Италия, Серия, A, результаты, онлайн, видео, футбол,  AC, Милан, Интер, Бари, Болонья, Брешиа, Кальяри, Катания, Чезена, Кьево, Фиорентина, Дженоа, Ювентус, Лацио, Лечче, Неаполь, Палермо, Парма, Рома, Сампдория, Удинезе, Робиньо, Ибрагимович, Милито, Леонардо, Мотта, сборной Италии, дель Пьеро, Буффон, Санчес, Это'О, Силва, Лусио, Тотти",
                     canonical: table_league_url('seria-a')
+    elsif params[:id] == 'ukraine'
+      @h1_table = 'Таблица УПЛ'
+      set_meta_tags title: "Таблица Чемпионата Украины, турнирное положение",
+                    site: "nafootball",
+                    reverse: true,
+                    description: "Таблица УПЛ, турнирное положение, сезон 2016/2017 и многое другое от nafootball.com",
+                    keywords: "Спорт, Футбол, Новости, премьер, лига, результаты, таблицы, Шахтер, Динамо, Киев, Заря, Днепр, Металлист, Олимпик, Черноморец, Карпаты, Ворскла, Зирка, Олександрия, Волынь, смотреть, записи, онлайн",
+                    canonical: table_league_url('ukraine')
+    elsif params[:id] == 'russian'
+      @h1_table = 'Таблица РФПЛ'
+      set_meta_tags title: "Таблица Чемпионата России, турнирное положение",
+                    site: "nafootball",
+                    reverse: true,
+                    description: "Таблица РФПЛ, турнирное положение, сезон 2016/2017 и многое другое от nafootball.com",
+                    keywords: "Спорт, Футбол, Новости, премьер, лига, результаты, таблицы, Зенит, ЦСКА, Спартак, Локомотив, Ростов, Анжи, Краснодар, Динамо, Москва, Уфа, Терек, смотреть, записи, онлайн",
+                    canonical: table_league_url('russian')
     end
   end
 
@@ -179,6 +219,22 @@ class LeaguesController < ApplicationController
                     description: "Последние новости АПЛ, расписание матчей, результаты и многое другое от nafootball.com",
                     keywords: "Футбол, спорт, новости, сегодня, трансферы, слухи, повторы, онлайн, смотреть, результаты, расписание, календарь, uefa, превью, манчестер, юнайтед, челси, арсенал, ливерпуль, сити",
                     canonical: fixtures_league_url('apl')
+    elsif params[:id] == 'ukraine'
+      @h1_fixtures = 'Расписание матчей УПЛ'
+      set_meta_tags title: "Чемпионат Украины по футболу, расписание матчей",
+                    site: "nafootball",
+                    reverse: true,
+                    description: "Последние новости УПЛ, расписание матчей, результаты и многое другое от nafootball.com",
+                    keywords: "Футбол, спорт, новости, сегодня, трансферы, слухи, повторы, онлайн, смотреть, результаты, расписание, календарь, uefa, превью",
+                    canonical: fixtures_league_url('ukraine')
+    elsif params[:id] == 'russian'
+      @h1_fixtures = 'Расписание матчей РФПЛ'
+      set_meta_tags title: "Чемпионат России по футболу, расписание матчей",
+                    site: "nafootball",
+                    reverse: true,
+                    description: "Последние новости РФПЛ, расписание матчей, результаты и многое другое от nafootball.com",
+                    keywords: "Футбол, спорт, новости, сегодня, трансферы, слухи, повторы, онлайн, смотреть, результаты, расписание, календарь, uefa, превью",
+                    canonical: fixtures_league_url('russian')
     end
   end
 
@@ -227,30 +283,45 @@ class LeaguesController < ApplicationController
                     description: "АПЛ, результаты матчей и многое другое от nafootball.com",
                     keywords: "Спорт, Футбол, Новости, премьер, лига, результаты, таблицы, Арсенал, Астон Вилла, Бирмингем Сити, Блэкберн, Болтон, Бернли, Челси, Эвертон, Фулхэм, Халл Сити, Ливерпуль, Манчестер Сити, Манчестер Юнайтед,  Портсмут, Сток Сити, Сандерленд, Тоттенхэм, шпоры, Вест Хэм, Уиган, Вулверхэмптон, смотреть, записи, онлайн",
                     canonical: results_league_url('apl')
+    elsif params[:id] == 'ukraine'
+      @h1_results = 'Результаты матчей УПЛ'
+      set_meta_tags title: "Чемпионат Украины по футболу, результаты матчей",
+                    site: "nafootball",
+                    reverse: true,
+                    description: "Украинская Премьер Лига, результаты матчей и многое другое от nafootball.com",
+                    keywords: "Спорт, Футбол, Новости, премьер, лига, результаты, таблицы, смотреть, записи, онлайн",
+                    canonical: results_league_url('ukraine')
+    elsif params[:id] == 'russian'
+      @h1_results = 'Результаты матчей РФПЛ'
+      set_meta_tags title: "Чемпионат России по футболу, результаты матчей",
+                    site: "nafootball",
+                    reverse: true,
+                    description: "Российская Футбольная Премьер Лига, результаты матчей и многое другое от nafootball.com",
+                    keywords: "Спорт, Футбол, Новости, премьер, лига, результаты, таблицы, смотреть, записи, онлайн",
+                    canonical: results_league_url('russian')
     end
   end
 
-  # def set_games_table_data
-  #   if Delayed::Job.count == 0
-  #       Match.delay.set_games
-  #       Table.delay.set_table_data
-  #   end
-  # end
-
   def set_onlain_fixtures
       @fixtures_en = Match.where(["DATE(date) = ? and league = ?", Time.current, 'apl'])
+      @fixtures_ua = Match.where(["DATE(date) = ? and league = ?", Time.current, 'ukraine'])
+      @fixtures_ru = Match.where(["DATE(date) = ? and league = ?", Time.current, 'russian'])
       @fixtures_it = Match.where(["DATE(date) = ? and league = ?", Time.current, 'seria-a'])
       @fixtures_sp = Match.where(["DATE(date) = ? and league = ?", Time.current, 'laliga'])
       @fixtures_ge = Match.where(["DATE(date) = ? and league = ?", Time.current, 'bundesliga'])
       @fixtures_cl = Match.where(["DATE(date) = ? and league = ?", Time.current, 'chempions-league'])
 
       @fixtures_en_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'apl'])
+      @fixtures_ua_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'ukraine'])
+      @fixtures_ru_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'russian'])
       @fixtures_it_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'seria-a'])
       @fixtures_sp_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'laliga'])
       @fixtures_ge_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'bundesliga'])
       @fixtures_cl_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'chempions-league'])
 
       @fixtures_en_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'apl'])
+      @fixtures_ua_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'ukraine'])
+      @fixtures_ru_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'russian'])
       @fixtures_it_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'seria-a'])
       @fixtures_sp_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'laliga'])
       @fixtures_ge_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'bundesliga'])

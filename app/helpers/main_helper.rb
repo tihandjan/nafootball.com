@@ -100,7 +100,36 @@ module MainHelper
             ["Club Brugge", "Брюгге",                "icon-small sprite sprite-brugge"],
             ["Sporting CP", "Спортинг",              "icon-small sprite sprite-sporting_l"],
             ["CSKA Moscow", "ЦСКА",                  "icon-small sprite sprite-cska"],
-            ["AS Monaco FC", "Монако",               "icon-small sprite sprite-monaco"]
+            ["AS Monaco FC", "Монако",               "icon-small sprite sprite-monaco"],
+
+            ["Шахтер", "Шахтер",                     "icon-small sprite sprite-shakhtar"],
+            ["Динамо К", "Динамо К",           "icon-small sprite sprite-dynamo"],
+            ["Зоря", "Зоря",                         "icon-small sprite sprite-zorya"],
+            ["Карпаты", "Карпаты",                   "icon-small sprite sprite-karpaty"],
+            ["Олимпик", "Олимпик",                   "icon-small sprite sprite-olimpic"],
+            ["Олександрия", "Олександрия",           "icon-small sprite sprite-Oleksandriya"],
+            ["Ворскла", "Ворскла",                   "icon-small sprite sprite-vorskla"],
+            ["Черноморец", "Черноморец",             "icon-small sprite sprite-chornomorets"],
+            ["Зирка", "Зирка",                       "icon-small sprite sprite-zirka"],
+            ["Сталь", "Сталь",                       "icon-small sprite sprite-stal"],
+            ["Волынь", "Волынь",                     "icon-small sprite sprite-volin"],
+
+            ["Спартак", "Спартак",                   "icon-small sprite sprite-sparak"],
+            ["Зенит", "Зенит",                       "icon-small sprite sprite-zenit"],
+            ["ЦСКА", "ЦСКА",                         "icon-small sprite sprite-cska"],
+            ["Анжи", "Анжи",                         "icon-small sprite sprite-anzhi"],
+            ["Локомотив", "Локомотив",               "icon-small sprite sprite-lokomotiv"],
+            ["Терек", "Терек",                       "icon-small sprite sprite-terek"],
+            ["Краснодар", "Краснодар",               "icon-small sprite sprite-krasnodar"],
+            ["Амкар", "Амкар",                       "icon-small sprite sprite-amkar"],
+            ["Ростов", "Ростов",                     "icon-small sprite sprite-rostov"],
+            ["Уфа", "Уфа",                           "icon-small sprite sprite-ufa"],
+            ["Рубин", "Рубин",                       "icon-small sprite sprite-rubin"],
+            ["Самара", "Самара",                     "icon-small sprite sprite-samara"],
+            ["Урал", "Урал",                         "icon-small sprite sprite-ural"],
+            ["Оренбург", "Оренбург",                 "icon-small sprite sprite-orenburg"],
+            ["Арсенал Т", "Арсенал Т",         "icon-small sprite sprite-arsenal-tula"],
+            ["Томь", "Томь",                         "icon-small sprite sprite-tom"]
         ].map{ |team_en, team_ru, team_sprite| [team_ru, team_en, {'data-icon' => "select-box-sprite #{team_sprite}" }] }
     end
     
@@ -427,7 +456,36 @@ module MainHelper
             ["Club Brugge", "Брюгге",                "sprite sprite-brugge"],
             ["Sporting CP", "Спортинг",              "sprite sprite-sporting_l"],
             ["CSKA Moscow", "ЦСКА",                  "sprite sprite-cska"],
-            ["AS Monaco FC", "Монако",               "sprite sprite-monaco"]
+            ["AS Monaco FC", "Монако",               "sprite sprite-monaco"],
+
+            ["Шахтер", "Шахтер",                     "sprite sprite-shakhtar"],
+            ["Динамо К", "Динамо К",           "sprite sprite-dynamo"],
+            ["Зоря", "Зоря",                         "sprite sprite-zorya"],
+            ["Карпаты", "Карпаты",                   "sprite sprite-karpaty"],
+            ["Олимпик", "Олимпик",                   "sprite sprite-olimpic"],
+            ["Олександрия", "Олександрия",           "sprite sprite-Oleksandriya"],
+            ["Ворскла", "Ворскла",                   "sprite sprite-vorskla"],
+            ["Черноморец", "Черноморец",             "sprite sprite-chornomorets"],
+            ["Зирка", "Зирка",                       "sprite sprite-zirka"],
+            ["Сталь", "Сталь",                       "sprite sprite-stal"],
+            ["Волынь", "Волынь",                     "sprite sprite-volin"],
+
+            ["Спартак", "Спартак",                   "sprite sprite-sparak"],
+            ["Зенит", "Зенит",                       "sprite sprite-zenit"],
+            ["ЦСКА", "ЦСКА",                         "sprite sprite-cska"],
+            ["Анжи", "Анжи",                         "sprite sprite-anzhi"],
+            ["Локомотив", "Локомотив",               "sprite sprite-lokomotiv"],
+            ["Терек", "Терек",                       "sprite sprite-terek"],
+            ["Краснодар", "Краснодар",               "sprite sprite-krasnodar"],
+            ["Амкар", "Амкар",                       "sprite sprite-amkar"],
+            ["Ростов", "Ростов",                     "sprite sprite-rostov"],
+            ["Уфа", "Уфа",                           "sprite sprite-ufa"],
+            ["Рубин", "Рубин",                       "sprite sprite-rubin"],
+            ["Самара", "Самара",                     "sprite sprite-samara"],
+            ["Урал", "Урал",                         "sprite sprite-ural"],
+            ["Оренбург", "Оренбург",                 "sprite sprite-orenburg"],
+            ["Арсенал Т", "Арсенал Т",         "sprite sprite-arsenal-tula"],
+            ["Томь", "Томь",                         "sprite sprite-tom"]
         ].each do |team_en_ru| 
             if team_en_ru[0] == team
                 return team_en_ru[2]
@@ -586,6 +644,43 @@ module MainHelper
             ["US Sassuolo Calcio", "Сассуоло",       "icon-small sprite sprite-sassuolo"],
             ["Pescara Calcio", "Пескара",            "icon-small sprite sprite-pescara"],
             ["Atalanta BC", "Аталанта",              "icon-small sprite sprite-atalanta"]
+        ].map{ |team_en, team_ru, team_sprite| [team_ru, team_en, {'data-icon' => "select-box-sprite #{team_sprite}" }] }
+    end
+
+    def select_ukraine_teams
+        [
+            ["Шахтер", "Шахтер",                     "icon-small sprite sprite-shakhtar"],
+            ["Динамо К", "Динамо К",           "icon-small sprite sprite-dynamo"],
+            ["Зоря", "Зоря",                         "icon-small sprite sprite-zorya"],
+            ["Карпаты", "Карпаты",                   "icon-small sprite sprite-karpaty"],
+            ["Олимпик", "Олимпик",                   "icon-small sprite sprite-olimpic"],
+            ["Олександрия", "Олександрия",           "icon-small sprite sprite-Oleksandriya"],
+            ["Ворскла", "Ворскла",                   "icon-small sprite sprite-vorskla"],
+            ["Черноморец", "Черноморец",             "icon-small sprite sprite-chornomorets"],
+            ["Зирка", "Зирка",                       "icon-small sprite sprite-zirka"],
+            ["Сталь", "Сталь",                       "icon-small sprite sprite-stal"],
+            ["Волынь", "Волынь",                     "icon-small sprite sprite-volin"]
+        ].map{ |team_en, team_ru, team_sprite| [team_ru, team_en, {'data-icon' => "select-box-sprite #{team_sprite}" }] }
+    end
+
+    def select_russian_teams
+        [
+            ["Спартак", "Спартак",                   "icon-small sprite sprite-sparak"],
+            ["Зенит", "Зенит",                       "icon-small sprite sprite-zenit"],
+            ["ЦСКА", "ЦСКА",                         "icon-small sprite sprite-cska"],
+            ["Анжи", "Анжи",                         "icon-small sprite sprite-anzhi"],
+            ["Локомотив", "Локомотив",               "icon-small sprite sprite-lokomotiv"],
+            ["Терек", "Терек",                       "icon-small sprite sprite-terek"],
+            ["Краснодар", "Краснодар",               "icon-small sprite sprite-krasnodar"],
+            ["Амкар", "Амкар",                       "icon-small sprite sprite-amkar"],
+            ["Ростов", "Ростов",                     "icon-small sprite sprite-rostov"],
+            ["Уфа", "Уфа",                           "icon-small sprite sprite-ufa"],
+            ["Рубин", "Рубин",                       "icon-small sprite sprite-rubin"],
+            ["Самара", "Самара",                     "icon-small sprite sprite-samara"],
+            ["Урал", "Урал",                         "icon-small sprite sprite-ural"],
+            ["Оренбург", "Оренбург",                 "icon-small sprite sprite-orenburg"],
+            ["Арсенал Т", "Арсенал Т",         "icon-small sprite sprite-arsenal-tula"],
+            ["Томь", "Томь",                         "icon-small sprite sprite-tom"]
         ].map{ |team_en, team_ru, team_sprite| [team_ru, team_en, {'data-icon' => "select-box-sprite #{team_sprite}" }] }
     end
 

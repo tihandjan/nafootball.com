@@ -14,6 +14,8 @@
                           <option value="spain" data-icon="select-box-sprite sprite_header sprite-spain">Ла Лига</option>
                           <option value="germany" data-icon="select-box-sprite sprite_header sprite-germany">Бундеслига</option>
                           <option value="italy" data-icon="select-box-sprite sprite_header sprite-italy">Серия А</option>
+                          <option value="ukraine" data-icon="select-box-sprite sprite_header sprite-ukraine">УПЛ</option>
+                          <option value="russian" data-icon="select-box-sprite sprite_header sprite-russia">РФПЛ</option>
                       </select>
                   </div>
                   <div class="countries" id="england">
@@ -26,8 +28,13 @@
                       <%= select_tag 'team', options_for_select(select_seria_teams), {:prompt=> change_prompt(cookies.permanent[:user_team]) , :onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>
                   </div>
                   <div class="countries" id="germany">
-                      <%= select_tag 'team', options_for_select(select_bundesliga_teams), {:prompt=> change_prompt(cookies.permanent[:user_team]) , :onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>
-                      
+                      <%= select_tag 'team', options_for_select(select_bundesliga_teams), {:prompt=> change_prompt(cookies.permanent[:user_team]) , :onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>      
+                  </div>
+                  <div class="countries" id="ukraine">
+                      <%= select_tag 'team', options_for_select(select_ukraine_teams), {:prompt=> change_prompt(cookies.permanent[:user_team]) , :onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>      
+                  </div>
+                  <div class="countries" id="russian">
+                      <%= select_tag 'team', options_for_select(select_russian_teams), {:prompt=> change_prompt(cookies.permanent[:user_team]) , :onchange=>"$('.hidden-team-field').val($(this).val());$(this.form).submit();", class: "selectpicker", "data-live-search"=>"true"} %>      
                   </div>
                 </div>
                 <%= hidden_field_tag 'team', params[:team], class: "hidden-team-field" %>

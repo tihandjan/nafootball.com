@@ -30,7 +30,7 @@
             <% if data.any? && data.last.league != 'chempions-league' %>
             <tbody class="text-center">
                 <% @number = 0 %>
-                <% data.each do |team| %>
+                <% data.order('points DESC').each do |team| %>
                 <tr class="league-table-tr" style="background: <%= change_league_table_row_color params[:id], (@number+1) %>">
                     <td class="team-number"><%= @number += 1 %></td>
                     <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>

@@ -9,6 +9,10 @@
 <% elsif @league == 'chempions-league' %>
     <% @add_class = 'league-row-cl' %>
     <%= render 'shared/index_leagues/chempions_league_teams' %>
+<% elsif @league == 'ukraine' %>
+    <%= render 'shared/index_leagues/ukraine_teams' %>
+<% elsif @league == 'russian' %>
+    <%= render 'shared/index_leagues/russian_teams' %>
 <% end %>
 
 <script>

@@ -7,6 +7,8 @@
                     <option data-icon="select-box-sprite sprite_header sprite-spain" value="spain-table">Ла Лига</option>
                     <option data-icon="select-box-sprite sprite_header sprite-germany" value="germany-table">Бундеслига</option>
                     <option data-icon="select-box-sprite sprite_header sprite-italy" value="italy-table">Серия А</option>
+                    <option data-icon="select-box-sprite sprite_header sprite-ukraine" value="ukraine-table">УПЛ</option>
+                    <option data-icon="select-box-sprite sprite_header sprite-russia" value="russian-table">РФПЛ</option>
                     <option data-icon="select-box-sprite sprite_header sprite-europe" value="euro-table">Лига Чемпионов</option>
                 </select>
         </div>
@@ -106,6 +108,48 @@
                         <td class="team-number"><%= @number += 1 %></td>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
                         <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
+                        <td></td>
+                        <td></td>
+                        <td class="team-td"><%= team.playedGames %></td>
+                        <td class="team-td"><%= team.wins %></td>
+                        <td class="team-td"><%= team.draws %></td>
+                        <td class="team-td"><%= team.losses %></td>
+                        <td class="team-td"><%= team.goals %></td>
+                        <td class="team-td"><%= team.goalsAgainst %></td>
+                        <td class="team-td"><%= team.goalDifference %></td>
+                        <td></td>
+                        <td class="team-score"><b><%= team.points %></b></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+                <tbody class="text-center league-tables" id="ukraine-table">
+                    <% @number = 0 %>
+                    <% @table.where(league: 'ukraine').order('points DESC').each do |team| %>
+                    <tr class="league-table-tr" style="background: <%= change_league_table_row_color 'ukraine', (@number+1) %>">
+                        <td class="team-number"><%= @number += 1 %></td>
+                        <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                        <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= team.teamName %></a></td>
+                        <td></td>
+                        <td></td>
+                        <td class="team-td"><%= team.playedGames %></td>
+                        <td class="team-td"><%= team.wins %></td>
+                        <td class="team-td"><%= team.draws %></td>
+                        <td class="team-td"><%= team.losses %></td>
+                        <td class="team-td"><%= team.goals %></td>
+                        <td class="team-td"><%= team.goalsAgainst %></td>
+                        <td class="team-td"><%= team.goalDifference %></td>
+                        <td></td>
+                        <td class="team-score"><b><%= team.points %></b></td>
+                    </tr>
+                    <% end %>
+                </tbody>
+                <tbody class="text-center league-tables" id="russian-table">
+                    <% @number = 0 %>
+                    <% @table.where(league: 'russian').order('points DESC').each do |team| %>
+                    <tr class="league-table-tr" style="background: <%= change_league_table_row_color 'russian', (@number+1) %>">
+                        <td class="team-number"><%= @number += 1 %></td>
+                        <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                        <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= team.teamName %></a></td>
                         <td></td>
                         <td></td>
                         <td class="team-td"><%= team.playedGames %></td>
