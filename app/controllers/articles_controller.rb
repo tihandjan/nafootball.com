@@ -54,6 +54,22 @@ class ArticlesController < ApplicationController
                     reverse: true,
                     keywords: "футбол, спорт, статьи, о, футболисты, трансферы, биография, слухи, интересные",
                     description: "Интересные статьи, все про футбол, спорт и многое другое"
+    elsif @league == 'ukraine'
+      @active = 'ukraine-active'
+      @h1 = "Интересные статьи"
+      set_meta_tags title: "Статьи о футболе, Чемпионат Украины",
+                    site: 'nafootball',
+                    reverse: true,
+                    keywords: "футбол, спорт, статьи, о, футболисты, трансферы, биография, слухи, интересные",
+                    description: "Интересные статьи, все про футбол, спорт и многое другое"
+    elsif @league == 'russian'
+      @active = 'russian-active'
+      @h1 = "Интересные статьи"
+      set_meta_tags title: "Статьи о футболе, Чемпионат России",
+                    site: 'nafootball',
+                    reverse: true,
+                    keywords: "футбол, спорт, статьи, о, футболисты, трансферы, биография, слухи, интересные",
+                    description: "Интересные статьи, все про футбол, спорт и многое другое"
     end
   end
 

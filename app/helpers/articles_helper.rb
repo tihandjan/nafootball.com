@@ -10,9 +10,9 @@ module ArticlesHelper
 
   def index_article_active(active=nil, thisone=nil)
     if active == 'apl-active' && thisone == 'apl'
-      'apl-active'
+        'apl-active'
     elsif active == 'laliga-active' && thisone == 'laliga'
-      'laliga-active'
+        'laliga-active'
     elsif active == 'bundesliga-active' && thisone == 'bundesliga'
         'bundesliga-active'  
     elsif active == 'seria-a-active' && thisone == 'seria-a'
@@ -21,6 +21,10 @@ module ArticlesHelper
         'chempions-league-active'  
     elsif active == 'rest-active' && thisone == 'rest'
         'rest-active'
+    elsif active == 'ukraine-active' && thisone == 'ukraine'
+        'ukraine-active'
+    elsif active == 'russian-active' && thisone == 'russian'
+        'russian-active'
     end    
   end
 
