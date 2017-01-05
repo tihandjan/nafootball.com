@@ -57,6 +57,22 @@ class VideosController < ApplicationController
                         reverse: true,
                         description: "Смотреть матчи в записи, обзоры, превью, повторы голов, футбольные ток шоу от nafootball.com",
                         keywords: "футбол, онлайн, обзоры, повторы, видео, зиписи, архив"
+        elsif params[:league_id] == 'ukraine'
+          @h1 = "Записи матчей Украинская Премьер Лига"
+          @active = 'ukraine-active'
+          set_meta_tags title: "Повторы матчей, обзоры Чемпионата Украины по футболу",
+                        site: 'nafootball.com',
+                        reverse: true,
+                        description: "Смотреть матчи Украинской Премьер Лиги в записи, обзоры, превью, повторы голов, футбольные ток шоу от nafootball.com",
+                        keywords: "футбол, онлайн, обзоры, повторы, видео, зиписи, архив"
+        elsif params[:league_id] == 'russian'
+          @h1 = "Записи матчей Российская Премьер Лига"
+          @active = 'russian-active'
+          set_meta_tags title: "Повторы матчей, обзоры Чемпионата России по футболу",
+                        site: 'nafootball.com',
+                        reverse: true,
+                        description: "Смотреть матчи Российской Премьер Лиги в записи, обзоры, превью, повторы голов, футбольные ток шоу от nafootball.com",
+                        keywords: "футбол, онлайн, обзоры, повторы, видео, зиписи, архив"
         end
     end
      
