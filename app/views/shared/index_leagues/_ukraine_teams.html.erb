@@ -1,0 +1,50 @@
+<div class="container-fluid leagues-team-container">
+        <div class="col-md-6 league-col league-col-ukraine">
+            <% if !(@teams = show_team_list_first_half('ukraine', 'first')).blank? %>
+                <% @teams.each do |team| %>
+                    <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
+                <% end %>
+            <% else %>
+                <a href="#"><i class="sprite sprite-mu icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-chelsea icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-liver icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-arsenal icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-mc icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-totenhem icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-leicester icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-everton icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-west_ham icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-west_brom icon-middle"></i></a>
+            <% end %>
+        </div>
+        <div class="col-md-6 league-col league-col-ukraine">
+            <% if !(@teams = show_team_list_first_half('ukraine', 'second')).blank? %>
+                <% @teams.each do |team| %>
+                    <a href="<%= team_path(team) %>" data-toggle="tooltip" title="<%= team.name %>"><i class="<%= show_team_icon team.name %> icon-middle"></i></a>
+                <% end %>
+            <% else %>
+                <a href="#"><i class="sprite sprite-sunderland icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-swansea icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-crystal icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-southampton icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-watford icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-burnley icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-hull_city icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-bournem icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-midl icon-middle"></i></a>
+                <a href="#"><i class="sprite sprite-stoke_city icon-middle"></i></a>
+            <% end %>
+        </div>
+   </div>
+   <div class="container-fluid leagues-submenu-container">
+        <% if @is_not_index %>
+            <h2 class="league-h1"><span class="hidden-xs">УПЛ</span></h2>
+        <% else %>
+            <h1 class="league-h1"><span class="hidden-xs">УПЛ</span></h1>
+        <% end %>
+        <a href="<%= league_videos_path('ukraine') %>" class="league-col hidden-xs">Видео</a>
+        <a href="<%= fixtures_league_path('ukraine') %>" class="league-col">Календарь</a>
+        <a href="<%= results_league_path('ukraine') %>" class="league-col">Результаты</a>
+        <a href="<%= table_league_path('ukraine') %>" class="league-col">Таблица</a>
+        <a href="<%= league_path('ukraine') %>" class="league-col">Основное</a>
+   </div>

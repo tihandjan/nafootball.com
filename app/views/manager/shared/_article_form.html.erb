@@ -29,7 +29,11 @@
                     <%= f.label :league,'Италия', style: 'width: 150px;' %>
                     <%= f.radio_button :league, 'seria-a', required: 'required' %><br>
                     <%= f.label :league, 'Лига Чемпионов', style: 'width: 150px;' %>
-                    <%= f.radio_button :league, 'chempions-league', required: 'required' %>
+                    <%= f.radio_button :league, 'chempions-league', required: 'required' %><br>
+                    <%= f.label :league, 'Украина', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'ukraine', required: 'required' %><br>
+                    <%= f.label :league, 'Россия', style: 'width: 150px;' %>
+                    <%= f.radio_button :league, 'russian', required: 'required' %>
                 </div>
                 <% unless model.new_record? %>
                   <div class="alert alert-info"><a class="close" data-dismiss="alert">&#215;</a>Незабываем выбирать команды(даже при редактировании!!!)</div>

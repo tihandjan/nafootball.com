@@ -48,18 +48,24 @@ class MainController < ApplicationController
 
     def set_onlain_fixtures
         @fixtures_en = Match.where(["DATE(date) = ? and league = ?", Time.current, 'apl'])
+        @fixtures_ua = Match.where(["DATE(date) = ? and league = ?", Time.current, 'ukraine'])
+        @fixtures_ru = Match.where(["DATE(date) = ? and league = ?", Time.current, 'russian'])
         @fixtures_it = Match.where(["DATE(date) = ? and league = ?", Time.current, 'seria-a'])
         @fixtures_sp = Match.where(["DATE(date) = ? and league = ?", Time.current, 'laliga'])
         @fixtures_ge = Match.where(["DATE(date) = ? and league = ?", Time.current, 'bundesliga'])
         @fixtures_cl = Match.where(["DATE(date) = ? and league = ?", Time.current, 'chempions-league'])
 
         @fixtures_en_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'apl'])
+        @fixtures_ua_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'ukraine'])
+        @fixtures_ru_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'russian'])
         @fixtures_it_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'seria-a'])
         @fixtures_sp_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'laliga'])
         @fixtures_ge_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'bundesliga'])
         @fixtures_cl_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'chempions-league'])
 
         @fixtures_en_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'apl'])
+        @fixtures_ua_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'ukraine'])
+        @fixtures_ru_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'russian'])
         @fixtures_it_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'seria-a'])
         @fixtures_sp_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'laliga'])
         @fixtures_ge_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'bundesliga'])

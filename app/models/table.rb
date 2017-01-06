@@ -50,7 +50,7 @@ class Table < ActiveRecord::Base
             end
             self.import @data, validate: false
           end
-          where(['created_at < ?', Table.last.created_at]).delete_all
+          where(['created_at < ? and (league = ? or league = ? or league = ? or league = ? or league = ?)', Table.last.created_at, 'apl', 'laliga', 'seria-a', 'bundesliga', 'chempions-league']).delete_all
       end
   end
 

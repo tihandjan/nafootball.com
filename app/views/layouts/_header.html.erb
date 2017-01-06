@@ -104,7 +104,7 @@
             </div>
           </ul>
         </li>
-        
+
         <li class="dropdown">
           <a href="<%= league_path('laliga') %>" class="dropdown-toggle">
             <div class="league league-col">
@@ -128,6 +128,55 @@
             </div>
           </ul>
         </li>
+
+        <li class="dropdown">
+          <a href="<%= league_path('ukraine') %>" class="dropdown-toggle">
+            <div class="league league-col">
+              <i class="sprite_header sprite-lc"></i><i class="sprite_header sprite_hover sprite-cl_hover"></i>
+              <div>УПЛ</div>
+            </div>
+          </a>
+          <ul class="dropdown-menu pull-left">
+            <li><a href="<%= league_path('ukraine') %>" class="header-link">Основное</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<%= fixtures_league_path('ukraine') %>">Календарь</a></li>
+            <li><a href="<%= results_league_path('ukraine') %>">Результаты</a></li>
+            <li><a href="<%= table_league_path('ukraine') %>">Таблица</a></li>
+            <li><a href="<%= league_videos_path('ukraine') %>">Видео</a></li>
+            <div class="header-teams-wrapper hidden-sm header-teams-ukraine" style="left: -400px;box-shadow: -20px 6px 20px -14px rgba(0,0,0,0.175);">
+              <% @teams_all.where(league: 'ukraine').each do |team| %>
+                <a href="<%= team_path(team) %>">
+                  <span class="header-team header-team-ukraine"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
+                </a>
+              <% end %>
+            </div>
+          </ul>
+        </li>
+        
+        <li class="dropdown">
+          <a href="<%= league_path('russian') %>" class="dropdown-toggle">
+            <div class="league league-col">
+              <i class="sprite_header sprite-lc"></i><i class="sprite_header sprite_hover sprite-cl_hover"></i>
+              <div>РФПЛ</div>
+            </div>
+          </a>
+          <ul class="dropdown-menu pull-left">
+            <li><a href="<%= league_path('russian') %>" class="header-link">Основное</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<%= fixtures_league_path('russian') %>">Календарь</a></li>
+            <li><a href="<%= results_league_path('russian') %>">Результаты</a></li>
+            <li><a href="<%= table_league_path('russian') %>">Таблица</a></li>
+            <li><a href="<%= league_videos_path('russian') %>">Видео</a></li>
+            <div class="header-teams-wrapper hidden-sm header-teams-russian" style="left: -400px;box-shadow: -20px 6px 20px -14px rgba(0,0,0,0.175);">
+              <% @teams_all.where(league: 'russian').each do |team| %>
+                <a href="<%= team_path(team) %>">
+                  <span class="header-team header-team-russian"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
+                </a>
+              <% end %>
+            </div>
+          </ul>
+        </li>
+        
         
         <li class="dropdown">
           <a href="<%= league_path('bundesliga') %>" class="dropdown-toggle">
@@ -177,37 +226,6 @@
           </ul>
         </li>
           
-        <li class="dropdown">
-          <a href="<%= league_news_index_path('all') %>" class="dropdown-toggle">
-            <div class="league league-col">
-              <i class="sprite_header sprite-books"></i><i class="sprite_header sprite_hover sprite-books_hover"></i>
-              <div>Читать</div>
-            </div>
-          </a>
-          <ul class="dropdown-menu pull-left">
-            <li><a href="<%= league_news_index_path('all') %>">Новости</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="<%= league_articles_path('all') %>">Статьи</a></li>
-          </ul>
-        </li>
-        
-        <li class="dropdown">
-          <a href="<%= league_videos_path('all') %>" class="dropdown-toggle">
-            <div class="league league-col">
-              <i class="sprite_header sprite-play"></i><i class="sprite_header sprite_hover sprite-play_hover"></i>
-              <div>Смотреть</div>
-            </div>
-          </a>
-          <ul class="dropdown-menu pull-left">
-            <li><a href="<%= league_videos_path('all') %>" class="header-link">Все видео</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="<%= league_videos_path('apl') %>">АПЛ</a></li>
-            <li><a href="<%= league_videos_path('laliga') %>">Ла Лига</a></li>
-            <li><a href="<%= league_videos_path('bundesliga') %>">Бундеслига</a></li>
-            <li><a href="<%= league_videos_path('seria-a') %>">Серия А</a></li>
-            <li><a href="<%= league_videos_path('chempions-league') %>">Лига Чемпионов</a></li>
-          </ul>
-        </li>
         
         <li class="dropdown">
           <a href="#" class="dropdown-toggle">
@@ -217,6 +235,15 @@
             </div>
           </a>
           <ul class="dropdown-menu pull-right">
+            <li><a href="<%= league_news_index_path('all') %>">Новости</a></li>
+            <li><a href="<%= league_articles_path('all') %>">Статьи</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="<%= league_videos_path('all') %>" class="header-link">Все видео</a></li>
+            <li><a href="<%= league_videos_path('apl') %>">Видео АПЛ</a></li>
+            <li><a href="<%= league_videos_path('laliga') %>">Видео Ла Лига</a></li>
+            <li><a href="<%= league_videos_path('bundesliga') %>"Видео >Бундеслига</a></li>
+            <li><a href="<%= league_videos_path('seria-a') %>">Видео Серия А</a></li>
+            <li><a href="<%= league_videos_path('chempions-league') %>">Видео Лига Чемпионов</a></li>
           </ul>
         </li>
           
@@ -236,7 +263,19 @@
       $('.search-wrapper').slideUp(250);
     }
     
-    if(navigator.userAgent.indexOf("Firefox") > 0) {
-      $('.header-team i').css({'top': '-2px'})
-    }
+    (function (){
+      var uaEl  = $('.header-team-ukraine');
+      var ruEls = $('.header-teams-russian');
+      var ruEl  = $('.header-team-russian');
+      var el    = $('.header-team i');
+      ruEls.css({'padding-bottom': '3px'})
+      ruEl.css({'padding': '16px 0 16px 0', 'padding-left': '26px'}).children().css({'top': '27px'});
+      uaEl.css({'padding': '24px 0 24px 0', 'padding-left': '20px'}).children().css({'top': '43px'});
+  
+      if(navigator.userAgent.indexOf("Firefox") > 0) {
+        el.css({'top': '-2px'});
+        ruEl.children().css({'top': '4px'});
+        uaEl.css({'padding-left': '25px'}).children().css({'top': '10px'});
+      }
+    })();
   </script>

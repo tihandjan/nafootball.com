@@ -2,6 +2,7 @@ class NewsController < ApplicationController
     
     def index
         @articles = Article.paginate(page: params[:page], per_page: 7).order('created_at DESC').where(league: params[:league_id], category: 'news')
+        @league = params[:league_id]
 
         if params[:league_id] == 'apl'
             @h1 = "Новости Английской Премьер Лиги"
@@ -52,6 +53,22 @@ class NewsController < ApplicationController
                           reverse: true,
                           description: "Футбол сегодня, последние новости, результаты матчей, таблица результатов, смотреть в повторе, обзоры, и многое другое на nafootball.com",
                           keywords: "Спорт, футбол, новости, последние, сегодня, онлайн"
+        elsif params[:league_id] == 'ukraine'
+            @h1 = "Новости Украины"
+            @active = 'ukraine-active'
+            set_meta_tags title: "Новости футбола Украины",
+                          site: 'nafootball',
+                          reverse: true,
+                          description: "Следите за последними новостями футбола Украины - интересные истории, последние новости, видео основных моментов, результаты, слухи и интервью игроков.",
+                          keywords: "Спорт, Футбол, Новости, Бундеслига, результаты, футбол, видео, Коноплянка, Ярмоленко, Шахтер, Динамо, Киев, Металлист"
+        elsif params[:league_id] == 'russian'
+            @h1 = "Новости России"
+            @active = 'russian-active'
+            set_meta_tags title: "Новости футбола России",
+                          site: 'nafootball',
+                          reverse: true,
+                          description: "Следите за последними новостями футбола России - интересные истории, последние новости, видео основных моментов, результаты, слухи и интервью игроков.",
+                          keywords: "Спорт, Футбол, Новости, Бундеслига, результаты, футбол, видео, Зенит, Спартак, ЦСКА, рубин, анжи, Краснодар, Ростов, Кокорин, Смолов, Локомотив"
         end
     end
 

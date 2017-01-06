@@ -14,6 +14,18 @@ module LeaguesHelper
             elsif position < 5 || position > 15
                 '#eeeeee'
             end
+        elsif league == 'ukraine'
+            if position == 1
+                '#e4e4e4'
+            elsif position < 5 || position > 10
+                '#eeeeee'
+            end
+        elsif league == 'russian'
+            if position == 1
+                '#e4e4e4'
+            elsif position < 5 || position > 14
+                '#eeeeee'
+            end
         elsif league == 'chempions-league'   
             if position < 3
                 '#e4e4e4'
@@ -47,6 +59,18 @@ module LeaguesHelper
                 @teams[0, 9]
             else
                 @teams[9, 9]
+            end
+        elsif league == 'ukraine'
+            if part == 'first'
+                @teams[0, 6]
+            else
+                @teams[6, 6]
+            end
+        elsif league == 'russian'
+            if part == 'first'
+                @teams[0, 8]
+            else
+                @teams[8, 8]
             end
         else
             if part == 'first'
