@@ -12,7 +12,7 @@ SitemapGenerator::Sitemap.create do
   LOW = 0.2
 
   add root_path, priority: HIGHEST
-  ['apl', 'laliga', 'bundesliga', 'seria-a', 'chempions-league'].each do |league|
+  ['apl', 'laliga', 'bundesliga', 'seria-a', 'chempions-league', 'ukraine', 'russian'].each do |league|
     add league_path(league), priority: HIGHEST
     add fixtures_league_path(league), priority: HIGH
     add results_league_path(league), priority: HIGH
