@@ -19,9 +19,9 @@
 <script>
         var element = $('.league-col a i');
         element.css({'zoom': '0.79'})
-        element.hover(function(){
-            $(this).stop(true, false).animate({ zoom: "1" }, "fast");
+        element.parent().hover(function(){
+            $(this).children().stop(true, false).animate({ zoom: "1" }, "fast");
         }, function() {
-            $(this).stop(true, false).animate({ zoom: "0.79" }, "fast");
+            $(this).children().stop(true, false).animate({ zoom: "0.79" }, "fast");
         });
 </script>
