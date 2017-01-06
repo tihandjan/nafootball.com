@@ -53,8 +53,7 @@
   
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          
+        <ul class="nav navbar-nav"> 
         <li class="dropdown pull-left">
           <a href="<%= root_path %>" class="dropdown-toggle">
             <div class="league league-col">
@@ -63,8 +62,8 @@
             </div>
           </a>
         </li>
-          
-         <li class="dropdown">
+
+        <li class="dropdown">
           <a href="<%= league_path('chempions-league') %>" class="dropdown-toggle">
             <div class="league league-col">
               <i class="sprite_header sprite-lc"></i><i class="sprite_header sprite_hover sprite-cl_hover"></i>
@@ -80,49 +79,24 @@
             <li><a href="<%= league_videos_path('chempions-league') %>"><i class="sprite sprite-video"></i>Видео</a></li>
           </ul>
         </li>
-        
-        <li class="dropdown">
-          <a href="<%= league_path('apl') %>" class="dropdown-toggle">
-            <div class="league league-col">
-              <i class="sprite_header sprite-apl"></i><i class="sprite_header sprite_hover sprite-apl_hover"></i>
-              <div>Англия</div>
-            </div>
-          </a>
-          <ul class="dropdown-menu pull-left">
-            <li><a href="<%= league_path('apl') %>" class="header-link"><i class="sprite sprite-basic"></i>Основное</a></li>
-            
-            <li><a href="<%= fixtures_league_path('apl') %>"><i class="sprite sprite-calendar"></i>Календарь</a></li>
-            <li><a href="<%= results_league_path('apl') %>"><i class="sprite sprite-results"></i>Результаты</a></li>
-            <li><a href="<%= table_league_path('apl') %>"><i class="sprite sprite-table"></i>Таблица</a></li>
-            <li><a href="<%= league_videos_path('apl') %>"><i class="sprite sprite-video"></i>Видео</a></li>
-            <div class="header-teams-wrapper hidden-sm">
-              <% @teams_all.where(league: 'apl').each do |team| %>
-                <a href="<%= team_path(team) %>">
-                  <span class="header-team"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
-                </a>
-              <% end %>
-            </div>
-          </ul>
-        </li>
 
         <li class="dropdown">
-          <a href="<%= league_path('laliga') %>" class="dropdown-toggle">
+          <a href="<%= league_path('russian') %>" class="dropdown-toggle">
             <div class="league league-col">
-              <i class="sprite_header sprite-laliga"></i><i class="sprite_header sprite_hover sprite-laliga_hover"></i>
-              <div>Испания</div>
+              <i class="sprite_header sprite-rfpl"></i><i class="sprite_header sprite_hover sprite-rfpl_hover"></i>
+              <div>Россия</div>
             </div>
           </a>
           <ul class="dropdown-menu pull-left">
-            <li><a href="<%= league_path('laliga') %>" class="header-link"><i class="sprite sprite-basic"></i>Основное</a></li>
-            
-            <li><a href="<%= fixtures_league_path('laliga') %>"><i class="sprite sprite-calendar"></i>Календарь</a></li>
-            <li><a href="<%= results_league_path('laliga') %>"><i class="sprite sprite-results"></i>Результаты</a></li>
-            <li><a href="<%= table_league_path('laliga') %>"><i class="sprite sprite-table"></i>Таблица</a></li>
-            <li><a href="<%= league_videos_path('laliga') %>"><i class="sprite sprite-video"></i>Видео</a></li>
-            <div class="header-teams-wrapper hidden-sm">
-              <% @teams_all.where(league: 'laliga').each do |team| %>
+            <li><a href="<%= league_path('russian') %>" class="header-link"><i class="sprite sprite-basic"></i>Основное</a></li>
+            <li><a href="<%= fixtures_league_path('russian') %>"><i class="sprite sprite-calendar"></i>Календарь</a></li>
+            <li><a href="<%= results_league_path('russian') %>"><i class="sprite sprite-results"></i>Результаты</a></li>
+            <li><a href="<%= table_league_path('russian') %>"><i class="sprite sprite-table"></i>Таблица</a></li>
+            <li><a href="<%= league_videos_path('russian') %>"><i class="sprite sprite-video"></i>Видео</a></li>
+            <div class="header-teams-wrapper hidden-sm header-teams-russian">
+              <% @teams_all.where(league: 'russian').each do |team| %>
                 <a href="<%= team_path(team) %>">
-                  <span class="header-team"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
+                  <span class="header-team header-team-russian"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
                 </a>
               <% end %>
             </div>
@@ -143,7 +117,7 @@
             <li><a href="<%= results_league_path('ukraine') %>"><i class="sprite sprite-results"></i>Результаты</a></li>
             <li><a href="<%= table_league_path('ukraine') %>"><i class="sprite sprite-table"></i>Таблица</a></li>
             <li><a href="<%= league_videos_path('ukraine') %>"><i class="sprite sprite-video"></i>Видео</a></li>
-            <div class="header-teams-wrapper hidden-sm header-teams-ukraine" style="left: -400px;box-shadow: -20px 6px 20px -14px rgba(0,0,0,0.175);">
+            <div class="header-teams-wrapper hidden-sm header-teams-ukraine">
               <% @teams_all.where(league: 'ukraine').each do |team| %>
                 <a href="<%= team_path(team) %>">
                   <span class="header-team header-team-ukraine"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
@@ -152,31 +126,53 @@
             </div>
           </ul>
         </li>
-        
+
         <li class="dropdown">
-          <a href="<%= league_path('russian') %>" class="dropdown-toggle">
+          <a href="<%= league_path('apl') %>" class="dropdown-toggle">
             <div class="league league-col">
-              <i class="sprite_header sprite-rfpl"></i><i class="sprite_header sprite_hover sprite-rfpl_hover"></i>
-              <div>Россия</div>
+              <i class="sprite_header sprite-apl"></i><i class="sprite_header sprite_hover sprite-apl_hover"></i>
+              <div>Англия</div>
             </div>
           </a>
           <ul class="dropdown-menu pull-left">
-            <li><a href="<%= league_path('russian') %>" class="header-link"><i class="sprite sprite-basic"></i>Основное</a></li>
-            <li><a href="<%= fixtures_league_path('russian') %>"><i class="sprite sprite-calendar"></i>Календарь</a></li>
-            <li><a href="<%= results_league_path('russian') %>"><i class="sprite sprite-results"></i>Результаты</a></li>
-            <li><a href="<%= table_league_path('russian') %>"><i class="sprite sprite-table"></i>Таблица</a></li>
-            <li><a href="<%= league_videos_path('russian') %>"><i class="sprite sprite-video"></i>Видео</a></li>
-            <div class="header-teams-wrapper hidden-sm header-teams-russian" style="left: -400px;box-shadow: -20px 6px 20px -14px rgba(0,0,0,0.175);">
-              <% @teams_all.where(league: 'russian').each do |team| %>
+            <li><a href="<%= league_path('apl') %>" class="header-link"><i class="sprite sprite-basic"></i>Основное</a></li>     
+            <li><a href="<%= fixtures_league_path('apl') %>"><i class="sprite sprite-calendar"></i>Календарь</a></li>
+            <li><a href="<%= results_league_path('apl') %>"><i class="sprite sprite-results"></i>Результаты</a></li>
+            <li><a href="<%= table_league_path('apl') %>"><i class="sprite sprite-table"></i>Таблица</a></li>
+            <li><a href="<%= league_videos_path('apl') %>"><i class="sprite sprite-video"></i>Видео</a></li>
+            <div class="header-teams-wrapper hidden-sm" style="left: -400px;box-shadow: -20px 6px 20px -14px rgba(0,0,0,0.175);">
+              <% @teams_all.where(league: 'apl').each do |team| %>
                 <a href="<%= team_path(team) %>">
-                  <span class="header-team header-team-russian"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
+                  <span class="header-team"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
                 </a>
               <% end %>
             </div>
           </ul>
         </li>
-        
-        
+
+        <li class="dropdown">
+          <a href="<%= league_path('laliga') %>" class="dropdown-toggle">
+            <div class="league league-col">
+              <i class="sprite_header sprite-laliga"></i><i class="sprite_header sprite_hover sprite-laliga_hover"></i>
+              <div>Испания</div>
+            </div>
+          </a>
+          <ul class="dropdown-menu pull-left">
+            <li><a href="<%= league_path('laliga') %>" class="header-link"><i class="sprite sprite-basic"></i>Основное</a></li>
+            <li><a href="<%= fixtures_league_path('laliga') %>"><i class="sprite sprite-calendar"></i>Календарь</a></li>
+            <li><a href="<%= results_league_path('laliga') %>"><i class="sprite sprite-results"></i>Результаты</a></li>
+            <li><a href="<%= table_league_path('laliga') %>"><i class="sprite sprite-table"></i>Таблица</a></li>
+            <li><a href="<%= league_videos_path('laliga') %>"><i class="sprite sprite-video"></i>Видео</a></li>
+            <div class="header-teams-wrapper hidden-sm" style="left: -400px;box-shadow: -20px 6px 20px -14px rgba(0,0,0,0.175);">
+              <% @teams_all.where(league: 'laliga').each do |team| %>
+                <a href="<%= team_path(team) %>">
+                  <span class="header-team"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
+                </a>
+              <% end %>
+            </div>
+          </ul>
+        </li>
+
         <li class="dropdown">
           <a href="<%= league_path('bundesliga') %>" class="dropdown-toggle">
             <div class="league league-col">
@@ -224,8 +220,7 @@
             </div>
           </ul>
         </li>
-          
-        
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle">
             <div class="league league-col">
