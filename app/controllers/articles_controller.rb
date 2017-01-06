@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
 
   def index
-      @league = params[:league_id]
       @articles = Article.paginate(page: params[:page], per_page: 7).order('created_at DESC').where(league: @league, category: 'article')
       @is_not_index = true
+      @league = params[:league_id]
       
     if @league == 'apl'
       @h1 = "Футбольные статьи. АПЛ"

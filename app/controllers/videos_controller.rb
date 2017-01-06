@@ -1,8 +1,9 @@
 class VideosController < ApplicationController
     
     def index
-        @editional_class = 'articles'
+        @editional_class = 'articles leagues'
         @news = Article.order('created_at DESC').where("category = 'news'").first(20)
+        @league = params[:league_id]
         if params[:league_id] == 'all'
           @videos = Video.paginate(page: params[:page], per_page: 12).order('created_at DESC')
         else

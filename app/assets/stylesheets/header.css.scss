@@ -115,23 +115,6 @@
                             }
                         }
                     }
-                    &:last-child {
-                        .glyphicon {
-                            top: -31px;
-                            position: absolute;
-                            left: 42%;
-                            font-size: 22px;
-                        }
-                        .glyphicon-hover {
-                            display: none;
-                            color: #FFF;
-                        }
-                        &:hover {
-                            .glyphicon-hover {
-                                display: block;
-                            }
-                        }
-                    }
                 }
                 .dropdown-menu {
                     border: none;
@@ -139,12 +122,17 @@
                     border-radius: 0;
                     width: 175px;
                     padding: 10px 0;
+                    background-color: #33383C;
                     li {
                         a {
-                            padding: 6px 20px;
+                            padding: 8px 12px;
+                            color: #e7e7e7;
+                            i {
+                                float: left;
+                                margin-right: 8px;
+                            }
                             &:hover {
-                                background: #69a6a6;
-                                color: #FFF;
+                                background: #1d2123;
                             }
                         }
                     }
@@ -152,15 +140,14 @@
                     
                     .header-teams-wrapper {
                         position: absolute;
-                        top: 0;
+                        top: -4px;
                         left: 175px;
                         width: 400px;
                         background-color: #FFF;
                         padding-left: 10px;
                         box-shadow: 7px 0 16px 0 rgba(0,0,0,0.175);
-                        padding-bottom: 4px;
-                        border-left: 1px solid #e5e5e5;
-                        border-right: 1px solid #e5e5e5;
+                        padding-bottom: 5px;
+                        border-top: 4px solid #69a6a6;
                         a {
                             color: inherit;
                             text-decoration: none;
@@ -253,6 +240,19 @@
     }
 }
 
-
-
+@media only screen and (max-width: 1300px) {
+    .sprite_header {
+            left: 33% !important;
+    }
+}
+@media only screen and (max-width: 1050px) {
+    .sprite_header {
+            left: 29% !important;
+    }
+}
+@media only screen and (max-width: 930px) {
+    .sprite_header {
+            left: 25% !important;
+    }
+}
 

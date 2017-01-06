@@ -3,7 +3,6 @@ class NewsController < ApplicationController
     def index
         @articles = Article.paginate(page: params[:page], per_page: 7).order('created_at DESC').where(league: params[:league_id], category: 'news')
         @league = params[:league_id]
-
         if params[:league_id] == 'apl'
             @h1 = "Новости Английской Премьер Лиги"
             @active = 'apl-active'
