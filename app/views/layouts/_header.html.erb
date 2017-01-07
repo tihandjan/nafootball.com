@@ -94,10 +94,12 @@
             <li><a href="<%= table_league_path('russian') %>"><i class="sprite sprite-table"></i>Таблица</a></li>
             <li><a href="<%= league_videos_path('russian') %>"><i class="sprite sprite-video"></i>Видео</a></li>
             <div class="header-teams-wrapper hidden-sm header-teams-russian">
-              <% @teams_all.where(league: 'russian').each do |team| %>
-                <a href="<%= team_path(team) %>">
-                  <span class="header-team header-team-russian"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
-                </a>
+              <% cache @teams_ru do %>
+                <% @teams_ru.each do |team| %>
+                  <a href="<%= team_path(team) %>">
+                    <span class="header-team header-team-russian"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
+                  </a>
+                <% end %>
               <% end %>
             </div>
           </ul>
@@ -118,10 +120,12 @@
             <li><a href="<%= table_league_path('ukraine') %>"><i class="sprite sprite-table"></i>Таблица</a></li>
             <li><a href="<%= league_videos_path('ukraine') %>"><i class="sprite sprite-video"></i>Видео</a></li>
             <div class="header-teams-wrapper hidden-sm header-teams-ukraine">
-              <% @teams_all.where(league: 'ukraine').each do |team| %>
-                <a href="<%= team_path(team) %>">
-                  <span class="header-team header-team-ukraine"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
-                </a>
+              <% cache @teams_ua do %>
+                <% @teams_ua.each do |team| %>
+                  <a href="<%= team_path(team) %>">
+                    <span class="header-team header-team-ukraine"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
+                  </a>
+                <% end %>
               <% end %>
             </div>
           </ul>
@@ -141,10 +145,12 @@
             <li><a href="<%= table_league_path('apl') %>"><i class="sprite sprite-table"></i>Таблица</a></li>
             <li><a href="<%= league_videos_path('apl') %>"><i class="sprite sprite-video"></i>Видео</a></li>
             <div class="header-teams-wrapper hidden-sm" style="left: -400px;box-shadow: -20px 6px 20px -14px rgba(0,0,0,0.175);">
-              <% @teams_all.where(league: 'apl').each do |team| %>
-                <a href="<%= team_path(team) %>">
-                  <span class="header-team"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
-                </a>
+            <% cache @teams_en do %>
+                <% @teams_en.each do |team| %>
+                  <a href="<%= team_path(team) %>">
+                    <span class="header-team"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
+                  </a>
+                <% end %>
               <% end %>
             </div>
           </ul>
@@ -164,10 +170,12 @@
             <li><a href="<%= table_league_path('laliga') %>"><i class="sprite sprite-table"></i>Таблица</a></li>
             <li><a href="<%= league_videos_path('laliga') %>"><i class="sprite sprite-video"></i>Видео</a></li>
             <div class="header-teams-wrapper hidden-sm" style="left: -400px;box-shadow: -20px 6px 20px -14px rgba(0,0,0,0.175);">
-              <% @teams_all.where(league: 'laliga').each do |team| %>
-                <a href="<%= team_path(team) %>">
-                  <span class="header-team"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
-                </a>
+              <% cache @teams_sp do %>
+                <% @teams_sp.each do |team| %>
+                  <a href="<%= team_path(team) %>">
+                    <span class="header-team"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
+                  </a>
+                <% end %>
               <% end %>
             </div>
           </ul>
@@ -188,10 +196,12 @@
             <li><a href="<%= table_league_path('bundesliga') %>"><i class="sprite sprite-table"></i>Таблица</a></li>
             <li><a href="<%= league_videos_path('bundesliga') %>"><i class="sprite sprite-video"></i>Видео</a></li>
             <div class="header-teams-wrapper hidden-sm" style="left: -400px;box-shadow: -20px 6px 20px -14px rgba(0,0,0,0.175);">
-              <% @teams_all.where(league: 'bundesliga').each do |team| %>
-                <a href="<%= team_path(team) %>">
-                  <span class="header-team"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
-                </a>
+              <% cache @teams_ge do %>
+                <% @teams_ge.each do |team| %>
+                  <a href="<%= team_path(team) %>">
+                    <span class="header-team"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
+                  </a>
+                <% end %>
               <% end %>
             </div>
           </ul>
@@ -212,10 +222,12 @@
             <li><a href="<%= table_league_path('seria-a') %>"><i class="sprite sprite-table"></i>Таблица</a></li>
             <li><a href="<%= league_videos_path('seria-a') %>"><i class="sprite sprite-video"></i>Видео</a></li>
             <div class="header-teams-wrapper hidden-sm hidden-sm" style="left: -400px;box-shadow: -20px 6px 20px -14px rgba(0,0,0,0.175);">
-              <% @teams_all.where(league: 'seria-a').each do |team| %>
-                <a href="<%= team_path(team) %>">
-                  <span class="header-team"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
-                </a>
+              <% cache @teams_it do %>
+                <% @teams_it.each do |team| %>
+                  <a href="<%= team_path(team) %>">
+                    <span class="header-team"><i class="sprite <%= show_team_icon team.name %> icon-small"></i><%= team_translater team.name %></span>
+                  </a>
+                <% end %>
               <% end %>
             </div>
           </ul>

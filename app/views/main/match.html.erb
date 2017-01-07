@@ -166,7 +166,30 @@
     </div>
 </div>
 
-
+<script>
+    (function(){
+        var tz = new Date().getTimezoneOffset()/60;
+        if(tz == -3) {
+            var timeZone = (tz * (-1) - 2);
+            $('.team-score').each(function(){
+                var e = $(this);
+                var el = e.text().split('');
+                if(el[2] == ':') {
+                    var correctTime = parseInt(el[0]+el[1]) - timeZone + el[2] + el[3] + el[4];
+                    e.text(correctTime);
+                }
+            })
+            $('.team-result').each(function(){
+                var e = $(this);
+                var el = e.text().split('');
+                if(el[2] == ':') {
+                    var correctTime = parseInt(el[0]+el[1]) - timeZone + el[2] + el[3] + el[4];
+                    e.text(correctTime);
+                }
+            })
+        }
+    })();
+</script>
 
 
 

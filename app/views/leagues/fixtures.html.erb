@@ -26,3 +26,19 @@
     <div class="left-block col-md-3"><%= render 'shared/last_news', point: 0 %></div>
 </div>
 
+<script>
+    (function(){
+        var tz = new Date().getTimezoneOffset()/60;
+        if(tz == -3) {
+            var timeZone = (tz * (-1) - 2);
+            $('.time').each(function(){
+                var e = $(this);
+                var el = e.text().split('');
+                if(el[2] == ':') {
+                    var correctTime = parseInt(el[0]+el[1]) - timeZone + el[2] + el[3] + el[4];
+                    e.text(correctTime);
+                }
+            })
+        }
+    })();
+</script>

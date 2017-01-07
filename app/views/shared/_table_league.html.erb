@@ -30,23 +30,25 @@
             <% if data.any? && data.last.league != 'chempions-league' %>
             <tbody class="text-center">
                 <% @number = 0 %>
-                <% data.order('points DESC').each do |team| %>
-                <tr class="league-table-tr" style="background: <%= change_league_table_row_color params[:id], (@number+1) %>">
-                    <td class="team-number"><%= @number += 1 %></td>
-                    <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
-                    <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
-                    <td></td>
-                    <td></td>
-                    <td class="team-td"><%= team.playedGames %></td>
-                    <td class="team-td"><%= team.wins %></td>
-                    <td class="team-td"><%= team.draws %></td>
-                    <td class="team-td"><%= team.losses %></td>
-                    <td class="team-td"><%= team.goals %></td>
-                    <td class="team-td"><%= team.goalsAgainst %></td>
-                    <td class="team-td"><%= team.goalDifference %></td>
-                    <td></td>
-                    <td class="team-score"><b><%= team.points %></b></td>
-                </tr>
+                <% cache data do %>
+                    <% data.order('points DESC').each do |team| %>
+                    <tr class="league-table-tr" style="background: <%= change_league_table_row_color params[:id], (@number+1) %>">
+                        <td class="team-number"><%= @number += 1 %></td>
+                        <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
+                        <td class="team-name"><a href="<%= team_path(pass_object(@teams, team.teamName)) %>"><%= full_team_translater(team.teamName) %></a></td>
+                        <td></td>
+                        <td></td>
+                        <td class="team-td"><%= team.playedGames %></td>
+                        <td class="team-td"><%= team.wins %></td>
+                        <td class="team-td"><%= team.draws %></td>
+                        <td class="team-td"><%= team.losses %></td>
+                        <td class="team-td"><%= team.goals %></td>
+                        <td class="team-td"><%= team.goalsAgainst %></td>
+                        <td class="team-td"><%= team.goalDifference %></td>
+                        <td></td>
+                        <td class="team-score"><b><%= team.points %></b></td>
+                    </tr>
+                    <% end %>
                 <% end %>
             </tbody>
             <% elsif data.any? && data.last.league == 'chempions-league' %>
@@ -68,6 +70,7 @@
                     <td></td>
                 </tr>
                 <% @number = 0 %>
+                <% cache data do %>
                 <% data.where(group: 'A').each do |team| %>
                 <tr class="<%= change_row_color @number %>">
                     <td class="team-number"><%= team.position %></td><% @number += 1 %>
@@ -330,6 +333,7 @@
                     <td></td>
                     <td class="team-score"><b><%= team.points %></b></td>
                 </tr>
+                <% end %>
                 <% end %>
             </tbody>
             <% else %>

@@ -1,4 +1,4 @@
-<div class="row-onlain center-block">
+<div class="row-onlain center-block js-time">
     <div class="panel panel-default"> 
         <div class="panel-heading"> 
             <h2 class="panel-title text-left">Онлайн Трансляции</h2>
@@ -52,5 +52,18 @@
         $(".clickable-row").click(function() {
             window.document.location = $(this).data("href");
         });
+
+        var tz = new Date().getTimezoneOffset()/60;
+        if(tz <= -3) {
+            var timeZone = (tz * (-1) - 2);
+            $('.js-time .table tr .time').each(function(){
+                var e = $(this);
+                var el = e.text().split('');
+                if(el[2] == ':') {
+                    var correctTime = parseInt(el[0]+el[1]) - timeZone + el[2] + el[3] + el[4];
+                    e.children().text(correctTime);
+                }
+            })
+        }
     })();
 </script>

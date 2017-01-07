@@ -26,7 +26,13 @@ class ApplicationController < ActionController::Base
   end
 
   def set_up_teams
-    @teams_all ||= Team.all
+    @teams_ru = Team.where(league: 'russian')
+    @teams_ua = Team.where(league: 'ukraine')
+    @teams_en = Team.where(league: 'apl')
+    @teams_sp = Team.where(league: 'laliga')
+    @teams_ge = Team.where(league: 'bundesliga')
+    @teams_it = Team.where(league: 'seria-a')
+    @teams_cl = Team.where(league: 'chempions-league')
   end
 
 end

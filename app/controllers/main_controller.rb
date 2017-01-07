@@ -7,7 +7,20 @@ class MainController < ApplicationController
         @articles = Article.order('created_at DESC').where(category: 'article').first(4)
         @videos = Video.order('created_at DESC').where(category: 'full').first(5)
         @videos_short = Video.order('created_at DESC').where(category: 'overview').first(6)
-        @table = Table.all
+        @table_ua = Table.where(league: 'ukraine').order('points DESC')
+        @table_ru = Table.where(league: 'russian').order('points DESC')
+        @table_en = Table.where(league: 'apl')
+        @table_sp = Table.where(league: 'laliga')
+        @table_ge = Table.where(league: 'bundesliga')
+        @table_it = Table.where(league: 'seria-a')
+        @table_cl_a = Table.where(league: 'chempions-league', group: 'A')
+        @table_cl_b = Table.where(league: 'chempions-league', group: 'B')
+        @table_cl_c = Table.where(league: 'chempions-league', group: 'C')
+        @table_cl_d = Table.where(league: 'chempions-league', group: 'D')
+        @table_cl_e = Table.where(league: 'chempions-league', group: 'E')
+        @table_cl_f = Table.where(league: 'chempions-league', group: 'F')
+        @table_cl_g = Table.where(league: 'chempions-league', group: 'G')
+        @table_cl_h = Table.where(league: 'chempions-league', group: 'H')
         @teams = Team.all
         set_meta_tags title: 'Новости футбола, онлайн трасляции, повторы матчей',
                       site: 'nafootball.com',

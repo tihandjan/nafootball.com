@@ -148,7 +148,11 @@
             </div>
             <%= will_paginate @videos %>
         </div>
-        <div class="team-news-wrapper" id="table"><%= render "shared/table_league", data: @table_data, league: @team.league, name: @table_name %></div>
+        <div class="team-news-wrapper" id="table">
+            <% cache @table_data do %>
+                <%= render "shared/table_league", data: @table_data, league: @team.league, name: @table_name %>
+            <% end %>
+        </div>
     </div>
 
     
@@ -159,49 +163,48 @@
             <div class="team-line-up-wrapper">
                 <div class="footballer-wrapper">
                     <div class="footballer-position">Вратари</div>
-                    <% @players.each do |player| %>
-                        <% if (player_position(player, 'вратари')) %>
-                            <div class="row player-info">
-                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater((player.name.split("\n")[0]), 1), length: 20, omission: ' ') %></a></div>
-                                <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
-                            </div>
-                            <span class="footballer-deliver"></span>
+                    <% cache @players do %>
+                        <% @players.each do |player| %>
+                            <% if (player_position(player, 'вратари')) %>
+                                <div class="row player-info">
+                                    <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater((player.name.split("\n")[0]), 1), length: 20, omission: ' ') %></a></div>
+                                    <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
+                                </div>
+                                <span class="footballer-deliver"></span>
+                            <% end %>
                         <% end %>
-                    <% end %>
-
 
                     <div class="footballer-position">Защитники</div>
-                    <% @players.each do |player| %>
-                        <% if (player_position(player, 'защита')) %>
-                            <div class="row player-info">
-                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater((player.name.split("\n")[0]), 1), length: 20, omission: ' ') %></a></div>
-                                <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
-                            </div>
-                            <span class="footballer-deliver"></span>
+                        <% @players.each do |player| %>
+                            <% if (player_position(player, 'защита')) %>
+                                <div class="row player-info">
+                                    <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater((player.name.split("\n")[0]), 1), length: 20, omission: ' ') %></a></div>
+                                    <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
+                                </div>
+                                <span class="footballer-deliver"></span>
+                            <% end %>
                         <% end %>
-                    <% end %>
 
-
-                    <div class="footballer-position">Полузащитники</div>
-                    <% @players.each do |player| %>
-                        <% if (player_position(player, 'полузащита')) %>
-                            <div class="row player-info">
-                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater((player.name.split("\n")[0]), 1), length: 20, omission: ' ') %></a></div>
-                                <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
-                            </div>
-                            <span class="footballer-deliver"></span>
+                        <div class="footballer-position">Полузащитники</div>
+                        <% @players.each do |player| %>
+                            <% if (player_position(player, 'полузащита')) %>
+                                <div class="row player-info">
+                                    <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater((player.name.split("\n")[0]), 1), length: 20, omission: ' ') %></a></div>
+                                    <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
+                                </div>
+                                <span class="footballer-deliver"></span>
+                            <% end %>
                         <% end %>
-                    <% end %>
 
-
-                    <div class="footballer-position">Нападающие</div>
-                    <% @players.each do |player| %>
-                        <% if (player_position(player, 'нападение')) %>
-                            <div class="row player-info">
-                                <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater((player.name.split("\n")[0]), 1), length: 20, omission: ' ') %></a></div>
-                                <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
-                            </div>
-                            <span class="footballer-deliver"></span>
+                        <div class="footballer-position">Нападающие</div>
+                        <% @players.each do |player| %>
+                            <% if (player_position(player, 'нападение')) %>
+                                <div class="row player-info">
+                                    <div class="col-xs-6 text-left player-name"><span style="width: 20px;display: inline-block;"><%= player.number == 'empty' ? '-' : player.number %></span> <a href="<%= player_path(player) %>"><%= truncate(player_translater((player.name.split("\n")[0]), 1), length: 20, omission: ' ') %></a></div>
+                                    <div class="col-xs-6 text-right player-age"><%= age(player.date_of_birth.to_date) %> лет</div>
+                                </div>
+                                <span class="footballer-deliver"></span>
+                            <% end %>
                         <% end %>
                     <% end %>
                 </div>
@@ -209,3 +212,20 @@
         </div>
     </div>
 </div>
+
+<script>
+    (function(){
+        var tz = new Date().getTimezoneOffset()/60;
+        if(tz == -3) {
+            var timeZone = (tz * (-1) - 2);
+            $('.team-result').each(function(){
+                var e = $(this);
+                var el = e.text().split('');
+                if(el[2] == ':') {
+                    var correctTime = parseInt(el[0]+el[1]) - timeZone + el[2] + el[3] + el[4];
+                    e.text(correctTime);
+                }
+            })
+        }
+    })();
+</script>

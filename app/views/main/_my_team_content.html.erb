@@ -5,7 +5,7 @@
 
  
 
-<div class="panel-body" id="match-today"> 
+<div class="panel-body js-time-my-tram" id="match-today"> 
     <div class="table">
         <table class="table">
             <% if @my_team_results = Match.my_team_results(cookies[:user_team]) %>
@@ -60,5 +60,18 @@
         $(".clickable-row").click(function() {
             window.document.location = $(this).data("href");
         });
+
+        var tz = new Date().getTimezoneOffset()/60;
+        if(tz <= -3) {
+            var timeZone = (tz * (-1) - 2);
+            $('.js-time-my-tram .time').each(function(){
+                var e = $(this);
+                var el = e.text().split('');
+                if(el[2] == ':') {
+                    var correctTime = parseInt(el[0]+el[1]) - timeZone + el[2] + el[3] + el[4];
+                    e.children().text(correctTime);
+                }
+            })
+        }
     })();
 </script>

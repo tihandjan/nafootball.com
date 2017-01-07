@@ -3,12 +3,12 @@
       <!-- Default panel contents -->
         <div class="panel-heading">
                 <select class="table-select selectpicker" id="league-table">
-                    <option data-icon="select-box-sprite sprite sprite-england_another" value="england-table">АПЛ</option>
-                    <option data-icon="select-box-sprite sprite sprite-spain" value="spain-table">Ла Лига</option>
-                    <option data-icon="select-box-sprite sprite sprite-germany" value="germany-table">Бундеслига</option>
-                    <option data-icon="select-box-sprite sprite sprite-italy" value="italy-table">Серия А</option>
-                    <option data-icon="select-box-sprite sprite sprite-ukraine" value="ukraine-table">УПЛ</option>
-                    <option data-icon="select-box-sprite sprite sprite-russia" value="russian-table">РФПЛ</option>
+                    <option data-icon="select-box-sprite sprite sprite-england_another" value="england-table">Англия. Пример Лига</option>
+                    <option data-icon="select-box-sprite sprite sprite-spain" value="spain-table">Испания. Ла Лига</option>
+                    <option data-icon="select-box-sprite sprite sprite-germany" value="germany-table">Германия. Бундеслига</option>
+                    <option data-icon="select-box-sprite sprite sprite-italy" value="italy-table">Италия. Серия А</option>
+                    <option data-icon="select-box-sprite sprite sprite-ukraine" value="ukraine-table">Украина. УПЛ</option>
+                    <option data-icon="select-box-sprite sprite sprite-russia" value="russian-table">Россия. РФПЛ</option>
                     <option data-icon="select-box-sprite sprite sprite-europe" value="euro-table">Лига Чемпионов</option>
                 </select>
         </div>
@@ -34,10 +34,11 @@
                     <th>Очков</th>
                 </tr>
             </thead>
-            <% if @table.any? %>
+            <% if @table_en.any? %>
                 <tbody class="text-center league-tables" id="england-table">
                     <% @number = 0 %>
-                    <% @table.where(league: 'apl').each do |team| %>
+                    <% cache @table_en do %>
+                    <% @table_en.each do |team| %>
                     <tr class="league-table-tr" style="background: <%= change_league_table_row_color 'apl', (@number+1) %>">
                         <td class="team-number"><%= @number += 1 %></td>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
@@ -55,11 +56,13 @@
                         <td class="team-score"><b><%= team.points %></b></td>
                     </tr>
                     <% end %>
+                    <% end %>
                 </tbody>
                 
                 <tbody class="text-center league-tables" id="spain-table">
                     <% @number = 0 %>
-                    <% @table.where(league: 'laliga').each do |team| %>
+                    <% cache @table_sp do %>
+                    <% @table_sp.each do |team| %>
                     <tr class="league-table-tr" style="background: <%= change_league_table_row_color 'laliga', (@number+1) %>">
                         <td class="team-number"><%= @number += 1 %></td>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
@@ -77,11 +80,13 @@
                         <td class="team-score"><b><%= team.points %></b></td>
                     </tr>
                     <% end %>
+                    <% end %>
                 </tbody>
                 
                 <tbody class="text-center league-tables" id="germany-table">
                     <% @number = 0 %>
-                    <% @table.where(league: 'bundesliga').each do |team| %>
+                    <% cache @table_ge do %>
+                    <% @table_ge.each do |team| %>
                     <tr class="league-table-tr" style="background: <%= change_league_table_row_color 'bundesliga', (@number+1) %>">
                         <td class="team-number"><%= @number += 1 %></td>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
@@ -99,11 +104,13 @@
                         <td class="team-score"><b><%= team.points %></b></td>
                     </tr>
                     <% end %>
+                    <% end %>
                 </tbody>
                 
                 <tbody class="text-center league-tables" id="italy-table">
                     <% @number = 0 %>
-                    <% @table.where(league: 'seria-a').each do |team| %>
+                    <% cache @table_it do %>
+                    <% @table_it.each do |team| %>
                     <tr class="league-table-tr" style="background: <%= change_league_table_row_color 'seria-a', (@number+1) %>">
                         <td class="team-number"><%= @number += 1 %></td>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
@@ -121,10 +128,12 @@
                         <td class="team-score"><b><%= team.points %></b></td>
                     </tr>
                     <% end %>
+                    <% end %>
                 </tbody>
                 <tbody class="text-center league-tables" id="ukraine-table">
                     <% @number = 0 %>
-                    <% @table.where(league: 'ukraine').order('points DESC').each do |team| %>
+                    <% cache @table_ua do %>
+                    <% @table_ua.each do |team| %>
                     <tr class="league-table-tr" style="background: <%= change_league_table_row_color 'ukraine', (@number+1) %>">
                         <td class="team-number"><%= @number += 1 %></td>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
@@ -142,10 +151,12 @@
                         <td class="team-score"><b><%= team.points %></b></td>
                     </tr>
                     <% end %>
+                    <% end %>
                 </tbody>
                 <tbody class="text-center league-tables" id="russian-table">
                     <% @number = 0 %>
-                    <% @table.where(league: 'russian').order('points DESC').each do |team| %>
+                    <% cache @table_ru do %>
+                    <% @table_ru.each do |team| %>
                     <tr class="league-table-tr" style="background: <%= change_league_table_row_color 'russian', (@number+1) %>">
                         <td class="team-number"><%= @number += 1 %></td>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
@@ -163,10 +174,11 @@
                         <td class="team-score"><b><%= team.points %></b></td>
                     </tr>
                     <% end %>
+                    <% end %>
                 </tbody>
             <% end %>
 
-            <% if @table.any? && @table.find_by(league: 'chempions-league').presence %>
+            <% if @table_cl_a.any? || @table_cl_b.any? || @table_cl_c.any? || @table_cl_d.any? || @table_cl_e.any? || @table_cl_f.any? || @table_cl_g.any? || @table_cl_h.any? %>
                 <tbody class="text-center league-tables" id="euro-table">
                     <tr class="chempleag-devider">
                         <td class="chempleag-column">A</td>
@@ -185,7 +197,8 @@
                         <td></td>
                     </tr>
                     <% @number = 0 %>
-                    <% @table.where(group: 'A').each do |team| %>
+                    <% cache @table_cl_a do %>
+                    <% @table_cl_a.each do |team| %>
                     <tr class="<%= change_row_color @number %>">
                         <td class="team-number"><%= team.position %></td><% @number += 1 %>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
@@ -202,6 +215,7 @@
                         <td></td>
                         <td class="team-score"><b><%= team.points %></b></td>
                     </tr>
+                    <% end %>
                     <% end %>
                     
                     <tr class="chempleag-devider">
@@ -220,7 +234,8 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <% @table.where(group: 'B').each do |team| %>
+                    <% cache @table_cl_b do %>
+                    <% @table_cl_b.each do |team| %>
                     <tr class="<%= change_row_color @number %>">
                         <td class="team-number"><%= team.position %></td><% @number += 1 %>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
@@ -237,6 +252,7 @@
                         <td></td>
                         <td class="team-score"><b><%= team.points %></b></td>
                     </tr>
+                    <% end %>
                     <% end %>
                     
                     <tr class="chempleag-devider">
@@ -255,7 +271,8 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <% @table.where(group: 'C').each do |team| %>
+                    <% cache @table_cl_c do %>
+                    <% @table_cl_c.each do |team| %>
                     <tr class="<%= change_row_color @number %>">
                         <td class="team-number"><%= team.position %></td><% @number += 1 %>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
@@ -272,6 +289,7 @@
                         <td></td>
                         <td class="team-score"><b><%= team.points %></b></td>
                     </tr>
+                    <% end %>
                     <% end %>
                     
                     <tr class="chempleag-devider">
@@ -290,7 +308,8 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <% @table.where(group: 'D').each do |team| %>
+                    <% cache @table_cl_d do %>
+                    <% @table_cl_d.each do |team| %>
                     <tr class="<%= change_row_color @number %>">
                         <td class="team-number"><%= team.position %></td><% @number += 1 %>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
@@ -307,6 +326,7 @@
                         <td></td>
                         <td class="team-score"><b><%= team.points %></b></td>
                     </tr>
+                    <% end %>
                     <% end %>
                     
                     <tr class="chempleag-devider">
@@ -325,7 +345,8 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <% @table.where(group: 'E').each do |team| %>
+                    <% cache @table_cl_e do %>
+                    <% @table_cl_e.each do |team| %>
                     <tr class="<%= change_row_color @number %>">
                         <td class="team-number"><%= team.position %></td><% @number += 1 %>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
@@ -342,6 +363,7 @@
                         <td></td>
                         <td class="team-score"><b><%= team.points %></b></td>
                     </tr>
+                    <% end %>
                     <% end %>
                     
                     <tr class="chempleag-devider">
@@ -360,7 +382,8 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <% @table.where(group: 'F').each do |team| %>
+                    <% cache @table_cl_f do %>
+                    <% @table_cl_f.each do |team| %>
                     <tr class="<%= change_row_color @number %>">
                         <td class="team-number"><%= team.position %></td><% @number += 1 %>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
@@ -377,6 +400,7 @@
                         <td></td>
                         <td class="team-score"><b><%= team.points %></b></td>
                     </tr>
+                    <% end %>
                     <% end %>
                     
                     <tr class="chempleag-devider">
@@ -395,7 +419,8 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <% @table.where(group: 'G').each do |team| %>
+                    <% cache @table_cl_g do %>
+                    <% @table_cl_g.each do |team| %>
                     <tr class="<%= change_row_color @number %>">
                         <td class="team-number"><%= team.position %></td><% @number += 1 %>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
@@ -412,6 +437,7 @@
                         <td></td>
                         <td class="team-score"><b><%= team.points %></b></td>
                     </tr>
+                    <% end %>
                     <% end %>
                     
                     <tr class="chempleag-devider">
@@ -430,7 +456,8 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <% @table.where(group: 'H').each do |team| %>
+                    <% cache @table_cl_h do %>
+                    <% @table_cl_h.each do |team| %>
                     <tr class="<%= change_row_color @number %>">
                         <td class="team-number"><%= team.position %></td><% @number += 1 %>
                         <td class="team-icon"><i class="<%= show_team_icon(team.teamName) %> icon-table"></i></td>
@@ -447,6 +474,7 @@
                         <td></td>
                         <td class="team-score"><b><%= team.points %></b></td>
                     </tr>
+                    <% end %>
                     <% end %>
                 </tbody>
             <% end %>
