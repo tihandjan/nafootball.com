@@ -34,7 +34,6 @@
             </div>
             
             <div class="row row-line-two">
-                
                     <!--copy start-->
                 <% if @news.first(6).any? %>
                     <% @news.first(6).each do |article| %>
@@ -53,51 +52,29 @@
                     <% end %>
                 <% end %>
                 <!--end-->
-                
             </div>
-                <% if @articles.any? %>
-                    <div class="statiy-title"><a href="<%= league_articles_path('all') %>"> Статьи</a></div>
-                <% end %>
-            <div class="row row-article">
-        
-                <% @articles.each do |article| %>
-                <div class="col-article col-sm-6">
-                    <a class="a-article" href="<%= league_article_path(article.league, article) %>">
-                        <div class="thumbnail custom-thumbnail">
-                            <div class="image-wrapper image-article-wrapper"><%= image_tag(article.picture.url(:thumb), :alt => article.image_alt) %></div>
-                            <div class="caption">
-                                <span class="time-pos"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(article.created_at, "%d %B %Y") %></i></span> 
-                                <h3 class="index-h3"><strong><%= truncate(article.title, length: 70) %></strong></h3>
-                                <p><%= truncate(article.summary,length: 130) %></p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <% end %>
-            </div>
+            
             
             <% if @videos.any? %>
                 <div class="statiy-title"><a href="<%= league_videos_path('all') %>"> Видео</a></div>
             <% end %>
             <div class="row row-line-two video">
-                
                 <% if @videos.any? %>
-                
-                <div class="col-sm-6 video-col">
-                    <div class="col-xs-12 video-one">
-                        <a class="a-video" href="<%= league_video_path(@videos.first.league, @videos.first) %>">
-                            <div class="thumbnail">
-                                <div class="image-wrapper"><%= image_tag(@videos.first.picture.url(:thumb), :alt => @videos.first.image_alt) %></div>
-                                <div class="caption ">
-                                    <h4 class="video-title-one"><strong><%= truncate(@videos.first.title, length: 100) %></strong></h3>
-                                    <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(@videos.first.created_at) %> назад</i></span> 
-                                    <span class="video-icon-one"><i class="glyphicon glyphicon-play"></i></span>
-                                    <span class="video-icon-one video-icon-four-time"><%= @videos.first.time %></span>
+                    <div class="col-sm-6 video-col">
+                        <div class="col-xs-12 video-one">
+                            <a class="a-video" href="<%= league_video_path(@videos.first.league, @videos.first) %>">
+                                <div class="thumbnail">
+                                    <div class="image-wrapper"><%= image_tag(@videos.first.picture.url(:thumb), :alt => @videos.first.image_alt) %></div>
+                                    <div class="caption ">
+                                        <h4 class="video-title-one"><strong><%= truncate(@videos.first.title, length: 100) %></strong></h3>
+                                        <span class="article-time"><i class="glyphicon glyphicon-time"></i><i><%= time_ago_in_words(@videos.first.created_at) %> назад</i></span> 
+                                        <span class="video-icon-one"><i class="glyphicon glyphicon-play"></i></span>
+                                        <span class="video-icon-one video-icon-four-time"><%= @videos.first.time %></span>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
-                </div>
                 <% end %>
                 
                 <div class="col-sm-6 video-col">
@@ -119,12 +96,11 @@
                         <% end %>
                     <% end %>
                 </div>
-                
             </div>
+
             <div class="row row-line-two video">
                 <div class="col-sm-12 video-col" style="padding-left: 0;padding-right: 0;">
-                   
-                        <% @videos_short.each do |video| %>
+                    <% @videos_short.each do |video| %>
                         <div class="col-xs-6 col-sm-3 col-md-2 video-four">
                             <a class="a-video" href="<%= league_video_path(video.league, video) %>">
                                 <div class="thumbnail">
@@ -137,8 +113,29 @@
                                 </div>
                             </a>
                         </div>
-                        <% end %>
+                    <% end %>
                 </div>
+            </div>
+
+            
+            <% if @articles.any? %>
+                <div class="statiy-title"><a href="<%= league_articles_path('all') %>"> Статьи</a></div>
+            <% end %>
+            <div class="row row-article">
+                <% @articles.each do |article| %>
+                <div class="col-article col-sm-6">
+                    <a class="a-article" href="<%= league_article_path(article.league, article) %>">
+                        <div class="thumbnail custom-thumbnail">
+                            <div class="image-wrapper image-article-wrapper"><%= image_tag(article.picture.url(:thumb), :alt => article.image_alt) %></div>
+                            <div class="caption">
+                                <span class="time-pos"><i class="glyphicon glyphicon-time"></i><i><%= Russian::strftime(article.created_at, "%d %B %Y") %></i></span> 
+                                <h3 class="index-h3"><strong><%= truncate(article.title, length: 70) %></strong></h3>
+                                <p><%= truncate(article.summary,length: 130) %></p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <% end %>
             </div>
             
             <%= render 'shared/table' %>
