@@ -5,7 +5,7 @@ class Article < ActiveRecord::Base
     has_many :comments, as: :commentable, dependent: :destroy
     validates :title, presence: true, length: { minimum: 10, maximum: 150 }
     validates :summary, presence: true, length: { minimum: 10, maximum: 250 }
-    validates :description, presence: true, length: { minimum: 10, maximum: 10000 }
+    validates :description, presence: true, length: { minimum: 10, maximum: 15000 }
     validates :picture, presence: true
     validates :league, presence: true
     validates :image_alt, presence: true
