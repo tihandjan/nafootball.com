@@ -68,14 +68,14 @@ class MainController < ApplicationController
         @fixtures_ge = Match.where(["DATE(date) = ? and league = ?", Time.current-1.hour, 'bundesliga']).order('date')
         @fixtures_cl = Match.where(["DATE(date) = ? and league = ?", Time.current-1.hour, 'chempions-league']).order('date')
 
-        @fixtures_en_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'apl']).order('date')
-        @fixtures_ua_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'ukraine']).order('date')
-        @fixtures_ru_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'russian']).order('date')
-        @fixtures_it_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'seria-a']).order('date')
-        @fixtures_sp_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'laliga']).order('date')
-        @fixtures_ge_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'bundesliga']).order('date')
-        @fixtures_cl_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'chempions-league']).order('date')
-
+        @fixtures_en_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'apl']).order('date')
+        @fixtures_ua_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'ukraine']).order('date')
+        @fixtures_ru_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'russian']).order('date')
+        @fixtures_it_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'seria-a']).order('date')
+        @fixtures_sp_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'laliga']).order('date')
+        @fixtures_ge_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'bundesliga']).order('date')
+        @fixtures_cl_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'chempions-league']).order('date')
+-1.hour
         @fixtures_en_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'apl']).order('date')
         @fixtures_ua_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'ukraine']).order('date')
         @fixtures_ru_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'russian']).order('date')

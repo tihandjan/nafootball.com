@@ -14,7 +14,7 @@ class LeaguesController < ApplicationController
     @videos_short = Video.order('created_at DESC').where(league: params[:id], category: 'overview').first(6)
     @league = params[:id]
     if params[:id] == 'seria-a'
-      @table_data = Table.where(league: params[:id])
+      @table_data = Table.where(league: params[:id]).order(id: :asc)
       @table_name = 'Серия А Таблица'
       @h2 = 'Итальянский футбол'
       set_meta_tags title: 'Чемпионат Италии по футболу, онлайн трансляции',
@@ -26,7 +26,7 @@ class LeaguesController < ApplicationController
 
       render 'shared/index_league'
     elsif params[:id] == 'bundesliga'
-      @table_data = Table.where(league: params[:id])
+      @table_data = Table.where(league: params[:id]).order(id: :asc)
       @table_name = 'Таблица Бундеслиги'
       @h2 = 'Немецкий футбол'
       set_meta_tags title: "Чемпионат Германии по футболу, онлайн трансляции",
@@ -38,7 +38,7 @@ class LeaguesController < ApplicationController
                     
       render 'shared/index_league'
     elsif params[:id] == 'laliga'
-      @table_data = Table.where(league: params[:id])
+      @table_data = Table.where(league: params[:id]).order(id: :asc)
       @table_name = 'Таблица Ла Лиги'
       @h2 = 'Испанский футбол'
       set_meta_tags title: "Чемпионат Испании по футболу, онлайн трансляции",
@@ -50,7 +50,7 @@ class LeaguesController < ApplicationController
 
       render 'shared/index_league'
     elsif params[:id] == 'chempions-league'
-      @table_data = Table.where(league: params[:id])
+      @table_data = Table.where(league: params[:id]).order(id: :asc)
       @table_name = 'Таблица Лиги Чемпионов'
       @h2 = 'Европейский футбол'
       set_meta_tags title: "Лига Чемпионов, онлайн трансляции",
@@ -62,7 +62,7 @@ class LeaguesController < ApplicationController
 
       render 'shared/index_league'
     elsif params[:id] == 'apl'
-      @table_data = Table.where(league: params[:id])
+      @table_data = Table.where(league: params[:id]).order('points DESC')
       @table_name = 'Таблица Английской Премьер Лиги'
       @h2 = 'Английский футбол'
       set_meta_tags title: "Чемпионат Англии по футболу, онлайн трансляции",
@@ -109,8 +109,10 @@ class LeaguesController < ApplicationController
 
     if params[:id] == 'chempions-league'
       @table = Table.where(league: params[:id])
-    elsif params[:id] == 'apl' || params[:id] == 'laliga' || params[:id] == 'bundesliga' || params[:id] == 'seria-a' || params[:id] == 'ukraine' || params[:id] == 'russian'
-      @table = Table.where(league: params[:id]).order('points DESC')
+    elsif params[:id] == 'apl' || params[:id] == 'laliga' || params[:id] == 'bundesliga' || params[:id] == 'seria-a'
+      @table = Table.where(league: params[:id]).order(id: :asc)
+    elsif params[:id] == 'ukraine' || params[:id] == 'russian'
+      @table = Table.where(league: params[:id]).order(points: :desc)
     else
       redirect_to root_path
     end
@@ -311,13 +313,13 @@ class LeaguesController < ApplicationController
       @fixtures_ge = Match.where(["DATE(date) = ? and league = ?", Time.current-1.hour, 'bundesliga']).order('date')
       @fixtures_cl = Match.where(["DATE(date) = ? and league = ?", Time.current-1.hour, 'chempions-league']).order('date')
 
-      @fixtures_en_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'apl']).order('date')
-      @fixtures_ua_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'ukraine']).order('date')
-      @fixtures_ru_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'russian']).order('date')
-      @fixtures_it_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'seria-a']).order('date')
-      @fixtures_sp_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'laliga']).order('date')
-      @fixtures_ge_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'bundesliga']).order('date')
-      @fixtures_cl_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days, 'chempions-league']).order('date')
+      @fixtures_en_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'apl']).order('date')
+      @fixtures_ua_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'ukraine']).order('date')
+      @fixtures_ru_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'russian']).order('date')
+      @fixtures_it_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'seria-a']).order('date')
+      @fixtures_sp_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'laliga']).order('date')
+      @fixtures_ge_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'bundesliga']).order('date')
+      @fixtures_cl_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'chempions-league']).order('date')
 
       @fixtures_en_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'apl']).order('date')
       @fixtures_ua_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'ukraine']).order('date')
