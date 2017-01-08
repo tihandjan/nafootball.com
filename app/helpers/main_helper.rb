@@ -484,7 +484,7 @@ module MainHelper
             ["Самара", "Самара",                     "sprite sprite-samara"],
             ["Урал", "Урал",                         "sprite sprite-ural"],
             ["Оренбург", "Оренбург",                 "sprite sprite-orenburg"],
-            ["Арсенал Т", "Арсенал Т",         "sprite sprite-arsenal-tula"],
+            ["Арсенал Т", "Арсенал Т",               "sprite sprite-arsenal-tula"],
             ["Томь", "Томь",                         "sprite sprite-tom"]
         ].each do |team_en_ru| 
             if team_en_ru[0] == team
