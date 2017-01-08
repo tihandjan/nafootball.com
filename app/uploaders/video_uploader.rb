@@ -48,10 +48,20 @@ class VideoUploader < CarrierWave::Uploader::Base
     end
 
     def odd_even 
-        if (Video.last.id) % 2 == 0
-            (MiniMagick::Image.open "video_even.jpg").resize "430x430"
+        if model.league == 'apl'
+            (MiniMagick::Image.open "en.jpg").resize "430x430"
+        elsif model.league == 'laliga'
+            (MiniMagick::Image.open "sp.jpg").resize "430x430"
+        elsif model.league == 'bundesliga'
+            (MiniMagick::Image.open "ge.jpg").resize "430x430"
+        elsif model.league == 'seria-a'
+            (MiniMagick::Image.open "it.jpg").resize "430x430"
+        elsif model.league == 'ukraine'
+            (MiniMagick::Image.open "ua.jpg").resize "430x430"
+        elsif model.league == 'russian'
+            (MiniMagick::Image.open "ru.jpg").resize "430x430"
         else
-            (MiniMagick::Image.open "video_odd.jpg").resize "430x430"
+            (MiniMagick::Image.open "en.jpg").resize "430x430"
         end
     end
 
