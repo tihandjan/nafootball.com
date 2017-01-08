@@ -47,7 +47,9 @@
                     <%= f.label :time, 'Длительность видео' %>
                     <%= f.text_field :time, class: 'form-control', required: true, style: 'width: 100px;' %>
                 </div>
-                <div class="alert alert-info"><a class="close" data-dismiss="alert">&#215;</a>Даже при добовлении обзора картинку нужно выбрать(любую!!!Это баг, исправлю позже)</div>
+                <% if model.new_record? %>
+                    <div class="alert alert-info"><a class="close" data-dismiss="alert">&#215;</a>Даже при добовлении обзора картинку нужно выбрать. Любую!!! Иначе программа не отработает. Это баг, исправлю позже</div>
+                <% end %>
                 <div class="form-group">
                     <%= f.label :picture, 'Главное Фото' %>
                     <% if model.new_record? %>
