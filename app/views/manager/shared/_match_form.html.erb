@@ -46,10 +46,12 @@
                     <%= f.label :status %>
                     <%= f.select :status, options_for_select([["POSTPONED"], ["TIMED"], ["FT"], ["FINISHED"], ["SCHEDULED"], ["IN_PLAY"]]), {}, { class: 'form-control', style: 'width: 150px', required: true } %>
                 </div>
+                <div class="alert alert-info"><a class="close" data-dismiss="alert">&#215;</a>Если игра кубковая или ЛЧ или ЛЕ ставить какой круг или раунд</div>
                 <div class="form-groupl">
                     <%= f.label :matchday %> <br>
                     <%= f.text_field :matchday, class: 'form-control', required: true, style: 'width: 100px;' %>
                 </div>
+                <div class="alert alert-info"><a class="close" data-dismiss="alert">&#215;</a>Если матч еще не состоялся поставить прочерк(-)</div>
                 <div class="form-groupl">
                     <%= f.label :goalsHomeTeam %> <br>
                     <%= f.text_field :goalsHomeTeam, class: 'form-control', required: true, style: 'width: 100px;' %>
