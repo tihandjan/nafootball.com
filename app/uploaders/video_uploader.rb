@@ -49,19 +49,23 @@ class VideoUploader < CarrierWave::Uploader::Base
 
     def odd_even 
         if model.league == 'apl'
-            (MiniMagick::Image.open "en.jpg").resize "430x430"
+            (MiniMagick::Image.open "public/en.jpg").resize "430x430"
         elsif model.league == 'laliga'
-            (MiniMagick::Image.open "sp.jpg").resize "430x430"
+            (MiniMagick::Image.open "public/sp.jpg").resize "430x430"
         elsif model.league == 'bundesliga'
-            (MiniMagick::Image.open "ge.jpg").resize "430x430"
+            (MiniMagick::Image.open "public/ge.jpg").resize "430x430"
         elsif model.league == 'seria-a'
-            (MiniMagick::Image.open "it.jpg").resize "430x430"
+            (MiniMagick::Image.open "public/it.jpg").resize "430x430"
         elsif model.league == 'ukraine'
-            (MiniMagick::Image.open "ua.jpg").resize "430x430"
+            (MiniMagick::Image.open "public/ua.jpg").resize "430x430"
         elsif model.league == 'russian'
-            (MiniMagick::Image.open "ru.jpg").resize "430x430"
+            (MiniMagick::Image.open "public/ru.jpg").resize "430x430"
+        elsif model.league == 'euro-league'
+            (MiniMagick::Image.open "public/el.jpg").resize "430x430"
+        elsif model.league == 'chempions-league'
+            (MiniMagick::Image.open "public/cl.jpg").resize "430x430"
         else
-            (MiniMagick::Image.open "en.jpg").resize "430x430"
+            (MiniMagick::Image.open "public/en.jpg").resize "430x430"
         end
     end
 
