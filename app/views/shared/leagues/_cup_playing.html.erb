@@ -1,11 +1,11 @@
-<% if @fixtures_en.any? %>
+<% if @fixtures_cup.any? %>
     <tr><td>
         <i>
-            <%= @fixtures_en.last.matchday.to_s+' тур '+ Russian::strftime(Time.zone.now+3.hour, '%d %b') %>
+            <%= @fixtures_cup.last.matchday.to_s+' тур '+ Russian::strftime(Time.zone.now+3.hour, '%d %b') %>
         </i>
-    </td><td></td><td><i class="sprite_header sprite-england_another"></i></td><td></td><td></td></tr>
+    </td><td></td><td><i class="sprite_header sprite-kubok-ligi"></i></td><td></td><td></td></tr>
 
-    <% @fixtures_en.each do |team| %>
+    <% @fixtures_cup.each do |team| %>
         <tr class='clickable-row a-onlain' data-href='<%= match_path((team.homeTeamName.split(' ').join('-')), (team.date.strftime('%Y-%m-%d')), (team.awayTeamName.split(' ').join('-'))) %>'>
             <td><%= team_translater(team.homeTeamName) %></td>
             <td><i class="<%= show_team_icon(team.homeTeamName) %> icon-small"></i></td>

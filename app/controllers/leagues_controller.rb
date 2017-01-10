@@ -312,6 +312,8 @@ class LeaguesController < ApplicationController
       @fixtures_sp = Match.where(["DATE(date) = ? and league = ?", Time.current-1.hour, 'laliga']).order('date')
       @fixtures_ge = Match.where(["DATE(date) = ? and league = ?", Time.current-1.hour, 'bundesliga']).order('date')
       @fixtures_cl = Match.where(["DATE(date) = ? and league = ?", Time.current-1.hour, 'chempions-league']).order('date')
+      @fixtures_cup = Match.where(["DATE(date) = ? and league = ?", Time.current-1.hour, 'cup']).order('date')
+      @fixtures_euro_liga = Match.where(["DATE(date) = ? and league = ?", Time.current-1.hour, 'euro-league']).order('date')
 
       @fixtures_en_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'apl']).order('date')
       @fixtures_ua_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'ukraine']).order('date')
@@ -320,6 +322,8 @@ class LeaguesController < ApplicationController
       @fixtures_sp_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'laliga']).order('date')
       @fixtures_ge_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'bundesliga']).order('date')
       @fixtures_cl_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'chempions-league']).order('date')
+      @fixtures_cup_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'cup']).order('date')
+      @fixtures_euro_liga_was = Match.where(["DATE(date) = ? and league = ?", Time.current-1.days-1.hour, 'euro-league']).order('date')
 
       @fixtures_en_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'apl']).order('date')
       @fixtures_ua_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'ukraine']).order('date')
@@ -328,6 +332,8 @@ class LeaguesController < ApplicationController
       @fixtures_sp_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'laliga']).order('date')
       @fixtures_ge_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'bundesliga']).order('date')
       @fixtures_cl_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'chempions-league']).order('date')
+      @fixtures_cup_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'cup']).order('date')
+      @fixtures_euro_liga_will = Match.where(["DATE(date) = ? and league = ?", Time.current+1.days, 'euro-league']).order('date')
   end
 
 end
