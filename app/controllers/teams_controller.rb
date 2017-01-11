@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
         @articles = Article.order('created_at DESC').where('(team = ? or team_second = ?) and category = ?', @team.name, @team.name, 'articles').paginate(page: params[:page], per_page: 5)
         @videos = Video.order('created_at DESC').where('team_first = ? or team_second = ?', @team.name, @team.name).paginate(page: params[:page], per_page: 5)
         if @team.league == 'ukraine' || @team.league == 'russian'
-            @table_data = Table.where(league: @team.league).order(points: :desc)
+            @table_data = Table.where(league: @team.league).order('position DESC')
         else
             @table_data = Table.where(league: @team.league).order(id: :asc)
         end
