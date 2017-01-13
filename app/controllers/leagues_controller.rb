@@ -14,7 +14,7 @@ class LeaguesController < ApplicationController
     @videos_short = Video.order('created_at DESC').where(league: params[:id], category: 'overview').first(6)
     @league = params[:id]
     if params[:id] == 'seria-a'
-      @table_data = Table.where(league: params[:id]).order(id: :asc)
+      @table_data = Table.where(league: params[:id]).order(points: :desc)
       @table_name = 'Серия А Таблица'
       @h2 = 'Итальянский футбол'
       set_meta_tags title: 'Чемпионат Италии по футболу, онлайн трансляции',
@@ -26,7 +26,7 @@ class LeaguesController < ApplicationController
 
       render 'shared/index_league'
     elsif params[:id] == 'bundesliga'
-      @table_data = Table.where(league: params[:id]).order(id: :asc)
+      @table_data = Table.where(league: params[:id]).order(points: :desc)
       @table_name = 'Таблица Бундеслиги'
       @h2 = 'Немецкий футбол'
       set_meta_tags title: "Чемпионат Германии по футболу, онлайн трансляции",
@@ -38,7 +38,7 @@ class LeaguesController < ApplicationController
                     
       render 'shared/index_league'
     elsif params[:id] == 'laliga'
-      @table_data = Table.where(league: params[:id]).order(id: :asc)
+      @table_data = Table.where(league: params[:id]).order(points: :desc)
       @table_name = 'Таблица Ла Лиги'
       @h2 = 'Испанский футбол'
       set_meta_tags title: "Чемпионат Испании по футболу, онлайн трансляции",
@@ -50,7 +50,7 @@ class LeaguesController < ApplicationController
 
       render 'shared/index_league'
     elsif params[:id] == 'chempions-league'
-      @table_data = Table.where(league: params[:id]).order(id: :asc)
+      @table_data = Table.where(league: params[:id]).order(points: :desc)
       @table_name = 'Таблица Лиги Чемпионов'
       @h2 = 'Европейский футбол'
       set_meta_tags title: "Лига Чемпионов, онлайн трансляции",
@@ -74,7 +74,7 @@ class LeaguesController < ApplicationController
 
       render 'shared/index_league'
     elsif params[:id] == 'ukraine'
-      @table_data = Table.where(league: params[:id]).order('position DESC')
+      @table_data = Table.where(league: params[:id]).order(points: :desc)
       @table_name = 'Таблица Украинской Премьер Лиги'
       @h2 = 'Украинский футбол'
       set_meta_tags title: "Чемпионат Украины по футболу, онлайн трансляции",
@@ -86,7 +86,7 @@ class LeaguesController < ApplicationController
 
       render 'shared/index_league'
     elsif params[:id] == 'russian'
-      @table_data = Table.where(league: params[:id]).order('position DESC')
+      @table_data = Table.where(league: params[:id]).order(points: :desc)
       @table_name = 'Таблица Российской Премьер Лиги'
       @h2 = 'Российский футбол'
       set_meta_tags title: "Чемпионат России по футболу, онлайн трансляции",
@@ -110,9 +110,9 @@ class LeaguesController < ApplicationController
     if params[:id] == 'chempions-league'
       @table = Table.where(league: params[:id])
     elsif params[:id] == 'apl' || params[:id] == 'laliga' || params[:id] == 'bundesliga' || params[:id] == 'seria-a'
-      @table = Table.where(league: params[:id]).order(id: :asc)
+      @table = Table.where(league: params[:id]).order(points: :desc)
     elsif params[:id] == 'ukraine' || params[:id] == 'russian'
-      @table = Table.where(league: params[:id]).order('position DESC')
+      @table = Table.where(league: params[:id]).order(points: :desc)
     else
       redirect_to root_path
     end
