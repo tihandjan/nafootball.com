@@ -11,7 +11,7 @@ class TeamsController < ApplicationController
         @players = @team.players
         @teams = Team.all
         @news = Article.order('created_at DESC').where('(team = ? or team_second = ?) and category = ?', @team.name, @team.name, 'news').paginate(page: params[:page], per_page: 5)
-        @articles = Article.order('created_at DESC').where('(team = ? or team_second = ?) and category = ?', @team.name, @team.name, 'articles').paginate(page: params[:page], per_page: 5)
+        @articles = Article.order('created_at DESC').where('(team = ? or team_second = ?) and category = ?', @team.name, @team.name, 'article').paginate(page: params[:page], per_page: 5)
         @videos = Video.order('created_at DESC').where('team_first = ? or team_second = ?', @team.name, @team.name).paginate(page: params[:page], per_page: 5)
         @table_data = Table.where(league: @team.league).order(points: :desc)
         @fixtures_prev = Match.order('date DESC').where("date BETWEEN ? AND ? and (\"homeTeamName\" = ? or \"awayTeamName\" = ?)", Time.zone.now-60.days, Time.current-2.hour, @team.name, @team.name).first(5)
