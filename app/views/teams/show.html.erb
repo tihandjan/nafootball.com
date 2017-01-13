@@ -217,7 +217,7 @@
     (function(){
         var tz = new Date().getTimezoneOffset()/60;
         if(tz == -2) {
-            var timeZone = (tz * (-1) - 2);
+            var timeZone = -1;
             $('.team-result').each(function(){
                 var e = $(this);
                 var el = e.text().split('');

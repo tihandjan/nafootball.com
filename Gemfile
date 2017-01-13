@@ -133,3 +133,6 @@ gem 'thinking-sphinx'
 
 # text editor plugin
 gem 'bootstrap-wysihtml5-rails'
+
+# detect user locatio
+gem 'geocoder'

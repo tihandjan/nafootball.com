@@ -2,11 +2,25 @@ class MainController < ApplicationController
     skip_before_action :verify_authenticity_token
     before_action :set_onlain_fixtures, only: [:index, :onlain]
     def index
-        @main_news = Article.order('created_at DESC').where(category: 'news', main: true).first(4)
-        @news = Article.order('created_at DESC').where(category: 'news').all_except(@main_news.map {|a| a.id}).first(20)
-        @articles = Article.order('created_at DESC').where(category: 'article').first(4)
-        @videos = Video.order('created_at DESC').where(category: 'full').first(5)
-        @videos_short = Video.order('created_at DESC').where(category: 'overview').first(6)
+        if request.location.country == 'Ukraine'
+            @main_news = Article.order('created_at DESC').where(category: 'news', main: true).where.not(league: 'russian').first(4)
+            @news = Article.order('created_at DESC').where(category: 'news').where.not(league: 'russian').all_except(@main_news.map {|a| a.id}).first(20)
+            @articles = Article.order('created_at DESC').where(category: 'article').where.not(league: 'russian').first(4)
+            @videos = Video.order('created_at DESC').where(category: 'full').where.not(league: 'russian').first(5)
+            @videos_short = Video.order('created_at DESC').where(category: 'overview').where.not(league: 'russian').first(6)
+        elsif request.location.country == 'Russia'
+            @main_news = Article.order('created_at DESC').where(category: 'news', main: true).where.not(league: 'ukraine').first(4)
+            @news = Article.order('created_at DESC').where(category: 'news').where.not(league: 'ukraine').all_except(@main_news.map {|a| a.id}).first(20)
+            @articles = Article.order('created_at DESC').where(category: 'article').where.not(league: 'ukraine').first(4)
+            @videos = Video.order('created_at DESC').where(category: 'full').where.not(league: 'ukraine').first(5)
+            @videos_short = Video.order('created_at DESC').where(category: 'overview').where.not(league: 'ukraine').first(6)
+        else
+            @main_news = Article.order('created_at DESC').where(category: 'news', main: true).first(4)
+            @news = Article.order('created_at DESC').where(category: 'news').all_except(@main_news.map {|a| a.id}).first(20)
+            @articles = Article.order('created_at DESC').where(category: 'article').first(4)
+            @videos = Video.order('created_at DESC').where(category: 'full').first(5)
+            @videos_short = Video.order('created_at DESC').where(category: 'overview').first(6)
+        end
         @table_ua = Table.where(league: 'ukraine').order('position DESC')
         @table_ru = Table.where(league: 'russian').order('position DESC')
         @table_en = Table.where(league: 'apl')
