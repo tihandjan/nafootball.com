@@ -26,7 +26,7 @@
             <div class="show-article-description">
                 <p><%= raw simple_format(@article.description) %></p>
             </div>
-            <% @article.pictures.each do |subarticle| %>
+            <% @article.pictures.order(id: :asc).each do |subarticle| %>
                 <div class="show-article-image">
                     <%= image_tag subarticle.picture, class: 'img-responsive', alt: subarticle.image_alt %>
                     <div class="image-alt"><%= subarticle.image_alt %></div>
