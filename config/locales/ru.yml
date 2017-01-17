@@ -258,5 +258,5 @@ ru:
       short: "%d %b, %H:%M"
     pm: вечера
   will_paginate:
-    previous_label: '<<'
-    next_label: '>>'
+    previous_label: '<'
+    next_label: '>'
