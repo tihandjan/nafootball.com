@@ -21,15 +21,17 @@ class Video < ActiveRecord::Base
     scope :all_except, ->(video) { where.not(id: video) }
 
     if Rails.env.production?
-        after_create :fb_page_post
+        after_create :fb_page_post 
         # after_create :twitter_post
         def fb_page_post
-            page_graph = Koala::Facebook::API.new('EAAHzbwanpNkBAF3pDmYuU3cRn7equ2QkpOISwdFdRCJXHsCp7FZBDPwWgGjinUfguvcZB6hxhkWbEjCZBdJkczWfAE1NH7BzZC8ZAzxR7slvtITsoYonzaLrdcpgsfZBnw3ZBnXXq3ZARCTZBQUHdNF3nNZCU9FfW2I8gZD')
-            page_graph.put_wall_post(self.title , {
-            "link" => "http://nafootball.com/#{Rails.application.routes.url_helpers.league_video_path(self.league, self)}",
-            "name" => self.title,
-            "picture" => "http://nafootball.com/#{Video.last.picture.url}"
-            })
+            if Video.last.category == 'full'
+                page_graph = Koala::Facebook::API.new('EAAHzbwanpNkBAF3pDmYuU3cRn7equ2QkpOISwdFdRCJXHsCp7FZBDPwWgGjinUfguvcZB6hxhkWbEjCZBdJkczWfAE1NH7BzZC8ZAzxR7slvtITsoYonzaLrdcpgsfZBnw3ZBnXXq3ZARCTZBQUHdNF3nNZCU9FfW2I8gZD')
+                page_graph.put_wall_post(self.title , {
+                "link" => "http://nafootball.com/#{Rails.application.routes.url_helpers.league_video_path(self.league, self)}",
+                "name" => self.title,
+                "picture" => "http://nafootball.com/#{Video.last.picture.url}"
+                })
+            end
         end
         # def twitter_post
         #     begin

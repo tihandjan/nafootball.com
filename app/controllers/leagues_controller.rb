@@ -8,8 +8,8 @@ class LeaguesController < ApplicationController
   end
 
   def show
-    @news = Article.order('created_at DESC').where(category: 'news', league: params[:id]).first(20)
-    @articles = Article.order('created_at DESC').where(category: 'article', league: params[:id]).first(2)
+    @news = Article.order('created_at DESC').where('(category = ? and league = ?) or (category = ? and league = ?)', 'news', params[:id], 'news', 'world').first(20)
+    @articles = Article.order('created_at DESC').where('(category = ? and league = ?) or (category = ? and league = ?)', 'article', params[:id], 'article', 'world').first(4)
     @videos = Video.order('created_at DESC').where(league: params[:id], category: 'full').first(5)
     @videos_short = Video.order('created_at DESC').where(league: params[:id], category: 'overview').first(6)
     @league = params[:id]
