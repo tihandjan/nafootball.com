@@ -175,7 +175,7 @@
                 var e = $(this);
                 var el = e.text().split('');
                 if(el[2] == ':') {
-                    var correctTime = parseInt(el[0]+el[1]) - timeZone + el[2] + el[3] + el[4];
+                    var correctTime = parseInt(el[0]+el[1]) + timeZone + el[2] + el[3] + el[4];
                     e.text(correctTime);
                 }
             })
@@ -183,7 +183,7 @@
                 var e = $(this);
                 var el = e.text().split('');
                 if(el[2] == ':') {
-                    var correctTime = parseInt(el[0]+el[1]) - timeZone + el[2] + el[3] + el[4];
+                    var correctTime = parseInt(el[0]+el[1]) + timeZone + el[2] + el[3] + el[4];
                     e.text(correctTime);
                 }
             })
