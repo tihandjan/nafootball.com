@@ -58,14 +58,12 @@
             window.document.location = $(this).data("href");
         });
 
-        var tz = new Date().getTimezoneOffset()/60;
-        if(tz == -2) {
-            var timeZone = -1;
+        if((new Date().getTimezoneOffset()/60) == -2) {
             $('.js-time .table tr .time').each(function(){
                 var e = $(this);
                 var el = e.text().split('');
                 if(el[2] == ':') {
-                    var correctTime = parseInt(el[0]+el[1]) + timeZone + el[2] + el[3] + el[4];
+                    var correctTime = parseInt(el[0]+el[1]) - 1 + el[2] + el[3] + el[4];
                     e.children().text(correctTime);
                 }
             })
