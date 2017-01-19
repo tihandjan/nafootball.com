@@ -35,7 +35,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   
     
   process :resize_to_fit => [750, 500]
-  process :optimize
+  # process :optimize
 
   version :thumb do
     process :resize_to_fill => [530, 345]
@@ -61,18 +61,18 @@ class PictureUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
-  def optimize
-    manipulate! do |img|
-        return img unless img.mime_type.match /image\/jpeg/
-        img.strip
-        img.combine_options do |c|
-            c.quality "80"
-            c.depth "8"
-            c.interlace "plane"
-        end
-        img
-    end
-  end
+  # def optimize
+  #   manipulate! do |img|
+  #       return img unless img.mime_type.match /image\/jpeg/
+  #       img.strip
+  #       img.combine_options do |c|
+  #           c.quality "80"
+  #           c.depth "8"
+  #           c.interlace "plane"
+  #       end
+  #       img
+  #   end
+  # end
 
 
 end
