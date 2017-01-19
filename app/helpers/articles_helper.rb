@@ -2,9 +2,17 @@ module ArticlesHelper
 
   def link_to_news_or_article cat
     if cat == 'article'
-      link_to 'Статьи', league_articles_path(@article.league)
+        if @article.league == 'world'
+            link_to 'Статьи', league_articles_path('all')
+        else
+            link_to 'Статьи', league_articles_path(@article.league)
+        end
     else
-      link_to 'Новости', league_news_index_path(@article.league)
+        if @article.league == 'world'
+            link_to 'Новости', league_news_index_path('all')
+        else
+            link_to 'Новости', league_news_index_path(@article.league)
+        end
     end
   end
 
