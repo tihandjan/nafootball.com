@@ -5,6 +5,8 @@ FactoryGirl.define do
     description "MyString MyString MyString"
     category "article"
     team "some team"
+    league "ukraine"
+    image_alt "image alt"
     source "some source"
     picture { fixture_file_upload(Rails.root.join('spec', 'photos', 'test.png'), 'image/png') }
     
