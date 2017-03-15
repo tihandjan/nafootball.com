@@ -50,6 +50,10 @@ Rails.application.routes.draw do
     get 'videos' => 'tags#video_tag', on: :member
   end
 
+  resources :donations, only: [:index]
+  post "/hook" => "donations#hook"
+  post "/donations" => "donations#create"
+
   # single pages and actions start
   get  'policy'    => 'main#policy',         as: :policy
   post 'onlain-game'    => 'main#onlain',    as: :onlain_game
