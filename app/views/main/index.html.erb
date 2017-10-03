@@ -139,10 +139,11 @@
             </div>
             
             <%= render 'shared/table' %>
+            <%= react_component 'Tables', tables: Table.all %>
            
        </div>
        
-       <div class="col-md-3 left-block"><span id="onlain"><%= render 'shared/onlain' %></span><%= render 'shared/my_team' %><%= render 'shared/first_ad' %><%= render 'shared/last_news' %></div>
+       <div class="col-md-3 left-block"><%= react_component 'Fixtures', url: onlain_game_path %><span id="onlain"><%= render 'shared/onlain' %></span><%= render 'shared/my_team' %><%= render 'shared/first_ad' %><%= render 'shared/last_news' %></div>
    </div>
     <script>
         (function(){

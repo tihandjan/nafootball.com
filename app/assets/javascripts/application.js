@@ -17,6 +17,9 @@
 //= require bootstrap-select
 //= require bootstrap/alert
 //= require bootstrap/dropdown
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .
 //= require social-share-button
 //= require bootstrap-wysihtml5

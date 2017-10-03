@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 ruby "2.3.0"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
+gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -136,3 +137,6 @@ gem 'bootstrap-wysihtml5-rails'
 
 # detect user locatio
 gem 'geocoder'
+
+# react integration
+gem "react-rails"

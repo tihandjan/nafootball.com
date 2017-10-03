@@ -3,16 +3,21 @@
     padding: 15px;
 }
 
+.fixture-active {
+    background: #33383c;
+    color: #FFF;
+}
+
 .row-onlain {
     text-align: center;
     .match-toggle {
         padding: 8px 0;
-        &:nth-child(2) {
-            span {
-                background: #33383c;
-                color: #FFF;    
-            }
-        }
+        // &:nth-child(2) {
+        //     span {
+        //         background: #33383c;
+        //         color: #FFF;    
+        //     }
+        // }
         span {
             padding: 4px 15px;
             &:hover {

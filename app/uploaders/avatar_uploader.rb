@@ -4,7 +4,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
   
-  storage :fog
+#  storage :fog
   
   # include CarrierWave::MiniTypes
   # process :set_content_type
